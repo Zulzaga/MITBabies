@@ -29,3 +29,20 @@
 input{
 	font-style: normal;
 }
+.individualJob{
+	display: block;
+	clear:both;
+}
+.left_job{
+	width: 50%;
+	display: inline-block;
+	float:left;
+}
+.right_job{
+	width: 50%;
+	display: inline-block;
+	float:right;
+}
+hr{
+	clear:both;
+}

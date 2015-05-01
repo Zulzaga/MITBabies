@@ -27,34 +27,41 @@
 		<script type="text/javascript" src="resources/jobs_data.js"></script>
 
 		<script id="job-template" type="text/x-handlebars-template">
- 		 <h3>{{title}}</h3>
- 		 <div class="time_details">
- 		 	<label>Date: 
- 		 	<input type="text" id = {{dateId id}} class="datepicker" disabled>
- 		 	</label>
- 		 	<label>Time:
- 		 	<input type="text" id = {{timeFromId id}} value = {{getTime time.from}} disabled>
- 		 	to
- 		 	<input type="text" id = {{timeToId id}} value = {{getTime time.to}} disabled> 
- 		 	</label>
- 		 </div>
- 		 <div>
- 		 	<label>Location: 
- 		 		<select class="selectpicker" data-container="body" data-size="10">
-				</select>
- 		 	</label>
- 		 	<label>Rate:
- 		 		<input type="text" id = {{rateId id}} value = {{rate}} disabled> 
- 		 	</label>
- 		 </div>
- 		 <div>
- 		 	<label>Description: 
- 		 	<textarea id = {{descId id}}>{{description}}</textarea>
- 		 	</label>
- 		 <div>
- 		 
- 		 
- 		 <hr>
+ 		<h3>{{title}}</h3>
+ 		<div class ="left_job">
+ 		 	<div class="date">
+ 		 		<label>Date: 
+ 		 		<input type="text" id = {{dateId id}} class="datepicker" disabled>
+ 		 		</label>
+ 			</div>
+ 			<div class = "loc">		  
+ 		 		<label>Location: 
+ 		 			<select class="selectpicker" data-container="body" data-size="10">
+					</select>
+ 		 		</label>
+ 		 	</div>
+ 		 	<div class = "rate">
+	 		 	<label>Rate:
+	 		 		<input type="text" id = {{rateId id}} value = {{rate}} disabled> 
+	 		 	</label>
+ 		 	</div>
+ 			<div class = "desc">
+ 		 		<label>Description: 
+ 		 		<textarea id = {{descId id}}>{{description}}</textarea>
+ 		 		</label>
+ 			</div>
+		</div>
+
+ 		<div class ="right_job">
+ 		 	<div class="time">
+	 		 	<label>Time:
+	 		 		<input type="text" id = {{timeFromId id}} value = {{getTime time.from}} disabled>
+	 		 			to
+	 		 		<input type="text" id = {{timeToId id}} value = {{getTime time.to}} disabled> 
+	 		 	</label>
+		 	</div>
+	 	</div> 		 	 
+ 		<hr>
 		</script>
 	</head>
 	<body>
