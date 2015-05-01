@@ -79,7 +79,7 @@ function getBabysitterFullName(b){
 //NOTE: Javascript date format:
 //new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);
 var job1 = {title: "Lab meeting", 
-			time: {from: new Date(2015, 04, 14, 06, 00), to: new Date(2015, 04, 14, 06, 00)}, 
+			time: {from: new Date(2015, 04, 14, 18, 00), to: new Date(2015, 04, 14, 20, 00)}, 
 			location:"Ashdown", 
 			rate: 18, 
 			primary: undefined, 
@@ -90,7 +90,7 @@ var job1 = {title: "Lab meeting",
 		};
 
 var job2 = {title: "Ned's birthday", 
-			time: {from: new Date(2015, 03, 22, 07, 00), to: new Date(2015, 03, 22, 11, 00)}, 
+			time: {from: new Date(2015, 03, 22, 19, 00), to: new Date(2015, 03, 22, 23, 00)}, 
 			location:"Ashdown", 
 			rate: 22, 
 			primary: getBabysitterFullName(babysitter1), 
@@ -101,7 +101,7 @@ var job2 = {title: "Ned's birthday",
 		};	
 
 var job3 = {title: "Dinner with wife for Valentine's", 
-			time: {from: new Date(2015, 01, 14, 08, 00), to: new Date(2015, 01, 14, 10, 00)}, 
+			time: {from: new Date(2015, 01, 14, 20, 00), to: new Date(2015, 01, 14, 22, 00)}, 
 			location:"Ashdown", 
 			rate: 21, 
 			primary: getBabysitterFullName(babysitter3), 
