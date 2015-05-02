@@ -86,7 +86,7 @@ var job1 = {title: "Lab meeting",
 			backup: undefined, 
 			description: "Need to watch twins and possible give them dinner (already prepared)", 
 			current_flag: true,
-			applicants: [babysitter1, babysitter5]
+			applicants: [babysitter1, babysitter5, babysitter2, babysitter3, babysitter4]
 		};
 
 var job2 = {title: "Ned's birthday", 

@@ -3,11 +3,15 @@ $(document).ready(function() {
 	var locations = getLocations();
 
 	Handlebars.registerHelper('jobId', function(ind) {
-  		return "job"+ind;
+  		return "job_"+ind;
+	});
+
+	Handlebars.registerHelper('appsId', function(ind) {
+  		return "apps_"+ind;
 	});
 
 	Handlebars.registerHelper('titleId', function(ind) {
-  		return "title"+ind;
+  		return "title_"+ind;
 	});
 
 	Handlebars.registerHelper('makeTitle', function(data) {
@@ -20,6 +24,11 @@ $(document).ready(function() {
 		var nums = parts[0].split(":");
 		return nums[0]+":"+nums[1]+parts[1];
 	});
+
+	Handlebars.registerHelper('getFullName', function(data) {
+  		return data.firstName+" " +this.lastName;
+	});
+
 
 	Handlebars.registerHelper('dateId', function(id) {
   		return id+"_date";
@@ -47,10 +56,12 @@ $(document).ready(function() {
 	// sets variable source
 	var side_template_source = document.getElementById("side-template").innerHTML;
 	var jobs_template_source = document.getElementById("jobs-template").innerHTML;
-	 
+	var applicants_template_source = document.getElementById("applicants-template").innerHTML; 
+
 	// Handlebars compiles the above source into a template
 	var side_template = Handlebars.compile(side_template_source);
 	var jobs_template = Handlebars.compile(jobs_template_source);
+	var applicants_template = Handlebars.compile(applicants_template_source);
 	 
 
 
@@ -61,6 +72,16 @@ $(document).ready(function() {
 	var jobs_container = $("#jobs");
 	var jobs_output = jobs_template({jobs});
 	jobs_container.append(jobs_output);
+
+	for(var i = 0; i< jobs.length; i++){
+		if (jobs[i].current_flag){
+			var j = jobs[i];
+			var applicants = j.applicants;
+			var job_div = $("#apps_"+i);
+			var applicants_output = applicants_template({applicants});
+			job_div.append(applicants_output);
+		}
+	}
 
 	$("#current_jobs_link").click(function(e){
 		showHideJobs("current");
@@ -96,6 +117,11 @@ $(document).ready(function() {
 		var timeString = date.toDateString();
   		return timeString;
 	}
+
+ 	$("#owl-example").owlCarousel({
+ 		navigation:true,
+ 		items: 3,
+ 	});
 
 
 });
