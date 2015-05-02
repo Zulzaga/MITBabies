@@ -2,6 +2,11 @@ $(document).ready(function() {
 	var jobs = getJobs();
 	var locations = getLocations();
 
+
+	Handlebars.registerHelper('navigate_to', function(ind) {
+  		return "#title_"+ind;
+	});
+
 	Handlebars.registerHelper('jobId', function(ind) {
   		return "job_"+ind;
 	});
@@ -28,29 +33,7 @@ $(document).ready(function() {
 	Handlebars.registerHelper('getFullName', function(data) {
   		return data.firstName+" " +this.lastName;
 	});
-
-
-	Handlebars.registerHelper('dateId', function(id) {
-  		return id+"_date";
-	});
-	Handlebars.registerHelper('locId', function(id) {
-  		return id+"_loc";
-	});
-	Handlebars.registerHelper('timeFromId', function(id) {
-  		return id+"_time_from";
-	});
-	Handlebars.registerHelper('timeToId', function(id) {
-  		return id+"_time_to";
-	});
-	Handlebars.registerHelper('descId', function(id) {
-  		return id+"_desc";
-	});
-		Handlebars.registerHelper('rateId', function(id) {
-  		return id+"_rate";
-	});
 	
-
-
 
 	
 	// sets variable source
@@ -118,7 +101,7 @@ $(document).ready(function() {
   		return timeString;
 	}
 
- 	$("#owl-example").owlCarousel({
+ 	$(".owl-carousel").owlCarousel({
  		navigation:true,
  		items: 3,
  	});

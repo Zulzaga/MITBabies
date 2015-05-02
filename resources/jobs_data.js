@@ -80,6 +80,18 @@ function getBabysitterFullName(b){
 //individual jobs
 //NOTE: Javascript date format:
 //new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]);
+
+var job0 = {title: "Graduation Ceremony", 
+			time: {from: new Date(2015, 04, 16, 10, 00), to: new Date(2015, 04, 16, 12, 00)}, 
+			location:"Ashdown", 
+			rate: 15, 
+			primary: undefined, 
+			backup: undefined, 
+			description: "Go for a walkwith twins", 
+			current_flag: true,
+			applicants: [babysitter1, babysitter5, babysitter2, babysitter3, babysitter4]
+		};
+
 var job1 = {title: "Lab meeting", 
 			time: {from: new Date(2015, 04, 14, 18, 00), to: new Date(2015, 04, 14, 20, 00)}, 
 			location:"Ashdown", 
@@ -102,7 +114,7 @@ var job2 = {title: "Ned's birthday",
 			applicants: [babysitter3, babysitter4]
 		};	
 
-var job3 = {title: "Dinner with wife for Valentine's", 
+var job3 = {title: "Anniversary dinner", 
 			time: {from: new Date(2015, 01, 14, 20, 00), to: new Date(2015, 01, 14, 22, 00)}, 
 			location:"Ashdown", 
 			rate: 21, 
@@ -113,7 +125,7 @@ var job3 = {title: "Dinner with wife for Valentine's",
 			applicants: [babysitter3, babysitter4]
 		};		
 //list of jobs
-var jobs = [job1, job2, job3];
+var jobs = [job0, job1, job2, job3];
 
 function getJobs(){
 	return jobs;

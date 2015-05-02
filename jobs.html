@@ -37,20 +37,24 @@
 	    <script type="text/javascript" src="javascripts/jobs.js"></script>
 		<script type="text/javascript" src="resources/jobs_data.js"></script>
 		<script id="side-template" type="text/x-handlebars-template">
-			<a id = "current_jobs_link" class="btn" href="#" data-toggle="collapse">Current jobs</a>
-			<ul id = "current_jobs">
+			<p id = "current_jobs_header">Current jobs</p>
+			<ul id = "current_jobs" >
 				{{#each jobs}}
 					{{#if this.current_flag}}
-						<li class = "current_job collapse"><a class="btn" href="#">{{this.title}}</a></li>
+						<li class = "current_job">
+							<a class="btn" href={{navigate_to @index}}>{{this.title}}</a>
+						</li>
 					{{/if}}
 				{{/each}}
 			</ul>
 
-			<a id = "past_jobs_link" class="btn" href="#" data-toggle="collapse">Past jobs</a>
+			<p id = "current_jobs_header">Past jobs</p>
 			<ul id = "past_jobs">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
-						<li class = "past_job collapse"><a class="btn" href="#">{{this.title}}</a></li>
+						<li class = "past_job">
+							<a class="btn" href={{navigate_to @index}}>{{this.title}}</a>
+						</li>
 					{{/unless}}
 				{{/each}}
 			</ul>
@@ -69,7 +73,7 @@
 		    <div id={{jobId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		      <div class="panel-body">
 		      	<div class = "col-md-6">
-			        <p class="job_details"><span class="glyphicon glyphicon-time"></span> From {{getTime this.time.from}} to {{getTime this.time.to}}
+			        <p class="job_details"><span class="glyphicon glyphicon-time"></span> {{getTime this.time.from}} to {{getTime this.time.to}}
 			        </p>
 			        <p class="job_details"><span class="fa fa-usd"> {{this.rate}} per hour</span></p>
 			        <p class="job_details"><span class="fa fa-home"> At {{this.location}}</span></p>
@@ -92,7 +96,7 @@
 		</script>
 		<script id="applicants-template" type="text/x-handlebars-template">
 		    <div class="panel-body">
-			    <div id="owl-example" class="owl-carousel">
+			    <div class="owl-carousel">
 			    {{#each applicants}}
 			    	<div class="one_applicant">
 			    		<div class="col-xs-6">
@@ -131,7 +135,7 @@
 
 		
 	</head>
-	<body>
+	<body data-spy="scroll" data-target="#jobs">
 		<!--fixed navigation bar -->
 		<div class="navbar navbar-default" role="navigation">
 		  <div class="container" id="menu">
@@ -164,10 +168,10 @@
 		</div>
 
 		<div class="container-fluid">
-			<div class="col-md-2" id = "side">
+			<div class="col-md-2" id = "side" data-offset-top="125">
 
 			</div>
-			<div class="col-md-8" id = "jobs">
+			<div class="col-md-8" id = "jobs" >
 			</div>				
 
 	</body>
