@@ -28,7 +28,8 @@ var babysitter2 = {
 	lastName: "Stark",
 	favorite: true,
 	experience: "Babysitted housemaster's babies twice a week for a term",
-	rating: 5
+	rating: 5,
+	profilePic: "arya.jpg"
 };
 
 var babysitter3 = {
@@ -36,7 +37,8 @@ var babysitter3 = {
 	lastName: "Stark",
 	favorite: false,
 	experience: "Watched my little brothers and a sister (5,9,11 years old)",
-	rating: 4
+	rating: 4,
+	profilePic: "sansa.jpg"
 };
 
 var babysitter4 = {

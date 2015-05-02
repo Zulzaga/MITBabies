@@ -95,11 +95,31 @@
 			    <div id="owl-example" class="owl-carousel">
 			    {{#each applicants}}
 			    	<div class="one_applicant">
-			    		<p align="center"><a href="/babysitter_profile.html">{{getFullName this}}</a></p>
-			    		<p align="center">
-			    			<img src="blank.png" class="img-thumbnail" align="middle">
-			    		</p>
-			    		<p align="center">{{this.rating}}</p>
+			    		<div class="col-xs-6">
+				    		<p align="center"><a href="/babysitter_profile.html">{{getFullName this}}</a></p>
+				    		<p align="center">
+				    			{{#if this.profilePic}}
+				    				<img src={{this.profilePic}} class="img-thumbnail" align="middle">
+				    			{{/if}}
+				    			{{#unless this.profilePic}}
+				    				<img src="blank.png" class="img-thumbnail" align="middle">
+				    			{{/unless}}
+				    		</p>
+				    		<p align="center">{{this.rating}}</p>
+				    	</div>
+			    		<div class="applicantPanel col-xs-6 collapse in">
+			    			<div class="btn-group  app_panel_btn_hire">
+							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							    Hire <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li><a href="#">As primary</a></li>
+							    <li><a href="#">As backup</a></li>
+							  </ul>
+							</div>
+							<button type="button" class="btn btn-default app_panel_btn_reject">Reject</button>
+			    			
+			    		</div>
 			    		
 			    		
 			    	</div>

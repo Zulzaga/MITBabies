@@ -29,3 +29,16 @@
 	padding: 10px;
 	margin:10px;
 }
+.app_panel_btn_hire{
+	position: relative;
+	margin-bottom:10px;
+	top: 40px;
+}
+.app_panel_btn_reject{
+	position: relative;
+	margin-bottom:5px;
+	top: 50px;
+}
+.dropdown-menu {
+  width: 80%; 
+}
