@@ -8,6 +8,7 @@
 		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
 		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
+		<link rel="stylesheet" href="resources/font-awesome.min.css">
 
 
 		<script type="text/javascript" src="resources/handlebars-v3.0.3.js"></script>
@@ -57,7 +58,11 @@
 		    {{#if this.current_flag}}
 		    <div id={{jobId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		      <div class="panel-body">
-		        Anim pariatur cliche 
+		        <p class="job_details"><span class="glyphicon glyphicon-time"></span> From {{getTime this.time.from}} to {{getTime this.time.to}}
+		        </p>
+		        <p class="job_details"><span class="fa fa-usd"> {{this.rate}} per hour</span></p>
+		        <p class="job_details"><span class="fa fa-home"> At {{this.location}}</span></p>
+
 		      </div>
 		    </div>
 		    {{/if}}

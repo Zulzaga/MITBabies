@@ -14,6 +14,13 @@ $(document).ready(function() {
   		return data.title+" on " +getDate(data.time.from);
 	});
 
+
+	Handlebars.registerHelper('getTime', function(date){
+		var parts = date.toLocaleTimeString().split(" ");
+		var nums = parts[0].split(":");
+		return nums[0]+":"+nums[1]+parts[1];
+	});
+
 	Handlebars.registerHelper('dateId', function(id) {
   		return id+"_date";
 	});
@@ -85,8 +92,8 @@ $(document).ready(function() {
 
 	}
 
-     function getDate(date) {
-		var timeString = date.toLocaleDateString();
+    function getDate(date) {
+		var timeString = date.toDateString();
   		return timeString;
 	}
 

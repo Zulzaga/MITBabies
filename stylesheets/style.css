@@ -9,36 +9,14 @@
 .navbar-brand {
 	font-size: 30px;
 }
-.controlLabel{
-	padding-right: 15px;
-	padding-left: 15px;
-}
-
-.radio{
+.job_details{
+	display:inline-block;
 	padding-right: 15px;
 }
-
-
-#controls{
-	margin-bottom: 15px;
-}
-input{
-	font-style: normal;
-}
-.individualJob{
-	display: block;
-	clear:both;
-}
-.left_job{
-	width: 50%;
-	display: inline-block;
-	float:left;
-}
-.right_job{
-	width: 50%;
-	display: inline-block;
+.edit{
 	float:right;
 }
-hr{
-	clear:both;
+.panel-title{
+	width: 80%;
+	margin-right: 0px;
 }
