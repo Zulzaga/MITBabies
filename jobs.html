@@ -25,44 +25,47 @@
 
 	    <script type="text/javascript" src="javascripts/jobs.js"></script>
 		<script type="text/javascript" src="resources/jobs_data.js"></script>
+		<script id="side-template" type="text/x-handlebars-template">
+			<a id = "current_jobs_link" class="btn" href="#" data-toggle="collapse">Current jobs</a>
+			<ul id = "current_jobs">
+				{{#each jobs}}
+					{{#if this.current_flag}}
+						<li class = "current_job collapse"><a class="btn" href="#">{{this.title}}</a></li>
+					{{/if}}
+				{{/each}}
+			</ul>
 
-		<script id="job-template" type="text/x-handlebars-template">
- 		<h3>{{title}}</h3>
- 		<div class ="left_job">
- 		 	<div class="date">
- 		 		<label>Date: 
- 		 		<input type="text" id = {{dateId id}} class="datepicker" disabled>
- 		 		</label>
- 			</div>
- 			<div class = "loc">		  
- 		 		<label>Location: 
- 		 			<select class="selectpicker" data-container="body" data-size="10">
-					</select>
- 		 		</label>
- 		 	</div>
- 		 	<div class = "rate">
-	 		 	<label>Rate:
-	 		 		<input type="text" id = {{rateId id}} value = {{rate}} disabled> 
-	 		 	</label>
- 		 	</div>
- 			<div class = "desc">
- 		 		<label>Description: 
- 		 		<textarea id = {{descId id}}>{{description}}</textarea>
- 		 		</label>
- 			</div>
-		</div>
+			<a id = "past_jobs_link" class="btn" href="#" data-toggle="collapse">Past jobs</a>
+			<ul id = "past_jobs">
+				{{#each jobs}}
+					{{#unless this.current_flag}}
+						<li class = "past_job collapse"><a class="btn" href="#">{{this.title}}</a></li>
+					{{/unless}}
+				{{/each}}
+			</ul>
 
- 		<div class ="right_job">
- 		 	<div class="time">
-	 		 	<label>Time:
-	 		 		<input type="text" id = {{timeFromId id}} value = {{getTime time.from}} disabled>
-	 		 			to
-	 		 		<input type="text" id = {{timeToId id}} value = {{getTime time.to}} disabled> 
-	 		 	</label>
-		 	</div>
-	 	</div> 		 	 
- 		<hr>
 		</script>
+
+		<script id="jobs-template" type="text/x-handlebars-template">
+		{{#each jobs}}
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id={{titleId @index}}>
+		      <h4 class="panel-title">
+		          {{makeTitle this}}
+		      </h4>
+		    </div>
+		    {{#if this.current_flag}}
+		    <div id={{jobId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body">
+		        Anim pariatur cliche 
+		      </div>
+		    </div>
+		    {{/if}}
+		  </div>
+		  {{/each}}
+		</script>
+
+		
 	</head>
 	<body>
 		<!--fixed navigation bar -->
@@ -97,62 +100,10 @@
 		</div>
 
 		<div class="container-fluid">
-			<div class="col-md-2">
-				<div id = "side">
-					<p> Useful stuff </p>
-				</div>
-			</div>
-			<div class="col-md-8">
-				<div class = "row" id = "controls">
-					
-					<div class = "col-md-6 form-inline" id = "filterBy">
-						<div class = "row">
-							<p>Filter by:</p>
-						</div>
-						<div class ="row">
-							<div class="radio">
-							  <label>
-							    <input type="radio" name="filterRadios" id="radioAll" value="option1" checked>
-							    All
-							  </label>
-							</div>
-							<div class="radio">
-							  <label>
-							    <input type="radio" name="filterRadios" id="radioCurrent" value="option2">
-							    Current
-							  </label>
-							</div>
-							<div class="radio">
-							  <label>
-							    <input type="radio" name="filterRadios" id="radioPast" value="option3">
-							    Past
-							  </label>
-							</div>
-						</div>
-					</div>
-					<div id = "sortBy" class = "col-md-6 form-inline">
-						<div class = "row">
-							<p>Sort by:</p>
-						</div>
-						<div class = "row">
-							<div class="radio">
-							  <label>
-							    <input type="radio" name="sortRadios" id="radioNewest" value="option1" checked>
-							    Newest on top
-							  </label>
-							</div>
-							<div class="radio">
-							  <label>
-							    <input type="radio" name="sortRadios" id="radioOldest" value="option2">
-							    Oldest on top
-							  </label>
-							</div>
-						</div>
+			<div class="col-md-2" id = "side">
 
-					</div>
-				</div>
-				<div class = "row" id = "jobs">
-				</div>	
+			</div>
+			<div class="col-md-8" id = "jobs">
 			</div>				
 
 	</body>

@@ -2,13 +2,18 @@ $(document).ready(function() {
 	var jobs = getJobs();
 	var locations = getLocations();
 
-
-	Handlebars.registerHelper('getTime', function(date) {
-		//get list of the time (hh mm sss ) and the pm/am value
-		var timeString = date.toLocaleTimeString().split(" ");
-		var separate = timeString[0].split(":");
-  		return separate[0]+":"+separate[1]+timeString[1];
+	Handlebars.registerHelper('jobId', function(ind) {
+  		return "job"+ind;
 	});
+
+	Handlebars.registerHelper('titleId', function(ind) {
+  		return "title"+ind;
+	});
+
+	Handlebars.registerHelper('makeTitle', function(data) {
+  		return data.title+" on " +getDate(data.time.from);
+	});
+
 	Handlebars.registerHelper('dateId', function(id) {
   		return id+"_date";
 	});
@@ -28,48 +33,62 @@ $(document).ready(function() {
   		return id+"_rate";
 	});
 	
-	$(function(){
-		$( ".datepicker" ).datepicker({
-    		changeMonth: true,//this option for allowing user to select month
-    		changeYear: true,
-    		dateFormat: "M dd yy" //this option for allowing user to select from year range
-    	});
 
-    	$('.selectpicker').selectpicker();
-    		for (var i=0;  i< locations.length; i++){
-    			var option = $("<option>"+locations[i]+"</option>");
-    			$('.selectpicker').append(option);
-    		}
-    	$('.selectpicker').selectpicker('deselectAll');
-    	$('.selectpicker').selectpicker("refresh");
-
-	});
 
 
 	
-	// sets variable source to the animalTemplate id in index.html
-	var source = document.getElementById("job-template").innerHTML;
+	// sets variable source
+	var side_template_source = document.getElementById("side-template").innerHTML;
+	var jobs_template_source = document.getElementById("jobs-template").innerHTML;
 	 
 	// Handlebars compiles the above source into a template
-	var template = Handlebars.compile(source);
+	var side_template = Handlebars.compile(side_template_source);
+	var jobs_template = Handlebars.compile(jobs_template_source);
 	 
 
-	var jobs_container = $("#jobs");
-	for (var i = 0; i < jobs.length; i++){
-		var j = jobs[i];
-		var job_id = "job"+i;
-		j.id = job_id;
-		var job = $("<div></div>").attr("id", job_id).addClass("individualJob");
-		var output = template(j);
-		jobs_container.append(job);
-		document.getElementById(job_id).innerHTML = output;
 
-		var date_picker = $("#"+job_id+"_date");
-		date_picker.val(j.time.to.toDateString().substring(4, j.time.to.length));
+	var side_container = $("#side");
+	var side_output = side_template({jobs});
+	side_container.append(side_output);
+
+	var jobs_container = $("#jobs");
+	var jobs_output = jobs_template({jobs});
+	jobs_container.append(jobs_output);
+
+	$("#current_jobs_link").click(function(e){
+		showHideJobs("current");
+		return true;
+	});
+
+	$("#past_jobs_link").click(function(e){
+		showHideJobs("past");
+		return true;
+	});
+
+	function showHideJobs(kind){
+		var class_string = "."+kind+"_job";
+		var classes = $(class_string).attr("class").split(" ");
+		
+		
+		for (var i=0; i< classes.length; i++){
+			//shown, need to hide
+			if (classes[i]=="in"){
+				$(class_string).removeClass("in");
+				return;
+
+			}
+		}
+		//hidden, need to show 
+		$(class_string).addClass("in");
+
+		return
 
 	}
 
+     function getDate(date) {
+		var timeString = date.toLocaleDateString();
+  		return timeString;
+	}
 
-	
 
 });
