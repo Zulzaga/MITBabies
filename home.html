@@ -3,7 +3,7 @@
 	<head>
 	
 		<link rel="stylesheet" href="resources/bootstrap.min.css">
-		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
 
 		<script type="text/javascript" src="resources/handlebars-v3.0.3.js"></script>
@@ -16,7 +16,7 @@
 		<div class="navbar navbar-default" role="navigation">
 		  <div class="container" id="menu">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home.html">MITBabies</a>
+		      <a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
 		    </div>
 		    <div class="navbar-collapse collapse">
 		      <ul class="nav navbar-nav navbar">
@@ -40,6 +40,26 @@
             </ul>
 		    </div>
 		  </div>
-		</nav>
+		</div>
+
+		<div class = "row main" id="leftMenu">
+		  <!--side panels-->
+		  <div class="col-sm-2" id="small-menu"> 
+		    <div>
+		      <a href="#" id="create_job"><h4>Create a Job</h4></a>
+		    </div>
+		    <div>
+		      <a href="#" id="myNotifs"><h4>My Notifications</h4></a>
+		    </div>
+		  </div>
+
+		  <div class="col-sm-6" id="createJob">
+		  	 <div id="jobCreation">
+		        <h2 class="jobCreation-title">Create a Job</h2>
+	        </div>
+	    </div>
+		  </div>
+		</div>
+
 	</body>
 </html>

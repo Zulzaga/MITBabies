@@ -4,8 +4,38 @@
 }
 
 #menu {
-	font-size: 20px;
+	font-size: 24px;
 }
+
 .navbar-brand {
-	font-size: 30px;
+	font-size: 40px;
 }
+
+#small-menu {
+	width: 200px;
+	top: 80px;
+	left: 50px;
+}
+
+#createJob {
+	float: left;
+	left: 60px;
+	height: 100%;
+}
+
+#newbet-page {
+	left: 100px;
+}
+
+.jobCreation-title {
+	text-align: center;
+}
+
+#newbet-box{
+	left: 50px;
+}
+
+#leftMenu {
+	height: 500px;
+/*	background-color: lightBlue;
+*/}
