@@ -2,6 +2,26 @@ body {
 	padding-top: 100px;
 }
 
+#babysitter-search {
+	width: 300px;
+	font-size: 16px;
+}
+
+#menu {
+	font-size: 24px;
+	margin-top: 4px;
+}
+
+.navbar-brand {
+	font-size: 40px;
+}
+
+.navbar {
+	height: 10%;
+	text-align: center;
+}
+
+
 .job_details{
 	padding-right: 15px;
 }
