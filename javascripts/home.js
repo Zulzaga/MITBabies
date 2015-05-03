@@ -20,7 +20,7 @@ $(document).ready(function() {
 		console.log($("#title").val());
 	})
 
-	$('#timepicker').timepicker();
+	// $('#timepicker').timepicker();
 
 	// $("#datepicker").datepicker();
 });
