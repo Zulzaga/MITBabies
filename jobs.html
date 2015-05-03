@@ -42,7 +42,7 @@
 				{{#each jobs}}
 					{{#if this.current_flag}}
 						<li class = "current_job">
-							<a class="btn" href={{navigate_to @index}}>{{this.title}}</a>
+							<a class="btn title_side"href={{navigate_to @index}}>{{this.title}}</a>
 						</li>
 					{{/if}}
 				{{/each}}
@@ -53,7 +53,7 @@
 				{{#each jobs}}
 					{{#unless this.current_flag}}
 						<li class = "past_job">
-							<a class="btn" href={{navigate_to @index}}>{{this.title}}</a>
+							<a class="btn title_side" href={{navigate_to @index}}>{{this.title}}</a>
 						</li>
 					{{/unless}}
 				{{/each}}
@@ -72,17 +72,17 @@
 		    {{#if this.current_flag}}
 		    <div id={{jobId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		      <div class="panel-body">
-		      	<div class = "col-md-6">
+		      	<div class = "col-md-4">
 			        <p class="job_details"><span class="glyphicon glyphicon-time"></span> {{getTime this.time.from}} to {{getTime this.time.to}}
 			        </p>
-			        <p class="job_details"><span class="fa fa-usd"> {{this.rate}} per hour</span></p>
-			        <p class="job_details"><span class="fa fa-home"> At {{this.location}}</span></p>
-			        
 			    </div>
-			    <div class = "col-md-6">
-			    	<p class="job_details">{{this.description}}
-			        </p>
-			    
+			    <div class = "col-md-4">
+			        <p class="job_details"><span class="fa fa-usd"> {{this.rate}} per hour</span></p>
+			    </div>
+			    <div class = "col-md-4">
+			    	<p class="job_details"><span class="fa fa-home"> At {{this.location}}</span></p>
+			    </div>
+			        
 			    </div>
 		      </div>
 		    </div>
@@ -101,18 +101,18 @@
 			    {{#each applicants}}
 			    	<div class="one_applicant">
 			    		<div class="col-xs-6">
-				    		<p align="center"><a href="/babysitter_profile.html">{{getFullName this}}</a></p>
+				    		<p align="center"><a href="/babysitter_profile.html" data-toggle="tooltip" data-placement="left" title="View Profile">{{getFullName this}}</a></p>
 				    		<p align="center">
 				    			{{#if this.profilePic}}
-				    				<img src={{this.profilePic}} class="img-thumbnail" align="middle">
+				    				<img src={{this.profilePic}} class="img-thumbnail applicant_pic" align="middle">
 				    			{{/if}}
 				    			{{#unless this.profilePic}}
-				    				<img src="blank.png" class="img-thumbnail" align="middle">
+				    				<img src="blank.png" class="img-thumbnail applicant_pic" align="middle">
 				    			{{/unless}}
 				    		</p>
 				    		<p align="center">{{this.rating}}</p>
 				    	</div>
-			    		<div class="applicantPanel col-xs-6 collapse in">
+			    		<div class="applicantPanel col-xs-6 collapse">
 			    			<div class="btn-group  app_panel_btn_hire">
 							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 							    Hire <span class="caret"></span>

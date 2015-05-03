@@ -60,3 +60,11 @@ ul
 {
     list-style-type: none;
 }
+
+.title_side{
+	word-wrap:break-word;	
+	white-space: pre-line;      /* CSS 3.0 */
+	padding-left: 0px;
+	text-align: left;
+
+}

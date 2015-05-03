@@ -33,9 +33,9 @@ $(document).ready(function() {
 	Handlebars.registerHelper('getFullName', function(data) {
   		return data.firstName+" " +this.lastName;
 	});
-	
 
 	
+
 	// sets variable source
 	var side_template_source = document.getElementById("side-template").innerHTML;
 	var jobs_template_source = document.getElementById("jobs-template").innerHTML;
@@ -105,6 +105,22 @@ $(document).ready(function() {
  		navigation:true,
  		items: 3,
  	});
+
+ 	$(".applicant_pic").click(function(e){
+ 		var divs = $(e.target).parent().parent().parent().children();
+ 		for (var i=0; i<divs.length; i++){
+ 			var div = $(divs[i]);
+ 			if (div.hasClass("applicantPanel")){
+ 				if (div.hasClass("in")){
+ 					div.removeClass("in");
+ 				}
+ 				else{
+ 					div.addClass("in");
+ 				}
+ 				break;
+ 			}
+ 		}
+ 	})
 
 
 });

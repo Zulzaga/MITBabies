@@ -114,7 +114,7 @@ var job2 = {title: "Ned's birthday",
 			applicants: [babysitter3, babysitter4]
 		};	
 
-var job3 = {title: "Anniversary dinner", 
+var job3 = {title: "Anniversary dinner on Valentines", 
 			time: {from: new Date(2015, 01, 14, 20, 00), to: new Date(2015, 01, 14, 22, 00)}, 
 			location:"Ashdown", 
 			rate: 21, 
