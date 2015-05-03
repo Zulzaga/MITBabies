@@ -52,7 +52,7 @@
 		<!-- Scripts to make stuff editable and not -->
 		<script>
 			function makeEditable() {
-			    document.getElementById("Name").contentEditable = true
+			    //document.getElementById("Name").contentEditable = true
 			    document.getElementById("Description").contentEditable = true;
 			    document.getElementById("Email").contentEditable = true;
 				document.getElementById("PhoneNumber").contentEditable = true;
@@ -61,7 +61,7 @@
 			    document.getElementById("EditButton").innerText= "Save";
 
 			    //make things look editable now
-			    document.getElementById("Name").className = "EditableContentContentsEditVersion";
+			    //document.getElementById("Name").className = "EditableContentContentsEditVersion";
 			    document.getElementById("Description").className = "EditableContentContentsEditVersion";
 			    document.getElementById("Email").className = "EditableContentContentsEditVersion";
 				document.getElementById("PhoneNumber").className = "EditableContentContentsEditVersion";
@@ -71,12 +71,12 @@
 			}
 
 			function makeUneditable(){
-			 document.getElementById("Name").contentEditable = false;
+			 //document.getElementById("Name").contentEditable = false;
 			 document.getElementById("Description").contentEditable = false;
 			 document.getElementById("EditButton").innerText= "Edit Profile";
 
 			 //make things NOT look editable now
-		    document.getElementById("Name").className = "EditableContentContents";
+		    //document.getElementById("Name").className = "EditableContentContents";
 		    document.getElementById("Description").className = "EditableContentContents"
 
 
@@ -115,9 +115,11 @@
 				padding-left: 4px;
 			}
 
-			#Name{
-				font-size: 30;
+			.Name{
+				font-size: 40px;
 				font-weight: bold;
+				text-align: left;
+				padding-bottom: 20px;
 			}
 
 			.EditableContentContentsEditVersion{
@@ -160,8 +162,8 @@
 			</div>
 
 			<div class= "editableContent">
-				<p class="EditableContentContents" id="Name" > John Snow</p>
-				<p id="Description"> My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla</p>
+				<p class="Name"> John Snow </p>
+				<p id="Description" style="text-align:left "> A father (or dad) is a male parent of a child. A biological or natural father is the man whose sperm has been used in the creation of a child, through sexual intercourse or sperm donation. Such a man may or may not be married to the child's mother. A putative father is a man whose biological relationship to a child is alleged but has not been established. The term is also used for the man who has raised a child, who is not his biological offspring, such as an adopted child. As a parent, the father has a certain legal relationship with the child, which carries defined rights and obligations to the child, which may vary between jurisdictions. A biological father may have legal obligations to a child, such as an obligation of support, even if he has no custody rights to the child.</p>
 
 				<div ID="NumChildren" > 
 					<p id="ChildAge" style="float:left"> Number of Children :	</p>
@@ -170,13 +172,8 @@
 
 				<div ID="selector" > 
 					<p id="ChildAge" style="float:left"> Children's Age range :		</p>
-					<select id="AgeSelector" style="float:left" class="EditableContentContents">
-					  <option value="0-2">0-2</option>
-					  <option value="3-5">3-5</option>
-					  <option value="6-8">6-8</option>
-					  <option value="9-11">9-11</option>
-					  <option value="12-14">12-14</option>
-					</select>
+					<p id="ChildrenAge" class="EditableContentContents"> 10 </p>
+
 
 				</div>
 
