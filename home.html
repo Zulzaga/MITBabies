@@ -90,8 +90,12 @@
 							        	<input type='datepicker' class="datepicker form-control" id="datepicker"/>
 							        </div>
 
-							        <label for="title" class="col-sm-2 control-label">Time:</label>
-							        <div class="col-sm-4">
+							        <label for="title" class="col-sm-1 control-label">Time:</label>
+							        <div class="col-sm-2">
+							        	<input type='datepicker' class="datepicker form-control" id="datepicker"/>
+							        </div>
+							        <label for="title" class="col-sm-1 control-label">to</label>
+							        <div class="col-sm-2">
 							        	<input type='datepicker' class="datepicker form-control" id="datepicker"/>
 							        </div>
 							        <!-- <div class="col-sm-4 input-append bootstrap-timepicker">
@@ -108,12 +112,12 @@
 							        		<option>Next House</option>
 							        	</select>
 							        </div>
-						        	<label for="title" class="col-sm-2 control-label">Rate:</label>
-							        <div class="col-sm-4">
-							        	<input class="form-control" rows = "2" placeholder="Enter hourly rate" id="rate"></input></span>
+						        	<label for="title" class="col-sm-1 control-label">Rate:</label>
+							        <div class="col-sm-2">
+							        	<input class="form-control" rows = "2" placeholder="" id="rate"></input></span>
 							        </div>
 								</div>
-								<div class="form-group">
+								<div class="form-group" id="createButtons">
 							        <div class="col-sm-12 text-right">
 							        	<button type="submit" class="btn btn-primary" id="submit"> Submit </button>
 							        	<button type="reset" class="btn btn-default" id="clear"> Clear </button>
@@ -129,28 +133,22 @@
 					   </div>
 					   <div class="panel-body" id="notif-body">
 					   		<div class="notif">
-					   			<span class="col-sm-1 glyphicon glyphicon-asterisk"></span></p> 
-					   			<a class="col-sm-7" id="notif_1" href="jobs.html">
-						   		2 people applied to your job:</a>
+					   			<span class="col-sm-1 control-span glyphicon glyphicon-asterisk"></span></p> 
+					   			<a class="col-sm-7" id="notif_1" href="jobs.html#title_0">
+						   		2 people applied to your job: Graduation Ceremony</a>
 						   		<text id="notif_1">
 						   		1 minute ago</text>
 					   		</div>
 					   		<div class="notif">
 					   			<span class="col-sm-1 glyphicon glyphicon-asterisk"></span></p> 
-					   			<a href="jobs.html" id="notif_1" class="col-sm-7">
-						   		John has responded to your message</a>
+					   			<a href="jobs.html#title_1" id="notif_1" class="col-sm-7">
+						   		Arya has responded to your job: Lab meeting</a>
 						   		<text id="notif_1">1 hour ago</text>
 					   		</div>
 					   		<div class="notif">
 					   			<span class="col-sm-1 glyphicon glyphicon-asterisk"></span></p> 
-					   			<a href="jobs.html" id="notif_1" class="col-sm-7">
-						   		You have one upcoming job still pending.</a>
-						   		<text id="notif_1">3 hours ago</text>
-					   		</div>
-					   		<div class="notif">
-					   			<span class="col-sm-1 glyphicon glyphicon-asterisk"></span></p> 
-					   			<a href="jobs.html" id="notif_1" class="col-sm-7">
-						   		You have 3 recently completed jobs</a>
+					   			<a href="jobs.html#title_3" id="notif_1" class="col-sm-7">
+						   		You have 2 recently completed jobs</a>
 						   		<text id="notif_1">2 weeks ago</text>
 					   		</div>
 					   </div>

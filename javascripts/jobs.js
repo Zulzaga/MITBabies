@@ -122,5 +122,10 @@ $(document).ready(function() {
  		}
  	})
 
-
+ 	if (window.location.hash != null && window.location.hash != '' && $(window.location.hash).offset()!= null) {
+        $('body').animate({
+            scrollTop: $(window.location.hash).offset().top - 100
+        }, 750);
+    } else {
+    }
 });
