@@ -23,7 +23,7 @@ body {
 
 
 .job_details{
-	padding-right: 15px;
+	display:inline-block; 
 }
 .edit{
 	float:right;
@@ -67,4 +67,15 @@ ul
 	padding-left: 0px;
 	text-align: left;
 
+}
+
+.job-btn{
+	margin-right:5px;
+}
+
+.vis{
+	border-width: 1px;
+	border-color: #d3d3d3;
+	border-style: solid;
+	width:50px;
 }

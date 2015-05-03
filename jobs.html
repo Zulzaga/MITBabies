@@ -3,7 +3,6 @@
 <html>
 	<head>
 
-
 		<link rel="stylesheet" href="resources/bootstrap.min.css">
 		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
@@ -63,30 +62,32 @@
 
 		<script id="jobs-template" type="text/x-handlebars-template">
 		{{#each jobs}}
-		  <div class="panel panel-default">
-		    <div class="panel-heading" role="tab" id={{titleId @index}}>
-		      <h4 class="panel-title">
+		  <div class="panel panel-default" id={{jobId @index}}>
+		    <div class="panel-heading clearfix" role="tab" id={{titleId @index}}>
+		      <h4 class="panel-title pull-left">
 		          {{makeTitle this}}
 		      </h4>
+		      <button type="button" class="btn btn-default pull-right job-btn job-delete">Delete</button>
+		      {{#if this.current_flag}}
+		      <button type="button" class="btn btn-default pull-right job-btn job-edit">Edit</button>
+		      {{/if}}
 		    </div>
 		    {{#if this.current_flag}}
-		    <div id={{jobId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-		      <div class="panel-body">
+		    <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body" id={{jobBodyId @index}}>
 		      	<div class = "col-md-4">
-			        <p class="job_details"><span class="glyphicon glyphicon-time"></span> {{getTime this.time.from}} to {{getTime this.time.to}}
+			        <p class="job_details time"><span class="glyphicon glyphicon-time"></span> {{getTime this.time.from}} to {{getTime this.time.to}}
 			        </p>
 			    </div>
 			    <div class = "col-md-4">
-			        <p class="job_details"><span class="fa fa-usd"> {{this.rate}} per hour</span></p>
+			        <p class="job_details rate"><span class="fa fa-usd">{{this.rate}}</span></p> <span>per hour</span>
 			    </div>
 			    <div class = "col-md-4">
-			    	<p class="job_details"><span class="fa fa-home"> At {{this.location}}</span></p>
+			    	<p class="job_details location"><span class="fa fa-home"></span> At {{this.location}}</p>
 			    </div>
-			        
 			    </div>
 		      </div>
 		    </div>
-		    <hr>
 		    <div id={{appsId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		    </div>
 
@@ -112,7 +113,7 @@
 				    		</p>
 				    		<p align="center">{{this.rating}}</p>
 				    	</div>
-			    		<div class="applicantPanel col-xs-6 collapse">
+			    		<div class="applicantPanel col-xs-6 collapse in">
 			    			<div class="btn-group  app_panel_btn_hire">
 							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 							    Hire <span class="caret"></span>
@@ -168,8 +169,10 @@
 			</div>
 		</div>
 
+		<div id="popup">
+		</div>
 		<div class="container-fluid">
-			<div class="col-md-2" id = "side" data-offset-top="125">
+			<div class="col-md-2 sidebar-nav-fixed a" id = "side" data-offset-top="125">
 
 			</div>
 			<div class="col-md-8" id = "jobs" >
