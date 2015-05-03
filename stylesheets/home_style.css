@@ -1,0 +1,74 @@
+#babysitter-search {
+	width: 300px;
+	font-size: 16px;
+}
+
+#menu {
+	font-size: 24px;
+	margin-top: 4px;
+}
+
+.navbar-brand {
+	font-size: 40px;
+}
+
+.navbar {
+	height: 10%;
+	text-align: center;
+}
+
+.sidebar-nav-fixed {
+	width: 15%;
+}
+
+.scroll-link {
+	font-size: 10px;
+}
+
+#home_panels {
+	float: left;
+	left: 60px;
+}
+
+#body, #notif-body {
+	margin: 20px;
+}
+
+#create_job, #my_notifs {
+	margin-bottom: 60px;
+}
+
+.notif {
+	padding-bottom: 20px;
+	vertical-align: middle;
+}
+
+#notifs {
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+}
+
+#createJobTitle {
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+}
+
+.jobCreation-title {
+	text-align: center;
+}
+
+textarea {
+   resize: none;
+}
+
+#newbet-box{
+	left: 50px;
+}
+
+#leftMenu {
+	height: 500px;
+/*	background-color: lightBlue;
+*/}
+
