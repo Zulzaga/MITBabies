@@ -30,6 +30,7 @@
 .jobCreation-title {
 	text-align: center;
 }
+<<<<<<< HEAD
 
 #newbet-box{
 	left: 50px;
@@ -39,3 +40,43 @@
 	height: 500px;
 /*	background-color: lightBlue;
 */}
+=======
+.job_details{
+	padding-right: 15px;
+}
+.edit{
+	float:right;
+}
+.panel-title{
+	width: 80%;
+	margin-right: 0px;
+}
+
+.img-thumbnail{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+.one-applicant{
+	padding: 10px;
+	margin:10px;
+}
+.app_panel_btn_hire{
+	position: relative;
+	margin-bottom:10px;
+	top: 40px;
+}
+.app_panel_btn_reject{
+	position: relative;
+	margin-bottom:5px;
+	top: 50px;
+}
+.dropdown-menu {
+  width: 80%; 
+}
+
+ul
+{
+    list-style-type: none;
+}
+>>>>>>> f335f737de1451e2be371516002ddf71acc1549f

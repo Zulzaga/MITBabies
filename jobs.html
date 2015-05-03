@@ -3,18 +3,140 @@
 <html>
 	<head>
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-		<!-- Optional theme -->
-		<link rel="stylsesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+		<link rel="stylesheet" href="resources/bootstrap.min.css">
+		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
+		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
+		<link rel="stylesheet" href="resources/font-awesome.min.css">
+
+
+		<script type="text/javascript" src="resources/handlebars-v3.0.3.js"></script>
+		<script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="resources/bootstrap.min.js"></script>
+		<script type="text/javascript" src="resources/bootstrap-select.min.js"></script>
+
+				<!-- Important Owl stylesheet -->
+		<link rel="stylesheet" href="owl.carousel.css">
+		 
+		<!-- Default Theme -->
+		<link rel="stylesheet" href="owl.theme.css">
+		 
+		 
+		<!-- Include js plugin -->
+		<script src="owl.carousel.js"></script>
+
+
+
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    
+	    
+	    <!-- Load jQuery UI Main JS  -->
+	    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+	    <script type="text/javascript" src="javascripts/jobs.js"></script>
+		<script type="text/javascript" src="resources/jobs_data.js"></script>
+		<script id="side-template" type="text/x-handlebars-template">
+			<p id = "current_jobs_header">Current jobs</p>
+			<ul id = "current_jobs" >
+				{{#each jobs}}
+					{{#if this.current_flag}}
+						<li class = "current_job">
+							<a class="btn" href={{navigate_to @index}}>{{this.title}}</a>
+						</li>
+					{{/if}}
+				{{/each}}
+			</ul>
+
+			<p id = "current_jobs_header">Past jobs</p>
+			<ul id = "past_jobs">
+				{{#each jobs}}
+					{{#unless this.current_flag}}
+						<li class = "past_job">
+							<a class="btn" href={{navigate_to @index}}>{{this.title}}</a>
+						</li>
+					{{/unless}}
+				{{/each}}
+			</ul>
+
+		</script>
+
+		<script id="jobs-template" type="text/x-handlebars-template">
+		{{#each jobs}}
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id={{titleId @index}}>
+		      <h4 class="panel-title">
+		          {{makeTitle this}}
+		      </h4>
+		    </div>
+		    {{#if this.current_flag}}
+		    <div id={{jobId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body">
+		      	<div class = "col-md-6">
+			        <p class="job_details"><span class="glyphicon glyphicon-time"></span> {{getTime this.time.from}} to {{getTime this.time.to}}
+			        </p>
+			        <p class="job_details"><span class="fa fa-usd"> {{this.rate}} per hour</span></p>
+			        <p class="job_details"><span class="fa fa-home"> At {{this.location}}</span></p>
+			        
+			    </div>
+			    <div class = "col-md-6">
+			    	<p class="job_details">{{this.description}}
+			        </p>
+			    
+			    </div>
+		      </div>
+		    </div>
+		    <hr>
+		    <div id={{appsId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		    </div>
+
+		    {{/if}}
+		  </div>
+		  {{/each}}
+		</script>
+		<script id="applicants-template" type="text/x-handlebars-template">
+		    <div class="panel-body">
+		    <h4 align="center">Applicants</h4>
+			    <div class="owl-carousel">
+			    {{#each applicants}}
+			    	<div class="one_applicant">
+			    		<div class="col-xs-6">
+				    		<p align="center"><a href="/babysitter_profile.html">{{getFullName this}}</a></p>
+				    		<p align="center">
+				    			{{#if this.profilePic}}
+				    				<img src={{this.profilePic}} class="img-thumbnail" align="middle">
+				    			{{/if}}
+				    			{{#unless this.profilePic}}
+				    				<img src="blank.png" class="img-thumbnail" align="middle">
+				    			{{/unless}}
+				    		</p>
+				    		<p align="center">{{this.rating}}</p>
+				    	</div>
+			    		<div class="applicantPanel col-xs-6 collapse in">
+			    			<div class="btn-group  app_panel_btn_hire">
+							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							    Hire <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li><a href="#">As primary</a></li>
+							    <li><a href="#">As backup</a></li>
+							  </ul>
+							</div>
+							<button type="button" class="btn btn-default app_panel_btn_reject">Reject</button>
+			    			
+			    		</div>
+			    		
+			    		
+			    	</div>
+			    {{/each}}
+
+			</div>
+		    </div>
+		</script>
+
+		
 	</head>
-	<body>
+	<body data-spy="scroll" data-target="#jobs">
 		<!--fixed navigation bar -->
 		<div class="navbar navbar-default" role="navigation">
 		  <div class="container" id="menu">
@@ -46,6 +168,7 @@
 			</div>
 		</div>
 
+<<<<<<< HEAD
 		<div class = "row main" id="leftMenu">
 		  <!--side panels-->
 		  <div class="col-sm-9" id="small-menu"> 
@@ -58,41 +181,14 @@
 		  </div>
 
 		</div>
+=======
+>>>>>>> f335f737de1451e2be371516002ddf71acc1549f
 		<div class="container-fluid">
-			<div class="col-md-2">
-				<div id = "side">
-					<p> Useful stuff </p>
-				</div>
+			<div class="col-md-2" id = "side" data-offset-top="125">
+
 			</div>
-			<div class="col-md-10">
-				<div class = "row">
-					<div id = "filters">
-						<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-						    Option one is this and that&mdash;be sure to include why it's great
-						  </label>
-						</div>
-						<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-						    Option two can be something else and selecting it will deselect option one
-						  </label>
-						</div>
-						<div class="radio disabled">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-						    Option three is disabled
-						  </label>
-						</div>
-					</div>
-				</div>
-				<div class = "row">
-					<div class = "jobs">
-					</div>
-				</div>	
+			<div class="col-md-8" id = "jobs" >
 			</div>				
-		</div>
 
 	</body>
 </html>

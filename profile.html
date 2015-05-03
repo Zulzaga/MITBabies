@@ -2,6 +2,14 @@
 
 <html>
 	<head>
+		<link rel="stylesheet" href="resources/bootstrap.min.css">
+		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
+		<link rel='stylesheet' href='stylesheets/style.css' />
+
+		<script type="text/javascript" src="resources/handlebars-v3.0.3.js"></script>
+		<script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="resources/bootstrap.min.js"></script>
+
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<!-- Optional theme -->
@@ -41,5 +49,102 @@
 		  </div>
 		</div>
 
+<<<<<<< HEAD
+=======
+		<!-- Scripts to make stuff editable and not -->
+		<script>
+			function makeEditable() {
+			    document.getElementById("Name").contentEditable = true
+			    document.getElementById("Description").contentEditable = true;
+			    document.getElementById("EditButton").innerText= "Save";			    
+
+			    document.getElementById('CancelButton').style.visibility = 'visible';
+			}
+
+			function makeUneditable(){
+			 document.getElementById("Name").contentEditable = false;
+			 document.getElementById("Description").contentEditable = false;
+			 document.getElementById("EditButton").innerText= "Edit Profile";
+
+
+			 document.getElementById('CancelButton').style.visibility = 'hidden';
+			}
+		</script>
+
+		<style>
+			#pictureAndButtons {
+			    display: inline-block;
+			    padding-right: 50px;
+			    min-height: 300px;
+			    vertical-align: top;
+			}
+
+			.editableContent {
+			    display: inline-block;
+			    vertical-align: bottom;
+			    max-width: 500px;
+			    min-width: 500px;
+			    min-height: 300px;
+			}
+			#ButtonsDiv{
+				padding-top: 30px;
+				float:right;
+				vertical-align: bottom;
+				margin-top:auto; 
+				margin-bottom:0;
+				margin-left:auto; 
+				margin-right:0;
+			}
+
+			.EditableContentContents{
+				text-align: left;
+				text-align: top;
+			}
+
+			#Description{
+				min-height: 40px;
+				max-height: auto;
+			}
+		</style>
+
+		<!--Profile information -->
+		<div id="ProfileBlock" align="center" >
+
+			<div id="pictureAndButtons">
+				<!-- Add ability to change picture or not -->
+				<div class="myPic">
+					<a href="#" title="MyPic" class="thumbnail"><img src="AndrewNathanPic.jpg" alt="Lorem ipsum" /></a>
+				</div>
+			</div>
+
+			<div class= "editableContent">
+				<p class="EditableContentContents" id="Name"> John Snow</p>
+				<p class="EditableContentContents" id="Description"> My description Here + lalalalala la la la bla bla</p>
+
+				<div id="ButtonsDiv">
+					<button id= "CancelButton" onclick="makeUneditable()" style="visibility:hidden">Cancel</button>
+
+					<button id="EditButton" onclick="makeEditable()">Edit Profile</button>
+				</div>
+			</div>
+
+
+		</div>
+		
+>>>>>>> f335f737de1451e2be371516002ddf71acc1549f
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
