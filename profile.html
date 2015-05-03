@@ -70,38 +70,16 @@
 					document.getElementById("ChildrenAge").className = "EditableContentContentsEditVersion";
 
 				    document.getElementById('CancelButton').style.visibility = 'visible';
-
-				    if (document.getElementById("EditButton").innerText == "Save"){
-				    	document.getElementById("EditButton").innerText = "Edit Profile";
-				    	makeUneditable(false); //do not reset
-				    };
-
-				    document.getElementById("EditButton").innerText= "Save";
-			}
+				    document.getElementById('SaveButton').style.visibility = "visible";
+				    document.getElementById("EditButton").style.visibility = "hidden";
+			};
 
 			//cncel needs to revert stuff
 			//flag true = revert
 			//flaf false = do not revert
-			function makeUneditable(flag){
-
-				 //revert the things to normal if we hit cancel
-				 if (flag){
-				 	var number = "+1 908-555-5555";
-				 	var email = "IKnowNothing@mit.edu";
-				 	var description = "A father (or dad) is a male parent of a child. A biological or natural father is the man whose sperm has been used in the creation of a child, through sexual intercourse or sperm donation. Such a man may or may not be married to the child's mother. A putative father is a man whose biological relationship to a child is alleged but has not been established. The term is also used for the man who has raised a child, who is not his biological offspring, such as an adopted child. As a parent, the father has a certain legal relationship with the child, which carries defined rights and obligations to the child, which may vary between jurisdictions. A biological father may have legal obligations to a child, such as an obligation of support, even if he has no custody rights to the child.";
-				 	var numkids = "2";
-				 	var kidsage = "2-3";
-
-				 	//set the value of everything to original
-				 	document.getElementById("Description").innerHTML = description;
-				 	document.getElementById("Email").innerHTML = email;
-					document.getElementById("PhoneNumber").innerHTML = number;
-					document.getElementById('NumberChildren').innerHTML = numkids;
-					document.getElementById('ChildrenAge').innerHTML = kidsage;
-				 };
-
+			function SaveStuff(){
 				//set button text back to normal
-				 document.getElementById("EditButton").innerText= "Edit Profile";
+				document.getElementById("EditButton").innerText= "Edit Profile";
 
 			 	//document.getElementById("Name").contentEditable = false;
 			 	document.getElementById("Description").contentEditable = false;
@@ -117,9 +95,45 @@
 				document.getElementById("NumberChildren").className = "EditableContentContents";
 				document.getElementById("ChildrenAge").className = "EditableContentContents";
 
-
 				 document.getElementById('CancelButton').style.visibility = 'hidden';
+				document.getElementById('SaveButton').style.visibility = 'hidden';
+				document.getElementById('EditButton').style.visibility = 'visible';
+
+			};
+
+			function RevertStuff(){
+			 	var number = "+1 908-555-5555";
+			 	var email = "IKnowNothing@mit.edu";
+			 	var description = "A father (or dad) is a male parent of a child. A biological or natural father is the man whose sperm has been used in the creation of a child, through sexual intercourse or sperm donation. Such a man may or may not be married to the child's mother. A putative father is a man whose biological relationship to a child is alleged but has not been established. The term is also used for the man who has raised a child, who is not his biological offspring, such as an adopted child. As a parent, the father has a certain legal relationship with the child, which carries defined rights and obligations to the child, which may vary between jurisdictions. A biological father may have legal obligations to a child, such as an obligation of support, even if he has no custody rights to the child.";
+			 	var numkids = "2";
+			 	var kidsage = "2-3";
+
+			 	//set the value of everything to original
+			 	document.getElementById("Description").innerHTML = description;
+			 	document.getElementById("Email").innerHTML = email;
+				document.getElementById("PhoneNumber").innerHTML = number;
+				document.getElementById('NumberChildren').innerHTML = numkids;
+				document.getElementById('ChildrenAge').innerHTML = kidsage;
+
+			 	//document.getElementById("Name").contentEditable = false;
+			 	document.getElementById("Description").contentEditable = false;
+			 	document.getElementById("Email").contentEditable = false;
+				document.getElementById("PhoneNumber").contentEditable = false;
+				document.getElementById('NumberChildren').contentEditable = false;
+				document.getElementById('ChildrenAge').contentEditable = false;
+
+				 //make things NOT look editable now
+			    document.getElementById("Description").className = "EditableContentContents";
+			    document.getElementById("Email").className = "EditableContentContents";
+				document.getElementById("PhoneNumber").className = "EditableContentContents";
+				document.getElementById("NumberChildren").className = "EditableContentContents";
+				document.getElementById("ChildrenAge").className = "EditableContentContents";
+
+				document.getElementById('CancelButton').style.visibility = 'hidden';
+				document.getElementById('SaveButton').style.visibility = 'hidden';
+				document.getElementById('EditButton').style.visibility = 'visible';
 			}
+
 		</script>
 
 		<style>
@@ -137,7 +151,7 @@
 			    min-width: 500px;
 			    min-height: 300px;
 			}
-			#ButtonsDiv{
+			.ButtonsDiv{
 				padding-top: 30px;
 				float:right;
 				vertical-align: bottom;
@@ -230,10 +244,14 @@
 
 				</div>	
 
-				<div id="ButtonsDiv">
-					<button id= "CancelButton" onclick="makeUneditable(true)" style="visibility:hidden">Cancel</button>
-
+				<div class="ButtonsDiv">
+					<button id= "CancelButton" onclick="RevertStuff()" style="visibility:hidden">Cancel</button>
+				</div>
+				<div class="ButtonsDiv">
+					<button id= "SaveButton" onclick="SaveStuff()" style="visibility:hidden">Save</button>
 					<button id="EditButton" onclick="makeEditable()">Edit Profile</button>
+				</div>
+
 				</div>
 			</div>
 
