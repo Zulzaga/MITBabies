@@ -1,10 +1,4 @@
 $(document).ready(function() {
-
-	
-	$("#jobCreation").submit(function() {
-		console.log($("#title").val());
-	})
-
 	function scrollToID(id, speed){
 		var offSet = 100;
 		var targetOffset = $(id).offset().top - offSet;
@@ -22,8 +16,12 @@ $(document).ready(function() {
 		scrollToID('#' + sectionID, 750);
 	})
 
-	$('[data-toggle=offcanvas]').click(function() {
-    $('.row-offcanvas').toggleClass('active');
-  });
+	$("#jobCreation").submit(function() {
+		console.log($("#title").val());
+	})
+
+	$('#timepicker').timepicker();
+
+	// $("#datepicker").datepicker();
 });
 
