@@ -54,7 +54,18 @@
 			function makeEditable() {
 			    document.getElementById("Name").contentEditable = true
 			    document.getElementById("Description").contentEditable = true;
-			    document.getElementById("EditButton").innerText= "Save";			    
+			    document.getElementById("Email").contentEditable = true;
+				document.getElementById("PhoneNumber").contentEditable = true;
+				document.getElementById('NumberChildren').contentEditable = true;
+
+			    document.getElementById("EditButton").innerText= "Save";
+
+			    //make things look editable now
+			    document.getElementById("Name").className = "EditableContentContentsEditVersion";
+			    document.getElementById("Description").className = "EditableContentContentsEditVersion";
+			    document.getElementById("Email").className = "EditableContentContentsEditVersion";
+				document.getElementById("PhoneNumber").className = "EditableContentContentsEditVersion";
+				document.getElementById("NumberChildren").className = "EditableContentContentsEditVersion";
 
 			    document.getElementById('CancelButton').style.visibility = 'visible';
 			}
@@ -63,6 +74,10 @@
 			 document.getElementById("Name").contentEditable = false;
 			 document.getElementById("Description").contentEditable = false;
 			 document.getElementById("EditButton").innerText= "Edit Profile";
+
+			 //make things NOT look editable now
+		    document.getElementById("Name").className = "EditableContentContents";
+		    document.getElementById("Description").className = "EditableContentContents"
 
 
 			 document.getElementById('CancelButton').style.visibility = 'hidden';
@@ -79,7 +94,7 @@
 
 			.editableContent {
 			    display: inline-block;
-			    vertical-align: bottom;
+			    vertical-align: top;
 			    max-width: 500px;
 			    min-width: 500px;
 			    min-height: 300px;
@@ -97,12 +112,38 @@
 			.EditableContentContents{
 				text-align: left;
 				text-align: top;
+				padding-left: 4px;
+			}
+
+			#Name{
+				font-size: 30;
+				font-weight: bold;
+			}
+
+			.EditableContentContentsEditVersion{
+				text-align: left;
+				text-align: top;
+				border-style: solid;
+				border-width: 1px; 
+				border-color: #d3d3d3;
+				padding-left: 4px;
 			}
 
 			#Description{
 				min-height: 40px;
 				max-height: auto;
 			}
+
+			.Profile{
+				padding-bottom: 30px;
+			}
+
+			.PictureDetails{
+				padding-left: 20px;
+				padding-bottom: 10px;
+				text-align: left;
+			}
+
 		</style>
 
 		<!--Profile information -->
@@ -110,14 +151,34 @@
 
 			<div id="pictureAndButtons">
 				<!-- Add ability to change picture or not -->
-				<div class="myPic">
-					<a href="#" title="MyPic" class="thumbnail"><img src="AndrewNathanPic.jpg" alt="Lorem ipsum" /></a>
+				<div class="Profile">
+					<a href="#" title="MyPic" class="myPic"><img src="AndrewNathanPic.jpg" alt="Lorem ipsum" /></a>
 				</div>
+				<p class="PictureDetails" id="PhoneNumber"> +1 908-555-5555 </p>
+				<p class="PictureDetails" id="Email"> IKnowNothing@mit.edu</p>
+
 			</div>
 
 			<div class= "editableContent">
-				<p class="EditableContentContents" id="Name"> John Snow</p>
-				<p class="EditableContentContents" id="Description"> My description Here + lalalalala la la la bla bla</p>
+				<p class="EditableContentContents" id="Name" > John Snow</p>
+				<p id="Description"> My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla My description Here + lalalalala la la la bla bla</p>
+
+				<div ID="NumChildren" > 
+					<p id="ChildAge" style="float:left"> Number of Children :	</p>
+					<p id="NumberChildren" class="EditableContentContents"> 1 </p>
+				</div>
+
+				<div ID="selector" > 
+					<p id="ChildAge" style="float:left"> Children's Age range :		</p>
+					<select id="AgeSelector" style="float:left" class="EditableContentContents">
+					  <option value="0-2">0-2</option>
+					  <option value="3-5">3-5</option>
+					  <option value="6-8">6-8</option>
+					  <option value="9-11">9-11</option>
+					  <option value="12-14">12-14</option>
+					</select>
+
+				</div>
 
 				<div id="ButtonsDiv">
 					<button id= "CancelButton" onclick="makeUneditable()" style="visibility:hidden">Cancel</button>
