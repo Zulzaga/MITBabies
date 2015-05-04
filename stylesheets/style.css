@@ -2,18 +2,22 @@ body {
 	padding-top: 100px;
 }
 
+.date-form { margin: 10px; }
+label.control-label span { cursor: pointer; }
+
+
 #babysitter-search {
 	width: 300px;
 	font-size: 16px;
 }
 
 #menu {
-	font-size: 24px;
+	font-size: 16px;
 	margin-top: 4px;
 }
 
 .navbar-brand {
-	font-size: 40px;
+	font-size: 30px;
 }
 
 .navbar {

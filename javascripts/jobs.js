@@ -2,7 +2,8 @@ $(document).ready(function() {
 	var jobs = getJobs();
 	var locations = getLocations();
 
-
+	console.log("cookie", document.cookie);
+	
 	Handlebars.registerHelper('navigate_to', function(ind) {
   		return "#title_"+ind;
 	});
@@ -94,6 +95,10 @@ $(document).ready(function() {
 
 		return
 
+	}
+
+	function addJob(job){
+		jobs.push({job})
 	}
 
     function getDate(date) {

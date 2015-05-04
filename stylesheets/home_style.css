@@ -6,6 +6,10 @@
 	font-size: 10px;
 }
 
+#rate {
+	text-align: center;
+}
+
 #home_panels {
 	float: left;
 	left: 30px;
@@ -15,6 +19,25 @@
 	margin-top: 40px;
 }
 
+.form-group {
+
+}
+
+#to {
+}
+
+#timepicker2, #timepicker1 {
+}
+
+.form-control {
+}
+
+.control-label {
+}
+
+#to {
+	text-align: center;
+}
 
 #body, #notif-body {
 	margin: 20px;

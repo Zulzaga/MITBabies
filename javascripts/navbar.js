@@ -6,5 +6,8 @@ $(document).ready(function() {
 		console.log(search);
 		window.location.href="search.html#" + search; 
 	});
+
+	// $('#timepicker').timepicker();
+	// $('.time-picker').timepicker();
 });
 
