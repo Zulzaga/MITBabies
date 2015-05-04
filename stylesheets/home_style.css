@@ -8,13 +8,17 @@
 	font-size: 10px;
 }
 
+#rateType {
+	right: 15px;
+	text-align: center;
+}
+
 #rate {
 	text-align: center;
 }
 
-#home_panels {
+.home_panels {
 	float: left;
-	width: 70%;
 }
 
 .scroll-link {
@@ -58,16 +62,10 @@
 	vertical-align: middle;
 }
 
-#notifs {
+#notifs, #createJobTitle {
 	text-align: center;
 	width: 100%;
-	font-size: 20px;
-}
-
-#createJobTitle {
-	text-align: center;
-	width: 100%;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .jobCreation-title {

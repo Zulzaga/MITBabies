@@ -35,7 +35,7 @@
 	    <script type="text/javascript" src="resources/jobs_data.js"></script>
 	    <script type="text/javascript" src="javascripts/jobs.js"></script>
 		<script id="side-template" type="text/x-handlebars-template">
-			<p id = "current_jobs_header">Current jobs</p>
+			<p id = "current_jobs_header" class="nav">Current jobs</p>
 			<ul id = "current_jobs" class="nav">
 				{{#each jobs}}
 					{{#if this.current_flag}}
@@ -46,7 +46,7 @@
 				{{/each}}
 			</ul>
 
-			<p id = "current_jobs_header">Past jobs</p>
+			<p id = "current_jobs_header" >Past jobs</p>
 			<ul id = "past_jobs" class="nav">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
@@ -178,7 +178,7 @@
 
 				</div>
 
-			<div class="col-md-8" id = "jobs" >
+			<div class="col-md-8 home_panels" id = "jobs" >
 			</div>				
 
 	</body>

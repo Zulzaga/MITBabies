@@ -65,9 +65,9 @@
 		  </div>
 		</div>
 
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-2">
+				<div class="col-md-2">
 		  			<div id="sidebar" class="sidebar-nav-fixed affix">
 				    	<ul class="nav">
 							<li>
@@ -80,7 +80,7 @@
 				    </div>
 			  	</div>
 
-				<div class="col-md-6" id="home_panels">
+				<div class="col-md-8 home_panels">
 					<div class="panel panel-default" id="create_job">
 						<div class="panel-heading">
 							<h3 class="panel-title" id="createJobTitle">Create a Job</h3>
@@ -103,20 +103,21 @@
 							        <label for="title" class="col-sm-2 control-label" id="date">Date:</label>
 							    	<div class="col-sm-4">
 							    		<div class="input-group date" id="example">
-									    <input type="text" class="form-control" />
-									    <span class="input-group-addon">    
+							    		<span class="input-group-addon">    
 									    	<span class="glyphicon glyphicon-calendar"></span>
 									  	</span>
+									    <input type="text" class="form-control" />
+									 
 									</div>
 									</div>
 
 									<label for="title" class="col-sm-2 control-label" id="to">to </label>
 							    	<div class="col-sm-4">
 							    		<div class="input-group date" id="example1">
-									    <input type="text" class="form-control" />
-									    <span class="input-group-addon">    
+							    		<span class="input-group-addon">    
 									    	<span class="glyphicon glyphicon-calendar"></span>
 									  	</span>
+									    <input type="text" class="form-control" />
 									</div>
 									</div>
 							        <!-- <label for="title" class="col-sm-1 control-label">Time:</label>
@@ -139,6 +140,10 @@
 								<div class="form-group">
 							        <label for="title" class="col-sm-2 control-label">Location:</label>
 							        <div class="col-sm-4">
+							        	<div class="input-group">
+							        	<span class="input-group-addon">    
+									    	<span class="glyphicon glyphicon-home"></span>
+									  	</span>
 							        	<select class="form-control" id="location" required>
 							        		<option></option>
 							        		<option>Ashdown</option>
@@ -146,10 +151,17 @@
 							        		<option>Next House</option>
 							        	</select>
 							        </div>
+							        </div>
 						        	<label for="title" class="col-sm-2 control-label" id="rate">Rate:</label>
 							        <div class="col-sm-2">
+							        	<div class="input-group">
+							        	<span class="input-group-addon">    
+									    	<span class="glyphicon glyphicon-usd"></span>
+									  	</span>
 							        	<input class="form-control" type="text" rows = "2" placeholder="" id="rate_val" required></input></span>
 							        </div>
+							        </div>
+							        <label for="title" class="col-sm-2 control-label pull-left" id="rateType">per hour</label>
 							        <div class="help-block with-errors"></div>
 								</div>
 								<div class="form-group" id="createButtons">
