@@ -170,8 +170,9 @@
 			}
 
 			.Name{
-				font-size: 50px;
+				font-size: 25px;
 				color: gray;
+				vertical-align: top;
 				text-align: left;
 				padding-bottom: 20px;
 			}
@@ -193,16 +194,27 @@
 			}
 
 			.Profile{
-				padding-top: 18px;
+				padding-top: 10px;
 				padding-bottom: 35px;
 			}
 
 			.PictureDetails{
-				padding-left: 20px;
 				padding-bottom: 10px;
 				text-align: left;
 			}
 
+			.glyphicon {
+				padding-top: 2px;
+			}
+
+			.details {
+				padding-left: 30px;
+				padding-top: 10px;
+			}
+
+			#side {
+				float: left;
+			}
 		</style>
 
 		<!--Profile information -->
@@ -213,37 +225,41 @@
 				<div class="Profile">
 					<a href="#" title="MyPic" class="myPic"><img src="AndrewNathanPic.jpg" alt="Lorem ipsum" /></a>
 				</div>
-				<p class="PictureDetails" id="PhoneNumber"> +1 908-555-5555 </p>
-				<p class="PictureDetails" id="Email"> IKnowNothing@mit.edu</p>
-
+				<div class="details">
+					<i class="col-sm-2 glyphicon glyphicon-phone"></i><p class="PictureDetails" id="PhoneNumber"> +1 908-555-5555 </p>
+					<i class="col-sm-2 glyphicon glyphicon-envelope"></i><p class="PictureDetails" id="Email"> IKnowNothing@mit.edu</p>
+				</div>
 			</div>
 
 				<div class= "editableContent">
 					<p class="Name"> John Snow </p>
-					<p id="Description"> A father (or dad) is a male parent of a child. A biological or natural father is the man whose sperm has been used in the creation of a child, through sexual intercourse or sperm donation. Such a man may or may not be married to the child's mother. A putative father is a man whose biological relationship to a child is alleged but has not been established. The term is also used for the man who has raised a child, who is not his biological offspring, such as an adopted child. As a parent, the father has a certain legal relationship with the child, which carries defined rights and obligations to the child, which may vary between jurisdictions. A biological father may have legal obligations to a child, such as an obligation of support, even if he has no custody rights to the child.</p>
+					<p id="Description"> A father (or dad) is a male parent of a child. A biological or natural father is the man whose sperm has been used in the creation of a child, through sexual intercourse or sperm donation. Such a man may or may not be married to the child's mother. A putative father is a man whose biological relationship to a child is alleged but has not been established. The term is also used for the man who has raised a child, who is not his biological offspring, such as an adopted child. As a parent, the father has a certain legal relationship with the child, which carries defined rights and obligations to the child, which may vary between jurisdictions. </p></br>
 
 
-				<div class="container-fluid">
-					<div class="col-md-7" id = "side" data-offset-top="125" style="padding-left:0px; padding-bottom:10px">
-						<p id="ChildAge" style="float:left"> Number of Children</p>
-					</div>
-					<div class="col-md-1" id = "side" data-offset-top="125" style="padding-left:0px">
-						<p> : </p>
-					</div>
-					<div class="col-md-4" id = "jobs" >
-						<p id="NumberChildren" class="EditableContentContents" style="padding-left:0px"> 2 </p>
-					</div>
-
-					<div class="col-md-7" id = "side" data-offset-top="125" style="padding-left:0px">
-						<p id="ChildAge" style="float:left"> Children's Age </p>
-					</div>
-					<div class="col-md-1" id = "side" data-offset-top="125" style="padding-left:0px">
-						<p> : </p>
-					</div>
-					<div class="col-md-4" id = "jobs" >
-						<p id="ChildrenAge" class="EditableContentContents" style="padding-left:0px"> 2-4 </p>
+				<div class="container-fluid" id="detail">
+					<div class = "numberOfChildren">
+						<div class="col-md-7 pull-left" id = "side" data-offset-top="125" style="padding-left:0px; padding-bottom:10px">
+							<p id="ChildAge" style="float:left"> Number of Children</p>
+						</div>
+						<div class="col-md-1" id = "side" data-offset-top="125" style="padding-left:0px">
+							<p> : </p>
+						</div>
+						<div class="col-md-1 pull-left" id = "jobs" >
+							<p id="NumberChildren" class="EditableContentContents" style="padding-left:0px"> 2 </p>
+						</div>
 					</div>
 
+					<div class="age">
+						<div class="col-md-7 pull-left" id = "side" data-offset-top="125" style="padding-left:0px">
+							<p id="ChildAge" style="float:left"> Children's Age </p>
+						</div>
+						<div class="col-md-1" id = "side" data-offset-top="125" style="padding-left:0px">
+							<p> : </p>
+						</div>
+						<div class="col-md-4" id = "jobs" >
+							<p id="ChildrenAge" class="EditableContentContents" style="padding-left:0px"> 2-4 </p>
+						</div>
+					</div>
 				</div>	
 
 				<div class="ButtonsDiv">
