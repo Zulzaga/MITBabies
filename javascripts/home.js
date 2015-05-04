@@ -49,7 +49,7 @@ $(document).ready(function() {
 		jobs.splice(0, 0, job);
 		localStorage['jobs'] = JSON.stringify(jobs);
 
-		// window.location.href="jobs.html";
+		window.location.href="jobs.html";
 	})
 
 	$("#clear").click(function() {
