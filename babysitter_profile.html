@@ -44,8 +44,7 @@
 		</div>
 
 		<!--Styles Styles -->
-		<style>
-
+	<style>
 
 		#pictureAndButtons {
 		    display: inline-block;
@@ -82,15 +81,6 @@
 			color: gray;
 			text-align: left;
 			padding-bottom: 20px;
-		}
-
-		.EditableContentContentsEditVersion{
-			text-align: left;
-			text-align: top;
-			border-style: solid;
-			border-width: 1px; 
-			border-color: #d3d3d3;
-			padding-left: 4px;
 		}
 
 		.tags{
@@ -130,10 +120,14 @@
 			padding-bottom: 10px;
 		}
 
-			</style>
+		#ReviewsDiv{
+			
+		}
+
+	</style>
 
 		<!--Profile information -->
-		<div id="ProfileBlock" align="left" style="padding-bottom:50px; padding-left:80px" >
+		<div id="ProfileBlock" align="center" style="padding-bottom:50px; padding-left:80px" >
 
 			<div id="pictureAndButtons">
 					<!-- Add ability to change picture or not -->
@@ -145,8 +139,6 @@
 
 					<button id= "Message" onclick="" style="margin-bottom:10px; width:auto">Message Anna </button> </br>
 					<button id= "Favorite" onclick="" style="margin-bottom:10px; width:auto" >Add to Favorites </button>
-
-
 			</div>
 
 
@@ -159,19 +151,18 @@
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 				<p class="tags"> Resume : </p>
-				<p href= "#" class="tagsText"> Anna_Johnson.pdf </p>
-			</div>
+				<p href= "#" class="tagsText" style="margin-bottom:50px"> Anna_Johnson.pdf </p>
 
 
-			<div>
-				<p class="ReviewTag" style="padding-top:40px;border-bottom:1px; border-color:#d3d3d3"> Reviews: </p>
-			</div>
+				<div id="ReviewsDiv">
+					<p class="ReviewTag" style="padding-top:40px;border-bottom:1px; border-color:#d3d3d3 max-width:140px" > Reviews: </p>
 
-
-			<div>
-				<p> Review 1</p>
-				<p> Review 2</p>
-				<p> Review 3</p>
+					<div>
+						<p> Review 1</p>
+						<p> Review 2</p>
+						<p> Review 3</p>
+					</div>
+				</div>
 			</div>
 
 
