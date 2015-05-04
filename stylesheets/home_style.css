@@ -13,10 +13,17 @@
 	text-align: center;
 }
 
+.notif {
+	text-align: left
+}
+
 #rate {
 	text-align: center;
 }
 
+.glyphicon-asterisk {
+	margin-top: 2px;
+}
 .home_panels {
 	float: left;
 }
