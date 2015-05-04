@@ -1,20 +1,49 @@
 .sidebar-nav-fixed {
 	width: 15%;
+	left: 20px;
+	text-align: center;
 }
 
 .scroll-link {
 	font-size: 10px;
 }
 
+#rate {
+	text-align: center;
+}
+
 #home_panels {
 	float: left;
-	left: 30px;
+	width: 70%;
+}
+
+.scroll-link {
+	font-size: 16px;
+}
+
+#bigTitle {
+	font-size: 40px;
 }
 
 #createButtons {
 	margin-top: 40px;
 }
 
+.form-group {
+
+}
+
+.navbar-brand {
+	font-size: 40px;
+}
+
+#babies {
+	font-size: 40px;
+}
+
+#to {
+	text-align: center;
+}
 
 #body, #notif-body {
 	margin: 20px;
@@ -47,10 +76,6 @@
 
 textarea {
    resize: none;
-}
-
-#newbet-box{
-	left: 50px;
 }
 
 #leftMenu {
