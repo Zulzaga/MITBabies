@@ -1,11 +1,12 @@
-.sidebar-nav-fixed {
+/*.sidebar-nav-fixed {
 	width: 15%;
 	left: 20px;
 	text-align: center;
-}
+}*/
 
 .scroll-link {
 	font-size: 10px;
+	text-align: left;
 }
 
 #rateType {
