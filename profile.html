@@ -149,8 +149,8 @@
 			.editableContent {
 			    display: inline-block;
 			    vertical-align: top;
-			    max-width: 500px;
-			    min-width: 500px;
+			    max-width: 700px;
+			    min-width: 600px;
 			    min-height: 300px;
 			}
 			.ButtonsDiv{
@@ -262,11 +262,11 @@
 					</div>
 				</div>	
 
-				<div class="ButtonsDiv">
+				<div class="ButtonsDiv" id="Edit button div">
 					<button class="btn btn-default" id= "CancelButton" onclick="RevertStuff()" style="visibility:hidden">Cancel</button>
-				</div>
-				<div class="ButtonsDiv">
 					<button  class="btn btn-default pull-right" id= "SaveButton" onclick="SaveStuff()" style="visibility:hidden">Save</button>
+				</div> </br>
+				<div class="ButtonsDiv" id="SaveButtonsDiv">
 					<button  class="btn btn-default" id="EditButton" onclick="makeEditable()">Edit Profile</button>
 				</div>
 
