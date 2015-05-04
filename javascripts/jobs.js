@@ -12,6 +12,14 @@ $(document).ready(function() {
   		return "job_"+ind;
 	});
 
+	Handlebars.registerHelper('formId', function(ind) {
+  		return "form_"+ind;
+	});
+
+	Handlebars.registerHelper('jobBodyId', function(ind) {
+  		return "jobBody_"+ind;
+	});
+
 	Handlebars.registerHelper('appsId', function(ind) {
   		return "apps_"+ind;
 	});
@@ -111,21 +119,125 @@ $(document).ready(function() {
  		items: 3,
  	});
 
- 	$(".applicant_pic").click(function(e){
- 		var divs = $(e.target).parent().parent().parent().children();
- 		for (var i=0; i<divs.length; i++){
- 			var div = $(divs[i]);
- 			if (div.hasClass("applicantPanel")){
- 				if (div.hasClass("in")){
- 					div.removeClass("in");
- 				}
- 				else{
- 					div.addClass("in");
- 				}
- 				break;
- 			}
+ 	// $(".applicant_pic").click(function(e){
+ 	// 	var divs = $(e.target).parent().parent().parent().children();
+ 	// 	for (var i=0; i<divs.length; i++){
+ 	// 		var div = $(divs[i]);
+ 	// 		if (div.hasClass("applicantPanel")){
+ 	// 			if (div.hasClass("in")){
+ 	// 				div.removeClass("in");
+ 	// 			}
+ 	// 			else{
+ 	// 				div.addClass("in");
+ 	// 			}
+ 	// 			break;
+ 	// 		}
+ 	// 	}
+ 	// });
+
+ 	$(".job-delete").click(function(e){
+ 		openConfirmationDialog(e);
+ 		
+ 	});
+
+ 	$(".job-edit").click(function(e){
+ 		var self = $(e.target);
+		var title = self.parent().attr("id");
+		var job_index = title.split("_")[1];
+		var details_container = $("#jobBody_"+job_index);
+		details_container.submit(function(e){
+			console.log(e);
+		});
+
+ 		if ($(this).text()=="Edit"){
+ 			$(this).text("Save");
+ 			$(this).prop("type", "submit");
+
+			var loc = $(details_container.find(".location")[0]);
+			var rate = $(details_container.find(".rate")[0]);
+			var time = $(details_container.find(".time")[0]);
+			
+
+			var loc_parent = loc.parent();
+			var rate_parent = rate.parent();
+			var time_parent = time.parent();
+			
+			var list = $("<select/>").addClass("form-control").attr("id", "loc_"+job_index);
+			for (var i=0; i<locations.length; i++){
+				if(locations[i]==jobs[job_index].location){
+					list.append($("<option selected/>").html(locations[i]));	
+				}
+				else{
+					list.append($("<option/>").html(locations[i]));	
+				}
+				
+			}
+
+			loc_parent.append(list);
+			 
+			loc.remove();
+
+			var rate_input = $('<p contenteditable="true"/>').text(rate.text()).addClass("job_details").addClass("rate");
+			rate_input.addClass("vis");
+			rate_parent.prepend(rate_input);
+			rate.remove();
  		}
- 	})
+ 		else{
+ 			$(this).prop("type", "button");
+ 			$(this).text("Edit");
+
+ 			var loc = $("#loc_"+job_index);
+ 			var selected = loc.val();
+ 			var loc_parent = loc.parent();
+ 			loc.remove();
+ 			var new_loc = $('<p>').text(" At "+selected).addClass("job_details").addClass("location");
+ 			new_loc.prepend($("<span>").addClass("fa fa-home"));
+ 			loc_parent.append(new_loc);
+ 			jobs[job_index].location=selected;
+
+ 			var rate = $(details_container.find(".rate")[0]);
+ 			var rate_parent = rate.parent();
+ 			var rate_input = $('<p>').text(rate.text()).addClass("job_details").addClass("rate");
+ 			rate_input.prepend($("<span>").addClass("fa fa-usd"));
+			rate_parent.prepend(rate_input);
+			jobs[job_index].rate=rate_input.text();
+			rate.remove();
+ 		}
+ 		
+ 		
+ 	});
+
+
+
+	function openConfirmationDialog(e) {
+		// Define the Dialog and its properties.
+		$("#popup").dialog({
+		    resizable: false,
+		    modal: true,
+		    title: "Deletion confirmation",
+		    height: 200,
+		    width: 250,
+		    open:function() {
+			      var markup = 'Are you sure you want to delete this job?';
+			      $(this).html(markup);
+			    },
+		    buttons: {
+		        "Yes": function () {
+		        	var self = $(e.target);
+			 		var title = self.parent().attr("id");
+			 		var job_index = title.split("_")[1];
+			 		$("#job_"+job_index).remove();
+			 		if (jobs[job_index].current_flag){
+			 			$("#apps_"+job_index).remove();
+ 					}
+		            $(this).dialog('close');
+		        },
+		            "No": function () {
+		            $(this).dialog('close');
+		        }
+		    }
+		});
+	}
 
  	if (window.location.hash != null && window.location.hash != '' && $(window.location.hash).offset()!= null) {
         $('body').animate({

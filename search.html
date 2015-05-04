@@ -6,29 +6,103 @@
 
 @import "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
 
-#profiles { margin-top: 20px; }
-.mb20 { margin-bottom: 20px; } 
+#profiles { 
+	margin-top: 20px; 
+}
+.mb20 { 
+	margin-bottom: 20px;
+} 
 
-hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
-hgroup h1 { font: 500 normal 1.625em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin-top: 200; line-height: 1.15; }
-hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin: 0; padding-bottom: 10px; }
+hgroup { 
+	padding-left: 15px; 
+	border-bottom: 1px 
+	solid #ccc; 
+}
+hgroup h1 { 
+	font: 500 normal 1.625em "Roboto",Arial,Verdana,sans-serif; 
+	color: #2a3644; 
+	margin-top: 200; 
+	line-height: 1.15; 
+}
+hgroup h2.lead { 
+	font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
+	color: #2a3644; 
+	margin: 0; 
+	padding-bottom: 10px; 
+}
 
-.search-result .thumbnail { border-radius: 0 !important; }
-.search-result:first-child { margin-top: 0 !important; }
-.search-result { margin-top: 20px; }
-.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
-.search-result ul { padding-left: 0 !important; list-style: none;  }
-.search-result ul li { font: 400 normal .85em "Roboto",Arial,Verdana,sans-serif;  line-height: 30px; }
-.search-result ul li i { padding-right: 5px; }
-.search-result .col-md-7 { position: relative; }
-.search-result h3 { font: 500 normal 1.375em "Roboto",Arial,Verdana,sans-serif; margin-top: 0 !important; margin-bottom: 10px !important; }
-.search-result h3 > a, .search-result i { color: #248dc1 !important; }
-.search-result p { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; } 
-.search-result span.plus { position: absolute; right: 0; top: 126px; }
-.search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
-.search-result span.plus a:hover { background-color: #414141; }
-.search-result span.plus a i { color: #fff !important; }
-.search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
+.search-result .thumbnail { 
+	border-radius: 0 !important; 
+}
+.search-result:first-child { 
+	margin-top: 0 !important; 
+}
+.search-result { 
+	margin-top: 20px; 
+}
+.search-result .col-md-2 { 
+	border-right: 1px dotted #ccc; 
+	min-height: 140px; 
+}
+.search-result ul { 
+	padding-left: 0 !important; 
+	list-style: none;  
+}
+.search-result ul li { 
+	font: 400 normal .85em "Roboto",Arial,Verdana,sans-serif;  
+	line-height: 30px; 
+}
+.search-result ul li i { 
+	padding-right: 0px; 
+}
+.search-result .col-md-7 { 
+	position: relative; 
+}
+.search-result h3 { 
+	font: 500 normal 1.375em "Roboto",Arial,Verdana,sans-serif; 
+	margin-top: 0 !important; 
+	margin-bottom: 10px !important; 
+}
+.search-result h3 > a, .search-result i { 
+	color: #248dc1 !important; 
+}
+.search-result p { 
+	font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
+} 
+.search-result span.plus { 
+	position: absolute; 
+	right: 0; 
+	top: 126px; 
+}
+.search-result span.plus a { 
+	background-color: #248dc1; 
+	padding: 5px 5px 3px 5px; 
+}
+.search-result span.plus a:hover { 
+	background-color: #414141; 
+}
+.search-result span.plus a i { 
+	color: #fff !important; 
+}
+.search-result span.border { 
+	display: block; 
+	width: 97%; 
+	margin: 0 15px; 
+	border-bottom: 1px dotted #ccc; 
+}
+.avail-button {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+}
+.avail-button:hover {
+	border-style: solid;
+	border-color: blue;
+	border-width: 1px;
+	color: blue;
+}
 
 </style>
 
@@ -58,6 +132,8 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
 		      <ul class="nav navbar-nav navbar">
 		        <li><a href="profile.html" id="profile_page">Profile</a></li>
 		        <li><a href="jobs.html" id="jobs_page">Jobs</a></li>
+		        <li><a href="#" id="messages_page">Messages</a></li>
+		        <li><a href="#" id="favorites_page">Favorites</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="#" id="logout">Logout</a></li>
@@ -90,51 +166,54 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
     <section class="col-xs-12 col-sm-6 col-md-12">
 		<article class="search-result row" id="Anna">
 			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="AnnaJohnsonPic.jpeg" alt="Lorem ipsum" /></a>
+				<a href="#"><img class="img-thumbnail" src="AnnaJohnsonPic.jpeg"/></a>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-2">
 				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <span>See Availability</span></li>
+					<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail1'class='avail-button' value="See Availability" onclick="showImage('cal1','avail1');"/></li>
+					<img class="thumbnail" id="cal1" src="CalendarImage.jpg" style="visibility:hidden"/>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				<h3><a href="#" title="">Anna Johnson</a></h3>
+				<h3><a href="#">Anna Johnson</a></h3>
 				<p>I am a senior. I am usually very available during weekends and holidays. I've babysitted a 2 year old girl for three months. I also babysit 3 year old twins...</p>						
-                <span class="plus"><a href="#" title="Lorem ipsum"><font color="white">View Profile</font></a></span>
+                <span class="plus"><a href="babysitter_profile.html"><font color="white">View Profile</font></a></span>
 			</div>
 			<span class="clearfix borda"></span>
 		</article>
 
         <article class="search-result row" id="Smith">
 			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="AnnalieseSmithPic.png" alt="Lorem ipsum" /></a>
+				<a href="#"><img class="img-thumbnail"src="AnnalieseSmithPic.png" /></a>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-2">
 				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <span>See Availability</span></li>
+					<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id="avail2" class='avail-button'value="See Availability" onclick="showImage('cal2', 'avail2');"/></li>
+					<img class="thumbnail" id="cal2" src="CalendarImage.jpg" style="visibility:hidden"/>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-7">
-				<h3><a href="#" title="">Annaliese Smith</a></h3>
+				<h3><a href="#">Annaliese Smith</a></h3>
 				<p>I am a third year PhD student working in the Fluid Interfaces sector of the Media Lab. I have been babysitting since my time in undergrad...</p>						
-                <span class="plus"><a href="#" title="Lorem ipsum"><font color="white">View Profile</font></a></span>
+                <span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
 			</div>
 			<span class="clearfix borda"></span>
 		</article>
 
 		<article class="search-result row" id="Andrew">
 			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="AndrewNathanPic.jpg" alt="Lorem ipsum" /></a>
+				<a href="#"><img class="img-thumbnail"src="AndrewNathanPic.jpg"/></a>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-2">
 				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <span>See Availability</span></li>
+					<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail3'class='avail-button' value="See Availability" onclick="showImage('cal3', 'avail3');"/></li>
+					<img class="thumbnail" id="cal3" src="CalendarImage.jpg" style="visibility:hidden"/>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-7">
-				<h3><a href="#" title="">Andrew Nathan</a></h3>
+				<h3><a href="#">Andrew Nathan</a></h3>
 				<p>I am a sophomore studying Chemical Engineering and have been babysitting since I was fifteen. I currently live in Maseeh and...</p>						
-                <span class="plus"><a href="#" title="Lorem ipsum"><font color="white">View Profile</font></a></span>
+                <span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
 			</div>
 			<span class="clearfix border"></span>
 		</article>			
@@ -142,4 +221,19 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
 	</section>
 </div>
 	</body>
+
+<script type="text/javascript">
+
+	function showImage(calid, buttonid){
+		if (document.getElementById(calid).style.visibility=='hidden'){
+				document.getElementById(calid).style.visibility='visible';
+				document.getElementById(buttonid).value="Hide Availability"
+			}
+		else {
+			document.getElementById(calid).style.visibility='hidden';
+			document.getElementById(buttonid).value="See Availability"
+		}
+	}
+
+</script>
 </html>
