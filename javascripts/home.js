@@ -57,6 +57,8 @@ $(document).ready(function() {
 	})
 
 	$('#example').datetimepicker();
+	$('#ex').datetimepicker();
+	$('#ex2').datetimepicker();
 	$('#example1').datetimepicker();
 
 	// $('#timepicker1').timepicker();
