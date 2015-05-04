@@ -205,8 +205,6 @@ $(document).ready(function() {
  		
  	});
 
-
-
 	function openConfirmationDialog(e) {
 		// Define the Dialog and its properties.
 		$("#popup").dialog({
@@ -241,6 +239,5 @@ $(document).ready(function() {
         $('body').animate({
             scrollTop: $(window.location.hash).offset().top - 100
         }, 750);
-    } else {
     }
 });

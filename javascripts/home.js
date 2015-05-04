@@ -10,6 +10,23 @@ $(document).ready(function() {
 		}
 	}
 
+	// $("#jobCreation").validate({
+    
+ //        // Specify the validation rules
+ //        rules: {
+ //        	title: "required"
+ //            rate: {
+ //                required: true,
+ //                number: true 
+ //            }
+ //        },
+        
+ //        // Specify the validation error messages
+ //        messages: {
+ //            rate: "Please enter valid rate"
+ //        }
+ //    });
+
 	$('.scroll-link').on('click', function(event) {
 		event.preventDefault();
 		var sectionID = $(this).attr("data-id");
@@ -52,20 +69,28 @@ $(document).ready(function() {
 		window.location.href="jobs.html";
 	})
 
-	$("#clear").click(function() {
-		console.log("reset");
-	})
+	$('#ex').datetimepicker({
+        minDate: new Date(),
+    });
 
-	$('#example').datetimepicker();
-	$('#ex').datetimepicker();
-	$('#ex2').datetimepicker();
-	$('#example1').datetimepicker();
+    $('#ex2').datetimepicker({
+        minDate: new Date(), 
+    });
 
-	// $('#timepicker1').timepicker();
-	// $('#timepicker2').timepicker();
+    // $('#example').datetimepicker({
+    //     minDate: new Date()//some date in date time format
+    // });
 
-	// $('#timepicker').timepicker();
+    // $('#example1').datetimepicker({
+    //     minDate: new Date()//some date in date time format
+    // });
 
-	// $("#datepicker").datepicker();
+    $('#ex').on("dp.change", function(e) {
+    	$("#ex2").data("DateTimePicker").minDate(e.date);
+    });
+
+	$('#ex2').on("dp.change", function(e) {
+    	$("#ex").data("DateTimePicker").maxDate(e.date);
+    });
 });
 
