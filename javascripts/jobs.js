@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	var jobs = getJobs();
 	var locations = getLocations();
-
-	console.log("cookie", document.cookie);
 	
 	Handlebars.registerHelper('navigate_to', function(ind) {
   		return "#title_"+ind;
@@ -29,12 +27,12 @@ $(document).ready(function() {
 	});
 
 	Handlebars.registerHelper('makeTitle', function(data) {
-  		return data.title+" on " +getDate(data.time.from);
+  		return data.title+" on " + getDate(data.time.from);
 	});
 
 
 	Handlebars.registerHelper('getTime', function(date){
-		var parts = date.toLocaleTimeString().split(" ");
+		var parts = (new Date(date)).toLocaleTimeString().split(" ");
 		var nums = parts[0].split(":");
 		return nums[0]+":"+nums[1]+parts[1];
 	});
@@ -110,7 +108,7 @@ $(document).ready(function() {
 	}
 
     function getDate(date) {
-		var timeString = date.toDateString();
+		var timeString = (new Date(date)).toDateString();
   		return timeString;
 	}
 

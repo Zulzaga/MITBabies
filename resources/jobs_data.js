@@ -127,7 +127,14 @@ var job3 = {title: "Anniversary dinner on Valentines",
 //list of jobs
 var jobs = [job0, job1, job2, job3];
 
+var first = true;
+
 function getJobs(){
-	return jobs;
+	if (!localStorage['jobs']) {
+		localStorage['jobs'] = JSON.stringify(jobs);
+	} 
+	// localStorage.clear();
+
+	return JSON.parse(localStorage['jobs']);
 }
 

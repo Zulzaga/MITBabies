@@ -11,23 +11,28 @@ label.control-label span { cursor: pointer; }
 	font-size: 16px;
 }
 
+.sidebar-nav-fixed {
+	width: 15%;
+	left: 20px;
+	font-size: 16px;
+}
+
 #menu {
 	font-size: 16px;
 	margin-top: 4px;
 }
 
 .navbar-brand {
-	font-size: 30px;
+	font-size: 40px;
 }
 
 .navbar {
-	height: 10%;
 	text-align: center;
 }
 
 
 .job_details{
-	display:inline-block; 
+	padding-right: 15px;
 }
 .edit{
 	float:right;
@@ -71,15 +76,4 @@ ul
 	padding-left: 0px;
 	text-align: left;
 
-}
-
-.job-btn{
-	margin-right:5px;
-}
-
-.vis{
-	border-width: 1px;
-	border-color: #d3d3d3;
-	border-style: solid;
-	width:50px;
 }

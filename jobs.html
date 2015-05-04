@@ -36,7 +36,7 @@
 	    <script type="text/javascript" src="javascripts/jobs.js"></script>
 		<script id="side-template" type="text/x-handlebars-template">
 			<p id = "current_jobs_header">Current jobs</p>
-			<ul id = "current_jobs" >
+			<ul id = "current_jobs" class="nav">
 				{{#each jobs}}
 					{{#if this.current_flag}}
 						<li class = "current_job">
@@ -47,7 +47,7 @@
 			</ul>
 
 			<p id = "current_jobs_header">Past jobs</p>
-			<ul id = "past_jobs">
+			<ul id = "past_jobs" class="nav">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
 						<li class = "past_job">
@@ -141,7 +141,7 @@
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		  <div class="container" id="menu">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home.html">MITBabies</a>
+		      <a class="navbar-brand" href="home.html" id="bigTitle">MITBabies</a>
 		    </div>
 		    <div class="navbar-collapse collapse">
 		      <ul class="nav navbar-nav navbar">
@@ -171,9 +171,13 @@
 		<div id="popup">
 		</div>
 		<div class="container-fluid">
-			<div class="col-md-2 sidebar-nav-fixed a" id = "side" data-offset-top="125">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="sidebar-nav-fixed affix" id = "side" data-offset-top="125">
+					</div>
 
-			</div>
+				</div>
+
 			<div class="col-md-8" id = "jobs" >
 			</div>				
 

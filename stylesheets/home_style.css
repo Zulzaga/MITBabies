@@ -1,5 +1,7 @@
 .sidebar-nav-fixed {
 	width: 15%;
+	left: 20px;
+	text-align: center;
 }
 
 .scroll-link {
@@ -12,7 +14,15 @@
 
 #home_panels {
 	float: left;
-	left: 30px;
+	width: 70%;
+}
+
+.scroll-link {
+	font-size: 16px;
+}
+
+#bigTitle {
+	font-size: 40px;
 }
 
 #createButtons {
@@ -23,16 +33,12 @@
 
 }
 
-#to {
+.navbar-brand {
+	font-size: 40px;
 }
 
-#timepicker2, #timepicker1 {
-}
-
-.form-control {
-}
-
-.control-label {
+#babies {
+	font-size: 40px;
 }
 
 #to {
@@ -70,10 +76,6 @@
 
 textarea {
    resize: none;
-}
-
-#newbet-box{
-	left: 50px;
 }
 
 #leftMenu {

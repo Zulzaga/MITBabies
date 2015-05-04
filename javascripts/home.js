@@ -20,9 +20,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		var from_date = $("#example").find("input").val();
 		var to_date = $("#example").find("input").val();
-		console.log(date);
-	
-
+		
 		// var from_time = $("#timepicker1").val();
 		// var to_time = $("#timepicker2").val();
 		// var from_hour = from_time.substring(0,2);
@@ -33,7 +31,8 @@ $(document).ready(function() {
 		var location = $("#location").val();
 		var description = $("#description").val();
 		var title = $("#title").val();
-		var rate = $("#rate").val();
+		var rate = $("#rate_val").val();
+		console.log(rate);
 		var job = {
 			title: title,
 			time: {from: new Date(from_date), to: new Date(to_date)},
@@ -43,12 +42,12 @@ $(document).ready(function() {
 			backup: undefined,
 			description: description,
 			current_flag: true,
-		}
-		jobs.push(job);
+			applicants: []
+		};
 
-		$.cookie('jobs', jobs, { path:'/'});
-		console.log($.cookie('jobs'));
-		jobs.push(job);
+		jobs = getJobs();
+		jobs.splice(0, 0, job);
+		localStorage['jobs'] = JSON.stringify(jobs);
 
 		// window.location.href="jobs.html";
 	})
