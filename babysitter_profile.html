@@ -8,14 +8,15 @@
 		<link rel="stylsesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="javascripts/navbar.js"></script>
 		<link rel='stylesheet' href='stylesheets/style.css' />
 	</head>
 	<body style="padding-top:0px">
 		<!--fixed navigation bar -->
-		<div class="navbar navbar-default" role="navigation">
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		  <div class="container" id="menu">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home.html">MITBabies</a>
+		      <a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
 		    </div>
 		    <div class="navbar-collapse collapse">
 		      <ul class="nav navbar-nav navbar">
@@ -27,7 +28,7 @@
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
               <li>
-                  <form class="navbar-form" role="search" onsubmit='searchForBabysitter(); return false;'>
+                  <form class="navbar-form" role="search" id="search">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search Babysitters" id="babysitter-search">
                       <div class="input-group-btn">
