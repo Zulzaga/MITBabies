@@ -19,6 +19,14 @@ label.control-label span { cursor: pointer; }
 	text-align: left;
 }
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav  > li > a:focus {
+    background-color: #EEEEEE;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-brand:focus{
+	background-color: #EEEEEE;
+}
+
 #menu {
 	font-size: 16px;
 	margin-top: 4px;
