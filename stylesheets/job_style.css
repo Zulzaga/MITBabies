@@ -48,3 +48,6 @@ word-break: break-all;
 	display: inline-block;
 	padding-right: 2px;
 }
+#sideTitle_new{
+	font-style: italic;
+}
