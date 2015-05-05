@@ -10,9 +10,8 @@ ul
 .title_side{
 	word-wrap:break-word;	
 	white-space: pre-line;      /* CSS 3.0 */
-	padding-left: 0px;
+	padding-left: 25px;
 	text-align: left;
-
 }
 
 .job-btn{
