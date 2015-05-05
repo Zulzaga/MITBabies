@@ -1,0 +1,35 @@
+ul
+{
+    list-style-type: none;
+}
+
+.title_side{
+	word-wrap:break-word;	
+	white-space: pre-line;      /* CSS 3.0 */
+	padding-left: 0px;
+	text-align: left;
+
+}
+
+.job-btn{
+	margin-right:5px;
+}
+
+.vis{
+	border-width: 1px;
+	border-color: #d3d3d3;
+	border-style: solid;
+	width:50px;
+	height: 34px;
+	border-radius: 4px;
+}
+.rate{
+	display: inline-block;
+}
+.rate-msg, .time-to-msg, .time-from-msg{
+	font-weight: bold;
+}
+.time-icon{
+	display: inline-block;
+	padding-right: 2px;
+}

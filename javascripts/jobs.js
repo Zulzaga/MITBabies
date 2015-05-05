@@ -138,6 +138,7 @@ $(document).ready(function() {
  		
  	});
 
+
  	$(".job-edit").click(function(e){
  		var self = $(e.target);
 		var title = self.parent().attr("id");
@@ -177,8 +178,52 @@ $(document).ready(function() {
 
 			var rate_input = $('<p contenteditable="true"/>').text(rate.text()).addClass("job_details").addClass("rate");
 			rate_input.addClass("vis");
+			
 			rate_parent.prepend(rate_input);
+			rate_parent.prepend($("<p>").text("New rate:").addClass("rate-msg"));
 			rate.remove();
+
+
+			
+			var a = $("<span>").addClass("input-group-addon");
+			var b = $("<span>").addClass("glyphicon glyphicon-calendar");
+			a.append(b);
+			var input_from = $("<input>").attr("type", "text").addClass("form-control").attr("id", "timeFrom_"+job_index).addClass("time-from-input");
+		    var time_container_from=$("<div>").addClass("input-group").attr("id", "timeFromContainer_"+job_index);
+		    time_container_from.append(a);
+		    time_container_from.append(input_from);
+			time_parent.empty();
+			//time.remove();
+			time_parent.append($("<p>").text("Pick new dates:").addClass("time-from-msg"));
+			time_parent.append(time_container_from);
+			time_parent.append($("<p>").text("to").addClass("time-to-msg"));
+
+			var c = $("<span>").addClass("input-group-addon");
+			var d = $("<span>").addClass("glyphicon glyphicon-calendar");
+			c.append(d);
+			var input_to = $("<input>").attr("type", "text").addClass("form-control").attr("id", "timeTo_"+job_index).addClass("time-to-input");
+		    var time_container_to=$("<div>").addClass("input-group").attr("id", "timeToContainer_"+job_index);
+
+
+		    time_container_to.append(c);
+		    time_container_to.append(input_to);
+			
+			time_parent.append(time_container_to);
+
+			$('#timeFrom_'+job_index).datetimepicker({
+	        	minDate: new Date(),
+    		});
+    		$('#timeFrom_'+job_index).val(formatTime(jobs[job_index].time.from));
+
+
+    		$('#timeTo_'+job_index).datetimepicker({
+	        	minDate: new Date(),
+    		});
+    		$('#timeTo_'+job_index).val(formatTime(jobs[job_index].time.to));
+
+    		$($("#title_"+job_index).children()[0]).text(jobs[job_index].title);
+
+
  		}
  		else{
  			$(this).prop("type", "button");
@@ -194,12 +239,32 @@ $(document).ready(function() {
  			jobs[job_index].location=selected;
 
  			var rate = $(details_container.find(".rate")[0]);
+ 			var rate_msg = $(details_container.find(".rate-msg")[0]);
+ 			rate_msg.remove();
  			var rate_parent = rate.parent();
  			var rate_input = $('<p>').text(rate.text()).addClass("job_details").addClass("rate");
  			rate_input.prepend($("<span>").addClass("fa fa-usd"));
 			rate_parent.prepend(rate_input);
 			jobs[job_index].rate=rate_input.text();
 			rate.remove();
+
+
+			var from_date = $("#timeFromContainer_"+job_index).find("input").val();
+			jobs[job_index].time.from = from_date;
+
+			var to_date = $("#timeToContainer_"+job_index).find("input").val();
+			jobs[job_index].time.to = to_date;
+
+			var time_parent = $("#timeToContainer_"+job_index).parent()
+			time_parent.empty();
+
+			var new_time = $("<p>").addClass("job_details time time-icon");
+			new_time.text(" "+from_date.split(" ")[1]+from_date.split(" ")[2]+" to "+to_date.split(" ")[1]+to_date.split(" ")[2]);
+			time_parent.append($("<span>").addClass("glyphicon glyphicon-time time-icon"));
+			time_parent.append(new_time);
+
+			$($("#title_"+job_index).children()[0]).text(jobs[job_index].title+" on "+getDate(new Date(from_date)));
+
  		}
  		
  		
@@ -239,5 +304,27 @@ $(document).ready(function() {
         $('body').animate({
             scrollTop: $(window.location.hash).offset().top - 100
         }, 750);
+    }
+
+    var formatTime = function(time){
+    	var t = new Date(time);
+    	var hours = t.getHours();
+    	var h = hours>12?"PM":"AM";
+    	if (hours==0){
+    		h = "AM";
+    	}
+    	if (hours==12){
+    		h = "PM";
+    	}
+    	var h_string = "";
+    	var m = t.getMinutes()>9?t.getMinutes()+"":"0"+t.getMinutes();
+    	if (hours>12){
+    		var x = hours-12;
+    		h_string = x+":"+m+" "+h;
+    	}
+    	else{
+    		h_string = hours+":"+m+" "+h;
+    	}
+    	return t.toLocaleDateString()+" "+h_string;
     }
 });

@@ -3,9 +3,11 @@
 <html>
 	<head>
 
+
 		<link rel="stylesheet" href="resources/bootstrap.min.css">
 		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
+		<link rel='stylesheet' href='stylesheets/job_style.css' />
 		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
 		<link rel="stylesheet" href="resources/font-awesome.min.css">
 
@@ -36,6 +38,12 @@
 	    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	    <script type="text/javascript" src="resources/jobs_data.js"></script>
 	    <script type="text/javascript" src="javascripts/jobs.js"></script>
+
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	    <link href="resources/bootstrap-datetimepicker.css" rel="stylesheet">
+
+        <script src="resources/bootstrap-datetimepicker.min.js"></script>
+
 		<script id="side-template" type="text/x-handlebars-template">
 			<p id = "current_jobs_header" class="nav">Current jobs</p>
 			<ul id = "current_jobs" class="nav">
@@ -77,11 +85,12 @@
 		    <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		      <div class="panel-body" id={{jobBodyId @index}}>
 		      	<div class = "col-md-4">
-			        <p class="job_details time"><span class="glyphicon glyphicon-time"></span> {{getTime this.time.from}} to {{getTime this.time.to}}
+		      		<span class="glyphicon glyphicon-time time-icon"></span>
+			        <p class="job_details time time-icon">{{getTime this.time.from}} to {{getTime this.time.to}}
 			        </p>
 			    </div>
 			    <div class = "col-md-4">
-			        <p class="job_details rate"><span class="fa fa-usd">{{this.rate}}</span></p> <span>per hour</span>
+			        <p class="job_details rate"><span class="fa fa-usd">{{this.rate}}</span></p><span> per hour</span>
 			    </div>
 			    <div class = "col-md-4">
 			    	<p class="job_details location"><span class="fa fa-home"></span> At {{this.location}}</p>
