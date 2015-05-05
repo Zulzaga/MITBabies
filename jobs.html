@@ -140,7 +140,7 @@
 
 		<script id="side-template" type="text/x-handlebars-template">
 
-			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Current jobs</a>
+			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Current jobs <span class="caret pull-right" style="margin-top:10px"></a>
 			<div class="collapse" id="cur_jobs"> 
 				{{#each jobs}}
 					{{#if this.current_flag}}
@@ -150,7 +150,7 @@
 					{{/if}}
 				{{/each}}
 			</div>
-			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Past jobs</a>
+			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Past jobs <span class="caret pull-right" style="margin-top:10px"></a>
 			<div class="collapse" id="past_jobs">
 				{{#each jobs}}
 					{{#unless this.current_flag}}

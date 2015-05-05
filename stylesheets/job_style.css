@@ -32,6 +32,10 @@ ul
 word-break: break-all;
 }
 
+.caret {
+	left: 0px;
+}
+
 .vis{
 	border-width: 1px;
 	border-color: #d3d3d3;
