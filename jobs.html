@@ -239,7 +239,14 @@
 				    				<a  href="babysitter_profile.html"><img src="blank.png" class="img-thumbnail applicant_pic" align="middle"></a>
 				    			{{/unless}}
 				    		</p>
-				    		<p align="center">{{this.rating}}</p>
+				    		<p align="center">
+				    			{{#times this.rating}}
+				    				<i class=" glyphicon glyphicon-star" style="color:#E6B800"></i>
+				    			{{/times}}
+				    			{{#not_times this.rating}}
+				    				<i class=" glyphicon glyphicon-star-empty" style="color:#E6B800"></i>
+				    			{{/not_times}}
+				    		</p>
 				    	</div>
 			    		<div class="applicantPanel col-xs-6 collapse in">
 			    			<div class="btn-group  app_panel_btn_hire">

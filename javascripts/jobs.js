@@ -43,8 +43,20 @@ $(document).ready(function() {
 	Handlebars.registerHelper('getFullName', function(data) {
   		return data.firstName+" " +this.lastName;
 	});
-
-	
+	Handlebars.registerHelper('times', function(n, block) {
+	    var accum = '';
+	    var x = Math.floor(n);
+	    for(var i = 0; i < x; ++i)
+	        accum += block.fn(i);
+	    return accum;
+	});
+	Handlebars.registerHelper('not_times', function(n, block) {
+	    var accum = '';
+	    var x = 5-Math.floor(n);
+	    for(var i = 0; i < x; ++i)
+	        accum += block.fn(i);
+	    return accum;
+	});	
 
 	// sets variable source
 	var side_template_source = document.getElementById("side-template").innerHTML;
