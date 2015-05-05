@@ -94,16 +94,23 @@
 		    {{#if this.current_flag}}
 		    <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		      <div class="panel-body" id={{jobBodyId @index}}>
-		      	<div class = "col-md-4">
-		      		<span class="glyphicon glyphicon-time time-icon"></span>
-			        <p class="job_details time time-icon">{{getTime this.time.from}} to {{getTime this.time.to}}
-			        </p>
+		      	<div class="row">
+			      	<div class = "col-md-4">
+			      		<span class="glyphicon glyphicon-time time-icon"></span>
+				        <p class="job_details time time-icon">{{getTime this.time.from}} to {{getTime this.time.to}}
+				        </p>
+				    </div>
+				    <div class = "col-md-4">
+				        <p class="job_details rate"><span class="fa fa-usd">{{this.rate}} per hour</span></p>
+				    </div>
+				    <div class = "col-md-4">
+				    	<p class="job_details location"><span class="fa fa-home"></span> At {{this.location}}</p>
+				    </div>
 			    </div>
-			    <div class = "col-md-4">
-			        <p class="job_details rate"><span class="fa fa-usd">{{this.rate}} per hour</span></p>
-			    </div>
-			    <div class = "col-md-4">
-			    	<p class="job_details location"><span class="fa fa-home"></span> At {{this.location}}</p>
+			    <div class="row">
+			    	<div class = "col-md-12">
+			    		<p class = "job details desc collapse">{{this.description}}</p>
+			    	</div>
 			    </div>
 			    </div>
 		      </div>
@@ -124,13 +131,13 @@
 			    {{#each applicants}}
 			    	<div class="one_applicant">
 			    		<div class="col-xs-6">
-				    		<p align="center"><a href="/babysitter_profile.html" data-toggle="tooltip" data-placement="left" title="View Profile">{{getFullName this}}</a></p>
+				    		<p align="center"><a href="babysitter_profile.html" data-toggle="tooltip" data-placement="left" title="View Profile">{{getFullName this}}</a></p>
 				    		<p align="center">
 				    			{{#if this.profilePic}}
-				    				<img src={{this.profilePic}} class="img-thumbnail applicant_pic" align="middle">
+				    				<a  href="babysitter_profile.html"><img src={{this.profilePic}} class="img-thumbnail applicant_pic" align="middle"></a>
 				    			{{/if}}
 				    			{{#unless this.profilePic}}
-				    				<img src="blank.png" class="img-thumbnail applicant_pic" align="middle">
+				    				<a  href="babysitter_profile.html"><img src="blank.png" class="img-thumbnail applicant_pic" align="middle"></a>
 				    			{{/unless}}
 				    		</p>
 				    		<p align="center">{{this.rating}}</p>

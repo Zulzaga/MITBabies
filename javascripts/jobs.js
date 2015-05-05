@@ -142,20 +142,7 @@ $(document).ready(function() {
  		
  	});
 
- 	$(".title_side").click(function(e){
- 		var self = $(e.target);
- 		var title = self.parent().attr("id");
- 		console.log(title);
-		var job_index = title.split("_")[1];
-		var job = jobs[job_index];
-		$("#apps_"+job_index).addClass("in");
-
-		$($("#title_"+job_index).find(".job-show")[0]).removeClass("in");
-		$($("#title_"+job_index).find(".job-edit")[0]).addClass("in");
-		$($("#title_"+job_index).find(".job-delete")[0]).addClass("in");
-		$($("#title_"+job_index).find(".job-hide")[0]).addClass("in");
-
- 	});
+ 	$(".title_side").click(function(e){showMore(e)});
  	$(".job-hide").click(function(e){
  		var self = $(e.target);
  		var title = self.parent().attr("id");
@@ -168,10 +155,14 @@ $(document).ready(function() {
 		$($("#title_"+job_index).find(".job-edit")[0]).removeClass("in");
 		$($("#title_"+job_index).find(".job-delete")[0]).removeClass("in");
 		$($("#title_"+job_index).find(".job-hide")[0]).removeClass("in");
+		$($("#jobBody_"+job_index).find(".desc")[0]).removeClass("in");
 
  	});
 
- 	 $(".job-show").click(function(e){
+ 	 $(".job-show").click(function(e){showMore(e)});
+
+
+ 	 var showMore = function(e){
  		var self = $(e.target);
  		var title = self.parent().attr("id");
  		console.log(title);
@@ -183,8 +174,8 @@ $(document).ready(function() {
 		$($("#title_"+job_index).find(".job-edit")[0]).addClass("in");
 		$($("#title_"+job_index).find(".job-delete")[0]).addClass("in");
 		$($("#title_"+job_index).find(".job-hide")[0]).addClass("in");
-
- 	});
+		$($("#jobBody_"+job_index).find(".desc")[0]).addClass("in");
+	}
 
 
  	$(".job-edit").click(function(e){
@@ -203,11 +194,13 @@ $(document).ready(function() {
 			var loc = $(details_container.find(".location")[0]);
 			var rate = $(details_container.find(".rate")[0]);
 			var time = $(details_container.find(".time")[0]);
+			var desc = $(details_container.find(".desc")[0]);
 			
 
 			var loc_parent = loc.parent();
 			var rate_parent = rate.parent();
 			var time_parent = time.parent();
+
 			
 			var list = $("<select/>").addClass("form-control").attr("id", "loc_"+job_index);
 			for (var i=0; i<locations.length; i++){
@@ -271,13 +264,15 @@ $(document).ready(function() {
     		});
     		$('#timeFrom_'+job_index).val(formatTime(jobs[job_index].time.from));
 
-
     		$('#timeTo_'+job_index).datetimepicker({
 	        	minDate: new Date(),
     		});
     		$('#timeTo_'+job_index).val(formatTime(jobs[job_index].time.to));
 
     		$($("#title_"+job_index).children()[0]).text(jobs[job_index].title);
+
+    		desc.addClass("vis");
+    		desc.attr("contenteditable", "true");
 
 
  		}
@@ -321,6 +316,10 @@ $(document).ready(function() {
 			time_parent.append(new_time);
 
 			$($("#title_"+job_index).children()[0]).text(jobs[job_index].title+" on "+getDate(new Date(from_date)));
+
+			var desc = $(details_container.find(".desc")[0]);
+			desc.removeClass("vis");
+			desc.attr("contenteditable", "false");
 
  		}
  		
