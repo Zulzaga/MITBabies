@@ -26,6 +26,10 @@ $(document).ready(function() {
   		return "title_"+ind;
 	});
 
+	Handlebars.registerHelper('sideTitleId', function(ind) {
+  		return "sideTitle_"+ind;
+	});
+
 	Handlebars.registerHelper('makeTitle', function(data) {
   		return data.title+" on " + getDate(data.time.from);
 	});
@@ -136,6 +140,50 @@ $(document).ready(function() {
  	$(".job-delete").click(function(e){
  		openConfirmationDialog(e);
  		
+ 	});
+
+ 	$(".title_side").click(function(e){
+ 		var self = $(e.target);
+ 		var title = self.parent().attr("id");
+ 		console.log(title);
+		var job_index = title.split("_")[1];
+		var job = jobs[job_index];
+		$("#apps_"+job_index).addClass("in");
+
+		$($("#title_"+job_index).find(".job-show")[0]).removeClass("in");
+		$($("#title_"+job_index).find(".job-edit")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-delete")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-hide")[0]).addClass("in");
+
+ 	});
+ 	$(".job-hide").click(function(e){
+ 		var self = $(e.target);
+ 		var title = self.parent().attr("id");
+ 		console.log(title);
+		var job_index = title.split("_")[1];
+		var job = jobs[job_index];
+		$("#apps_"+job_index).removeClass("in");
+
+		$($("#title_"+job_index).find(".job-show")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-edit")[0]).removeClass("in");
+		$($("#title_"+job_index).find(".job-delete")[0]).removeClass("in");
+		$($("#title_"+job_index).find(".job-hide")[0]).removeClass("in");
+
+ 	});
+
+ 	 $(".job-show").click(function(e){
+ 		var self = $(e.target);
+ 		var title = self.parent().attr("id");
+ 		console.log(title);
+		var job_index = title.split("_")[1];
+		var job = jobs[job_index];
+		$("#apps_"+job_index).addClass("in");
+
+		$($("#title_"+job_index).find(".job-show")[0]).removeClass("in");
+		$($("#title_"+job_index).find(".job-edit")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-delete")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-hide")[0]).addClass("in");
+
  	});
 
 
@@ -300,6 +348,7 @@ $(document).ready(function() {
 			 		if (jobs[job_index].current_flag){
 			 			$("#apps_"+job_index).remove();
  					}
+ 					$("#sideTitle_"+job_index).remove();
 		            $(this).dialog('close');
 		        },
 		            "No": function () {

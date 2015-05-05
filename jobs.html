@@ -49,7 +49,7 @@
 			<ul id = "current_jobs" class="nav">
 				{{#each jobs}}
 					{{#if this.current_flag}}
-						<li class = "current_job">
+						<li class = "current_job" id={{sideTitleId @index}}>
 							<a class="btn title_side"href={{navigate_to @index}}>{{this.title}}</a>
 						</li>
 					{{/if}}
@@ -60,7 +60,7 @@
 			<ul id = "past_jobs" class="nav">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
-						<li class = "past_job">
+						<li class = "past_job" id={{sideTitleId @index}}>
 							<a class="btn title_side" href={{navigate_to @index}}>{{this.title}}</a>
 						</li>
 					{{/unless}}
@@ -76,10 +76,20 @@
 		      <h4 class="panel-title pull-left">
 		          {{makeTitle this}}
 		      </h4>
-		      <button type="button" class="btn btn-default pull-right job-btn job-delete">Delete</button>
+
+
 		      {{#if this.current_flag}}
-		      <button type="button" class="btn btn-default pull-right job-btn job-edit">Edit</button>
+		      <button type="button" class="btn btn-default pull-right job-btn job-delete collapse">Delete</button>
+		      <button type="button" class="btn btn-default pull-right job-btn job-show collapse in">Show more</button>
+
+		      <button type="button" class="btn btn-default pull-right job-btn job-edit collapse">Edit</button>
+		      <button type="button" class="btn btn-default pull-right job-btn job-hide collapse">Hide</button>
 		      {{/if}}
+
+		      {{#unless this.current_flag}}
+		      <button type="button" class="btn btn-default pull-right job-btn job-delete collapse in">Delete</button>
+
+		      {{/unless}}
 		    </div>
 		    {{#if this.current_flag}}
 		    <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -98,8 +108,10 @@
 			    </div>
 		      </div>
 		    </div>
-		    <div id={{appsId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		    {{#if this.applicants.length}}
+		    <div id={{appsId @index}} class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 		    </div>
+		    {{/if}}
 
 		    {{/if}}
 		  </div>
