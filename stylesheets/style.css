@@ -8,17 +8,36 @@ label.control-label span { cursor: pointer; }
 
 #babysitter-search {
 	width: 300px;
-	font-size: 16px;
+	font-size: 14px;
+}
+
+.scroll-link {
+	font-weight: 2px;
 }
 
 .sidebar-nav-fixed {
-	width: 14%;
-	left: 20px;
+	width: 15%;
 	font-size: 16px;
-	left: 35px;
-	text-align: left;
 }
 
+.list-group.panel > .list-group-item {
+
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.list-group-item {
+}
+
+.title_side {
+	font-size: 14px;
+}
+
+.list-group-submenu {
+}
+
+.row {
+}
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav  > li > a:focus {
     background-color: #EEEEEE;
 }
@@ -80,7 +99,7 @@ label.control-label span { cursor: pointer; }
 }
 
 #side {
-	left: 35px;
+	left: 18px;
 }
 
 

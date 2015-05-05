@@ -139,30 +139,32 @@
         </script>
 
 		<script id="side-template" type="text/x-handlebars-template">
+
 			<p id = "current_jobs_header" class="nav">Current jobs</p>
 			<ul id = "current_jobs" class="nav">
 						<li class = "current_job" id="sideTitle_new">
 							<a class="btn title_side">Create new job</a>
 						</li>
+			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Current jobs</a>
+			<div class="collapse" id="cur_jobs"> 
 				{{#each jobs}}
 					{{#if this.current_flag}}
-						<li class = "current_job" id={{sideTitleId @index}}>
-							<a class="btn title_side"href={{navigate_to @index}}>{{this.title}}</a>
-						</li>
+						<div id={{sideTitleId @index}}>
+							<a class="btn title_side list-group-item current_job" href={{navigate_to @index}}>{{this.title}}</a>
+						</div>
 					{{/if}}
 				{{/each}}
-			</ul>
-			</br>
-			<p id = "current_jobs_header" class="nav">Past jobs</p>
-			<ul id = "past_jobs" class="nav">
+			</div>
+			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Past jobs</a>
+			<div class="collapse" id="past_jobs">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
-						<li class = "past_job" id={{sideTitleId @index}}>
-							<a class="btn title_side" href={{navigate_to @index}}>{{this.title}}</a>
-						</li>
+						<div id={{sideTitleId @index}}>
+							<a class="btn title_side list-group-item past_job" href={{navigate_to @index}}>{{this.title}}</a>
+						</div>
 					{{/unless}}
 				{{/each}}
-			</ul>
+			</div>
 
 		</script>
 
@@ -299,9 +301,8 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-2">
-					<div class="sidebar-nav-fixed affix" id = "side" data-offset-top="125">
-					</div>
-
+					<div class="list-group panel sidebar-nav-fixed affix" id = "side" data-offset-top="125">
+				  	</div>
 				</div>
 
 			<div class="col-md-8 home_panels" id = "jobs" >

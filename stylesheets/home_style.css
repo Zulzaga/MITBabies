@@ -1,13 +1,8 @@
-/*.sidebar-nav-fixed {
+.sidebar-nav-fixed {
 	width: 15%;
-	left: 20px;
-	text-align: center;
-}*/
-
-.scroll-link {
-	font-size: 10px;
-	text-align: left;
+	left: 18px;
 }
+
 
 #rateType {
 	right: 15px;
@@ -26,11 +21,11 @@
 	margin-top: 2px;
 }
 .home_panels {
-	float: left;
 }
 
+
 .scroll-link {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 #bigTitle {
