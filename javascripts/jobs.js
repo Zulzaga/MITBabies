@@ -62,15 +62,12 @@ $(document).ready(function() {
 	var side_template_source = document.getElementById("side-template").innerHTML;
 	var jobs_template_source = document.getElementById("jobs-template").innerHTML;
 	var applicants_template_source = document.getElementById("applicants-template").innerHTML; 
-	var create_template_source = document.getElementById("create-job-template").innerHTML;
 
 	// Handlebars compiles the above source into a template
 	var side_template = Handlebars.compile(side_template_source);
 	var jobs_template = Handlebars.compile(jobs_template_source);
 	var applicants_template = Handlebars.compile(applicants_template_source);
-	var create_template = Handlebars.compile(create_template_source);
 	 
-	var create_template_output = create_template();
 
 	var side_container = $("#side");
 	var side_output = side_template({jobs});
@@ -516,4 +513,63 @@ $(document).ready(function() {
 	});
 
 	
+	$('#ex').datetimepicker({
+        minDate: new Date(),
+    });
+
+    $('#ex2').datetimepicker({
+        minDate: new Date(), 
+    });
+
+    // $('#example').datetimepicker({
+    //     minDate: new Date()//some date in date time format
+    // });
+
+    // $('#example1').datetimepicker({
+    //     minDate: new Date()//some date in date time format
+    // });
+
+    $('#ex').on("dp.change", function(e) {
+    	$("#ex2").data("DateTimePicker").minDate(e.date);
+    });
+
+	$('#ex2').on("dp.change", function(e) {
+    	$("#ex").data("DateTimePicker").maxDate(e.date);
+    });
+
+    	$("#jobCreation").submit(function() {
+		event.preventDefault();
+		var from_date = $("#example").find("input").val();
+		var to_date = $("#example").find("input").val();
+		
+		// var from_time = $("#timepicker1").val();
+		// var to_time = $("#timepicker2").val();
+		// var from_hour = from_time.substring(0,2);
+		// var from_minute = from_time.substring(3, 5);
+		// var from_denoter = from_time.substring(5);
+		// console.log(from_hour, from_minute, from_denoter);
+
+		var location = $("#location").val();
+		var description = $("#description").val();
+		var title = $("#title").val();
+		var rate = $("#rate_val").val();
+		console.log(rate);
+		var job = {
+			title: title,
+			time: {from: new Date(from_date), to: new Date(to_date)},
+			location: location,
+			rate: rate,
+			primary: undefined,
+			backup: undefined,
+			description: description,
+			current_flag: true,
+			applicants: []
+		};
+
+		jobs = getJobs();
+		jobs.splice(0, 0, job);
+		localStorage['jobs'] = JSON.stringify(jobs);
+
+		window.location.href="jobs.html#title_0";
+	})
 });
