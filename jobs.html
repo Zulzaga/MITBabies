@@ -3,9 +3,11 @@
 <html>
 	<head>
 
+
 		<link rel="stylesheet" href="resources/bootstrap.min.css">
 		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
+		<link rel='stylesheet' href='stylesheets/job_style.css' />
 		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
 		<link rel="stylesheet" href="resources/font-awesome.min.css">
 
@@ -36,12 +38,18 @@
 	    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	    <script type="text/javascript" src="resources/jobs_data.js"></script>
 	    <script type="text/javascript" src="javascripts/jobs.js"></script>
+
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	    <link href="resources/bootstrap-datetimepicker.css" rel="stylesheet">
+
+        <script src="resources/bootstrap-datetimepicker.min.js"></script>
+
 		<script id="side-template" type="text/x-handlebars-template">
 			<p id = "current_jobs_header" class="nav">Current jobs</p>
 			<ul id = "current_jobs" class="nav">
 				{{#each jobs}}
 					{{#if this.current_flag}}
-						<li class = "current_job">
+						<li class = "current_job" id={{sideTitleId @index}}>
 							<a class="btn title_side"href={{navigate_to @index}}>{{this.title}}</a>
 						</li>
 					{{/if}}
@@ -52,7 +60,7 @@
 			<ul id = "past_jobs" class="nav">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
-						<li class = "past_job">
+						<li class = "past_job" id={{sideTitleId @index}}>
 							<a class="btn title_side" href={{navigate_to @index}}>{{this.title}}</a>
 						</li>
 					{{/unless}}
@@ -68,29 +76,49 @@
 		      <h4 class="panel-title pull-left">
 		          {{makeTitle this}}
 		      </h4>
-		      <button type="button" class="btn btn-default pull-right job-btn job-delete">Delete</button>
+
+
 		      {{#if this.current_flag}}
-		      <button type="button" class="btn btn-default pull-right job-btn job-edit">Edit</button>
+		      <button type="button" class="btn btn-default pull-right job-btn job-delete collapse">Delete</button>
+		      <button type="button" class="btn btn-default pull-right job-btn job-show collapse in">Show more</button>
+
+		      <button type="button" class="btn btn-default pull-right job-btn job-edit collapse">Edit</button>
+		      <button type="button" class="btn btn-default pull-right job-btn job-hide collapse">Hide</button>
 		      {{/if}}
+
+		      {{#unless this.current_flag}}
+		      <button type="button" class="btn btn-default pull-right job-btn job-delete collapse in">Delete</button>
+
+		      {{/unless}}
 		    </div>
 		    {{#if this.current_flag}}
 		    <div class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 		      <div class="panel-body" id={{jobBodyId @index}}>
-		      	<div class = "col-md-4">
-			        <p class="job_details time"><span class="glyphicon glyphicon-time"></span> {{getTime this.time.from}} to {{getTime this.time.to}}
-			        </p>
+		      	<div class="row">
+			      	<div class = "col-md-4">
+			      		<span class="glyphicon glyphicon-time time-icon"></span>
+				        <p class="job_details time time-icon">{{getTime this.time.from}} to {{getTime this.time.to}}
+				        </p>
+				    </div>
+				    <div class = "col-md-4">
+				        <p class="job_details rate"><span class="fa fa-usd">{{this.rate}} per hour</span></p>
+				    </div>
+				    <div class = "col-md-4">
+				    	<p class="job_details location"><span class="fa fa-home"></span> At {{this.location}}</p>
+				    </div>
 			    </div>
-			    <div class = "col-md-4">
-			        <p class="job_details rate"><span class="fa fa-usd">{{this.rate}}</span></p> <span>per hour</span>
-			    </div>
-			    <div class = "col-md-4">
-			    	<p class="job_details location"><span class="fa fa-home"></span> At {{this.location}}</p>
+			    <div class="row">
+			    	<div class = "col-md-12">
+			    		<p class = "job details desc collapse">{{this.description}}</p>
+			    	</div>
 			    </div>
 			    </div>
 		      </div>
 		    </div>
-		    <div id={{appsId @index}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		    {{#if this.applicants.length}}
+		    <div id={{appsId @index}} class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 		    </div>
+		    {{/if}}
 
 		    {{/if}}
 		  </div>
@@ -103,13 +131,13 @@
 			    {{#each applicants}}
 			    	<div class="one_applicant">
 			    		<div class="col-xs-6">
-				    		<p align="center"><a href="/babysitter_profile.html" data-toggle="tooltip" data-placement="left" title="View Profile">{{getFullName this}}</a></p>
+				    		<p align="center"><a href="babysitter_profile.html" data-toggle="tooltip" data-placement="left" title="View Profile">{{getFullName this}}</a></p>
 				    		<p align="center">
 				    			{{#if this.profilePic}}
-				    				<img src={{this.profilePic}} class="img-thumbnail applicant_pic" align="middle">
+				    				<a  href="babysitter_profile.html"><img src={{this.profilePic}} class="img-thumbnail applicant_pic" align="middle"></a>
 				    			{{/if}}
 				    			{{#unless this.profilePic}}
-				    				<img src="blank.png" class="img-thumbnail applicant_pic" align="middle">
+				    				<a  href="babysitter_profile.html"><img src="blank.png" class="img-thumbnail applicant_pic" align="middle"></a>
 				    			{{/unless}}
 				    		</p>
 				    		<p align="center">{{this.rating}}</p>

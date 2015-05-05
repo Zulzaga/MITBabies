@@ -26,6 +26,10 @@ $(document).ready(function() {
   		return "title_"+ind;
 	});
 
+	Handlebars.registerHelper('sideTitleId', function(ind) {
+  		return "sideTitle_"+ind;
+	});
+
 	Handlebars.registerHelper('makeTitle', function(data) {
   		return data.title+" on " + getDate(data.time.from);
 	});
@@ -138,6 +142,42 @@ $(document).ready(function() {
  		
  	});
 
+ 	$(".title_side").click(function(e){showMore(e)});
+ 	$(".job-hide").click(function(e){
+ 		var self = $(e.target);
+ 		var title = self.parent().attr("id");
+ 		console.log(title);
+		var job_index = title.split("_")[1];
+		var job = jobs[job_index];
+		$("#apps_"+job_index).removeClass("in");
+
+		$($("#title_"+job_index).find(".job-show")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-edit")[0]).removeClass("in");
+		$($("#title_"+job_index).find(".job-delete")[0]).removeClass("in");
+		$($("#title_"+job_index).find(".job-hide")[0]).removeClass("in");
+		$($("#jobBody_"+job_index).find(".desc")[0]).removeClass("in");
+
+ 	});
+
+ 	 $(".job-show").click(function(e){showMore(e)});
+
+
+ 	 var showMore = function(e){
+ 		var self = $(e.target);
+ 		var title = self.parent().attr("id");
+ 		console.log(title);
+		var job_index = title.split("_")[1];
+		var job = jobs[job_index];
+		$("#apps_"+job_index).addClass("in");
+
+		$($("#title_"+job_index).find(".job-show")[0]).removeClass("in");
+		$($("#title_"+job_index).find(".job-edit")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-delete")[0]).addClass("in");
+		$($("#title_"+job_index).find(".job-hide")[0]).addClass("in");
+		$($("#jobBody_"+job_index).find(".desc")[0]).addClass("in");
+	}
+
+
  	$(".job-edit").click(function(e){
  		var self = $(e.target);
 		var title = self.parent().attr("id");
@@ -154,11 +194,13 @@ $(document).ready(function() {
 			var loc = $(details_container.find(".location")[0]);
 			var rate = $(details_container.find(".rate")[0]);
 			var time = $(details_container.find(".time")[0]);
+			var desc = $(details_container.find(".desc")[0]);
 			
 
 			var loc_parent = loc.parent();
 			var rate_parent = rate.parent();
 			var time_parent = time.parent();
+
 			
 			var list = $("<select/>").addClass("form-control").attr("id", "loc_"+job_index);
 			for (var i=0; i<locations.length; i++){
@@ -168,17 +210,71 @@ $(document).ready(function() {
 				else{
 					list.append($("<option/>").html(locations[i]));	
 				}
-				
 			}
 
-			loc_parent.append(list);
-			 
-			loc.remove();
+			var icon_loc = $("<span>").addClass("input-group-addon").append($("<span>").addClass("glyphicon glyphicon-home"));
+			var loc_msg = $("<p>").text("New location:").addClass("loc-msg");
+			var loc_container = $("<div>").addClass("input-group");
+			loc_container.append(icon_loc);
+			loc_container.append(list);
 
-			var rate_input = $('<p contenteditable="true"/>').text(rate.text()).addClass("job_details").addClass("rate");
-			rate_input.addClass("vis");
-			rate_parent.prepend(rate_input);
-			rate.remove();
+			loc_parent.empty();
+			loc_parent.append(loc_msg);
+			loc_parent.append(loc_container);
+
+			var rate_container = $("<div>").addClass("input-group").attr("id", "rate_"+job_index);
+			var icon_loc = $("<span>").addClass("input-group-addon").append($("<span>").addClass("glyphicon glyphicon-usd"));
+			var rate_input	= $("<input>").addClass("form-control").attr("type", "text").attr("rows", "2").attr("placeholder",jobs[job_index].rate);      	
+			rate_container.append(icon_loc);
+			rate_container.append(rate_input);
+			rate_parent.empty();
+			rate_parent.append($("<p>").text("New rate:").addClass("rate-msg"));
+			rate_parent.append(rate_container);
+
+
+
+			
+			var a = $("<span>").addClass("input-group-addon");
+			var b = $("<span>").addClass("glyphicon glyphicon-calendar");
+			a.append(b);
+			var input_from = $("<input>").attr("type", "text").addClass("form-control").attr("id", "timeFrom_"+job_index).addClass("time-from-input");
+		    var time_container_from=$("<div>").addClass("input-group").attr("id", "timeFromContainer_"+job_index);
+		    time_container_from.append(a);
+		    time_container_from.append(input_from);
+			time_parent.empty();
+			//time.remove();
+			time_parent.append($("<p>").text("Pick new dates:").addClass("time-from-msg"));
+			time_parent.append(time_container_from);
+			time_parent.append($("<p>").text("to").addClass("time-to-msg"));
+
+			var c = $("<span>").addClass("input-group-addon");
+			var d = $("<span>").addClass("glyphicon glyphicon-calendar");
+			c.append(d);
+			var input_to = $("<input>").attr("type", "text").addClass("form-control").attr("id", "timeTo_"+job_index).addClass("time-to-input");
+		    var time_container_to=$("<div>").addClass("input-group").attr("id", "timeToContainer_"+job_index);
+
+
+		    time_container_to.append(c);
+		    time_container_to.append(input_to);
+			
+			time_parent.append(time_container_to);
+
+			$('#timeFrom_'+job_index).datetimepicker({
+	        	minDate: new Date(),
+    		});
+    		$('#timeFrom_'+job_index).val(formatTime(jobs[job_index].time.from));
+
+    		$('#timeTo_'+job_index).datetimepicker({
+	        	minDate: new Date(),
+    		});
+    		$('#timeTo_'+job_index).val(formatTime(jobs[job_index].time.to));
+
+    		$($("#title_"+job_index).children()[0]).text(jobs[job_index].title);
+
+    		desc.addClass("vis");
+    		desc.attr("contenteditable", "true");
+
+
  		}
  		else{
  			$(this).prop("type", "button");
@@ -186,20 +282,45 @@ $(document).ready(function() {
 
  			var loc = $("#loc_"+job_index);
  			var selected = loc.val();
- 			var loc_parent = loc.parent();
- 			loc.remove();
+ 			var loc_parent = loc.parent().parent();
+ 			loc_parent.empty();
  			var new_loc = $('<p>').text(" At "+selected).addClass("job_details").addClass("location");
  			new_loc.prepend($("<span>").addClass("fa fa-home"));
  			loc_parent.append(new_loc);
  			jobs[job_index].location=selected;
 
- 			var rate = $(details_container.find(".rate")[0]);
+ 			var rate = $("#rate_"+job_index);
  			var rate_parent = rate.parent();
- 			var rate_input = $('<p>').text(rate.text()).addClass("job_details").addClass("rate");
- 			rate_input.prepend($("<span>").addClass("fa fa-usd"));
-			rate_parent.prepend(rate_input);
-			jobs[job_index].rate=rate_input.text();
-			rate.remove();
+ 			var rate_new_val = rate.find("input").val();
+ 			console.log(rate_new_val);
+
+ 			var rate_new = $('<p>').text(rate_new_val+" per hour").addClass("job_details").addClass("rate");
+ 			rate_new.prepend($("<span>").addClass("fa fa-usd"));
+ 			rate_parent.empty();
+			rate_parent.prepend(rate_new);
+			jobs[job_index].rate=rate_new_val;
+
+
+			var from_date = $("#timeFromContainer_"+job_index).find("input").val();
+			jobs[job_index].time.from = from_date;
+
+			var to_date = $("#timeToContainer_"+job_index).find("input").val();
+			jobs[job_index].time.to = to_date;
+
+			var time_parent = $("#timeToContainer_"+job_index).parent()
+			time_parent.empty();
+
+			var new_time = $("<p>").addClass("job_details time time-icon");
+			new_time.text(" "+from_date.split(" ")[1]+from_date.split(" ")[2]+" to "+to_date.split(" ")[1]+to_date.split(" ")[2]);
+			time_parent.append($("<span>").addClass("glyphicon glyphicon-time time-icon"));
+			time_parent.append(new_time);
+
+			$($("#title_"+job_index).children()[0]).text(jobs[job_index].title+" on "+getDate(new Date(from_date)));
+
+			var desc = $(details_container.find(".desc")[0]);
+			desc.removeClass("vis");
+			desc.attr("contenteditable", "false");
+
  		}
  		
  		
@@ -226,6 +347,7 @@ $(document).ready(function() {
 			 		if (jobs[job_index].current_flag){
 			 			$("#apps_"+job_index).remove();
  					}
+ 					$("#sideTitle_"+job_index).remove();
 		            $(this).dialog('close');
 		        },
 		            "No": function () {
@@ -239,5 +361,27 @@ $(document).ready(function() {
         $('body').animate({
             scrollTop: $(window.location.hash).offset().top - 100
         }, 750);
+    }
+
+    var formatTime = function(time){
+    	var t = new Date(time);
+    	var hours = t.getHours();
+    	var h = hours>12?"PM":"AM";
+    	if (hours==0){
+    		h = "AM";
+    	}
+    	if (hours==12){
+    		h = "PM";
+    	}
+    	var h_string = "";
+    	var m = t.getMinutes()>9?t.getMinutes()+"":"0"+t.getMinutes();
+    	if (hours>12){
+    		var x = hours-12;
+    		h_string = x+":"+m+" "+h;
+    	}
+    	else{
+    		h_string = hours+":"+m+" "+h;
+    	}
+    	return t.toLocaleDateString()+" "+h_string;
     }
 });
