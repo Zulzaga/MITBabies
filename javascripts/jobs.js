@@ -124,6 +124,10 @@ $(document).ready(function() {
 
  	$("#sideTitle_new").click(function(e){
  		var jobs_container = $("#jobs");
+ 		var check = jobs_container.find("#create_job");
+ 		if (check.length>0){
+ 			return;
+ 		}
  		jobs_container.prepend(create_template_output);
  		$("#cancel").click(function(e){hideNewJobForm()});
  		$('#ex').datetimepicker({
@@ -170,7 +174,6 @@ $(document).ready(function() {
  	$(".job-hide").click(function(e){
  		var self = $(e.target);
  		var title = self.parent().attr("id");
- 		console.log(title);
 		var job_index = title.split("_")[1];
 		var job = jobs[job_index];
 		$("#apps_"+job_index).removeClass("in");
@@ -189,7 +192,6 @@ $(document).ready(function() {
  	 var showMore = function(e){
  		var self = $(e.target);
  		var title = self.parent().attr("id");
- 		console.log(title);
 		var job_index = title.split("_")[1];
 		var job = jobs[job_index];
 		$("#apps_"+job_index).addClass("in");
