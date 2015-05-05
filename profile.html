@@ -71,9 +71,9 @@
 					document.getElementById("NumberChildren").className = "EditableContentContentsEditVersion";
 					document.getElementById("ChildrenAge").className = "EditableContentContentsEditVersion";
 
-				    document.getElementById('CancelButton').style.visibility = 'visible';
-				    document.getElementById('SaveButton').style.visibility = "visible";
-				    document.getElementById("EditButton").style.visibility = "hidden";
+			    	$("#EditButton").removeClass("in");
+			    	$("#SaveButton").addClass("in");
+			    	$("#CancelButton").addClass("in");
 			};
 
 			//cncel needs to revert stuff
@@ -97,9 +97,9 @@
 				document.getElementById("NumberChildren").className = "EditableContentContents";
 				document.getElementById("ChildrenAge").className = "EditableContentContents";
 
-				 document.getElementById('CancelButton').style.visibility = 'hidden';
-				document.getElementById('SaveButton').style.visibility = 'hidden';
-				document.getElementById('EditButton').style.visibility = 'visible';
+				$("#EditButton").addClass("in");
+			    $("#SaveButton").removeClass("in");
+			    $("#CancelButton").removeClass("in");
 
 			};
 
@@ -131,9 +131,9 @@
 				document.getElementById("NumberChildren").className = "EditableContentContents";
 				document.getElementById("ChildrenAge").className = "EditableContentContents";
 
-				document.getElementById('CancelButton').style.visibility = 'hidden';
-				document.getElementById('SaveButton').style.visibility = 'hidden';
-				document.getElementById('EditButton').style.visibility = 'visible';
+				$("#EditButton").addClass("in");
+			    $("#SaveButton").removeClass("in");
+			    $("#CancelButton").removeClass("in");
 			}
 
 		</script>
@@ -153,9 +153,11 @@
 			    min-width: 600px;
 			    min-height: 300px;
 			}
+
 			.ButtonsDiv{
+				width: 200px;
 				padding-top: 30px;
-				float:right;
+				float: right;
 				vertical-align: bottom;
 				margin-top:auto; 
 				margin-bottom:0;
@@ -186,8 +188,7 @@
 			}
 
 			#Description{
-				min-height: 40px;
-				max-height: auto;
+				height: 180px;
 				text-align:left;
 				padding-bottom: 10px;
 			}
@@ -201,6 +202,10 @@
 				padding-left: 20px;
 				padding-bottom: 10px;
 				text-align: left;
+			}
+
+			#CancelButton, #EditButton, #SaveButton {
+				text-align: center;
 			}
 
 		</style>
@@ -250,12 +255,11 @@
 
 				</div>	
 
-				<div class="ButtonsDiv" id="Edit button div">
-					<button class="btn btn-default" id= "CancelButton" onclick="RevertStuff()" style="visibility:hidden">Cancel</button>
-					<button  class="btn btn-default pull-right" id= "SaveButton" onclick="SaveStuff()" style="visibility:hidden">Save</button>
-				</div> </br>
-				<div class="ButtonsDiv" id="SaveButtonsDiv">
-					<button  class="btn btn-default" id="EditButton" onclick="makeEditable()">Edit Profile</button>
+				<div class="ButtonsDiv pull-right" id="Edit button div">
+					<button class="col-sm-5 btn btn-default collapse pull-right" id= "CancelButton" onclick="RevertStuff()">Cancel</button>
+					<button  class="col-sm-5 btn btn-default collapse pull-right" id= "SaveButton" onclick="SaveStuff()">Save</button>
+					
+					<button  class="btn btn-default collapse in pull-right" id="EditButton" onclick="makeEditable()">Edit Profile</button>
 				</div>
 
 				</div>
