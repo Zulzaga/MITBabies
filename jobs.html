@@ -139,8 +139,8 @@
         </script>
 
 		<script id="side-template" type="text/x-handlebars-template">
-
-			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Current jobs <span class="caret pull-right" style="margin-top:10px"></a>
+			<a href="#create_jobplus" class="list-group-item scroll-link" data-toggle="collapse" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
+			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
 			<div class="collapse" id="cur_jobs"> 
 				{{#each jobs}}
 					{{#if this.current_flag}}
@@ -150,7 +150,7 @@
 					{{/if}}
 				{{/each}}
 			</div>
-			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item scroll-link" data-toggle="collapse" data-id="#MainMenu">Past jobs <span class="caret pull-right" style="margin-top:10px"></a>
+			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item" data-toggle="collapse">Past jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
 			<div class="collapse" id="past_jobs">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
@@ -311,8 +311,102 @@
 				  	</div>
 				</div>
 
-			<div class="col-md-8 home_panels" id = "jobs" >
-			</div>				
+				<div class="col-md-8 home_panels" id = "jobs" >
+					<div class="panel panel-default" id="create_jobplus">
+						<div class="panel-heading">
+							<h3 class="panel-title" id="createJobTitle">Create a Job</h3>
+						</div>
+						<div class="panel-body" id="body">
+							<form class="form-horizontal" id="jobCreation">
+								<div class="form-group">
+							        <label for="title" class="col-sm-2 control-label">Title:</label>
+							        <div class="col-sm-10">
+							        	<input type="text" id="title" placeholder="Enter job title..." class="form-control" required></input>
+						        	</div>
+								</div>
+								<div class="form-group">
+							        <label for="title" class="col-sm-2 control-label" id="description">Description:</label>
+							        <div class="col-sm-10">
+							        	<textarea class="form-control" rows = "2" placeholder="Enter job description..." id="description" required></textarea>
+							        </div>
+								</div>
+								<div class="form-group dates" id="datepicker">
+							        <label for="title" class="col-sm-2 control-label" id="date">Date:</label>
+							    	<div class="col-sm-4">
+							    		<div class="input-group date" id="example">
+								    		<span class="input-group-addon">    
+										    	<span class="glyphicon glyphicon-calendar"></span>
+										  	</span>
+										    <input type="text" class="form-control" id="ex"/>
+										</div>
+									</div>
+
+									<label for="title" class="col-sm-2 control-label" id="to">to </label>
+							    	<div class="col-sm-4">
+							    		<div class="input-group date" id="example1">
+							    		<span class="input-group-addon">    
+									    	<span class="glyphicon glyphicon-calendar"></span>
+									  	</span>
+									    <input type="text" class="form-control" id="ex2"/>
+									</div>
+									</div>
+							        <!-- <label for="title" class="col-sm-1 control-label">Time:</label>
+							        <div class="col-sm-2">
+							        	<input type="text" name="start_time" id="timepicker1" class="form-control" required> -->
+							      <!--   	<span class="input-group-addon">    
+									    	<span class="glyphicon glyphicon-time"></span>
+									  	</span> -->
+							     <!--    </div>
+ -->
+							        <!-- <label for="title" class="col-sm-1 control-label" id="to">to</label>
+							        <div class="col-sm-2">
+							        	<input type="text" name="start_time" id="timepicker2" class="form-control" required> -->
+							        	<!-- <span class="input-group-addon">    
+									    	<span class="glyphicon glyphicon-time"></span>
+									  	</span> -->
+							      <!--   </div>  -->
+
+								</div>
+								<div class="form-group">
+							        <label for="title" class="col-sm-2 control-label">Location:</label>
+							        <div class="col-sm-4">
+							        	<div class="input-group">
+							        	<span class="input-group-addon">    
+									    	<span class="glyphicon glyphicon-home"></span>
+									  	</span>
+							        	<select class="form-control" id="location" required>
+							        		<option></option>
+							        		<option>Ashdown</option>
+							        		<option>Baker</option>
+							        		<option>Next House</option>
+							        	</select>
+							        </div>
+							        </div>
+						        	<label for="title" class="col-sm-2 control-label" id="rate">Rate:</label>
+							        <div class="col-sm-2">
+							        	<div class="input-group">
+							        	<span class="input-group-addon">    
+									    	<span class="glyphicon glyphicon-usd"></span>
+									  	</span>
+							        	<input class="form-control" type="text" rows = "2" placeholder="" id="rate_val" required></input></span>
+							        </div>
+							        </div>
+							        <label for="title" class="col-sm-2 control-label pull-left" id="rateType">per hour</label>
+							        <div class="help-block with-errors"></div>
+								</div>
+								<div class="form-group" id="createButtons">
+							        <div class="col-sm-12 text-right">
+							        	<button type="submit" class="btn btn-primary" id="submit"> Submit </button>
+							        	<button type="reset" class="btn btn-default" id="clear"> Clear </button>
+							        </div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+
+			</div>
+
 
 	</body>
 </html>
