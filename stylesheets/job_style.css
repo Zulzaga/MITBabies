@@ -22,12 +22,20 @@ ul
 	width:50px;
 	height: 34px;
 	border-radius: 4px;
+	font-size: 14px;
+	color:#555;
+	line-height: 1.42857143;
 }
 .rate{
 	display: inline-block;
 }
-.rate-msg, .time-to-msg, .time-from-msg{
+.rate-msg, .time-to-msg, .time-from-msg, .loc-msg{
+
 	font-weight: bold;
+}
+
+.time-to-msg{
+	padding:5px;
 }
 .time-icon{
 	display: inline-block;

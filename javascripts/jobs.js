@@ -169,19 +169,27 @@ $(document).ready(function() {
 				else{
 					list.append($("<option/>").html(locations[i]));	
 				}
-				
 			}
 
-			loc_parent.append(list);
-			 
-			loc.remove();
+			var icon_loc = $("<span>").addClass("input-group-addon").append($("<span>").addClass("glyphicon glyphicon-home"));
+			var loc_msg = $("<p>").text("New location:").addClass("loc-msg");
+			var loc_container = $("<div>").addClass("input-group");
+			loc_container.append(icon_loc);
+			loc_container.append(list);
 
-			var rate_input = $('<p contenteditable="true"/>').text(rate.text()).addClass("job_details").addClass("rate");
-			rate_input.addClass("vis");
-			
-			rate_parent.prepend(rate_input);
-			rate_parent.prepend($("<p>").text("New rate:").addClass("rate-msg"));
-			rate.remove();
+			loc_parent.empty();
+			loc_parent.append(loc_msg);
+			loc_parent.append(loc_container);
+
+			var rate_container = $("<div>").addClass("input-group").attr("id", "rate_"+job_index);
+			var icon_loc = $("<span>").addClass("input-group-addon").append($("<span>").addClass("glyphicon glyphicon-usd"));
+			var rate_input	= $("<input>").addClass("form-control").attr("type", "text").attr("rows", "2").attr("placeholder",jobs[job_index].rate);      	
+			rate_container.append(icon_loc);
+			rate_container.append(rate_input);
+			rate_parent.empty();
+			rate_parent.append($("<p>").text("New rate:").addClass("rate-msg"));
+			rate_parent.append(rate_container);
+
 
 
 			
@@ -231,22 +239,23 @@ $(document).ready(function() {
 
  			var loc = $("#loc_"+job_index);
  			var selected = loc.val();
- 			var loc_parent = loc.parent();
- 			loc.remove();
+ 			var loc_parent = loc.parent().parent();
+ 			loc_parent.empty();
  			var new_loc = $('<p>').text(" At "+selected).addClass("job_details").addClass("location");
  			new_loc.prepend($("<span>").addClass("fa fa-home"));
  			loc_parent.append(new_loc);
  			jobs[job_index].location=selected;
 
- 			var rate = $(details_container.find(".rate")[0]);
- 			var rate_msg = $(details_container.find(".rate-msg")[0]);
- 			rate_msg.remove();
+ 			var rate = $("#rate_"+job_index);
  			var rate_parent = rate.parent();
- 			var rate_input = $('<p>').text(rate.text()).addClass("job_details").addClass("rate");
- 			rate_input.prepend($("<span>").addClass("fa fa-usd"));
-			rate_parent.prepend(rate_input);
-			jobs[job_index].rate=rate_input.text();
-			rate.remove();
+ 			var rate_new_val = rate.find("input").val();
+ 			console.log(rate_new_val);
+
+ 			var rate_new = $('<p>').text(rate_new_val+" per hour").addClass("job_details").addClass("rate");
+ 			rate_new.prepend($("<span>").addClass("fa fa-usd"));
+ 			rate_parent.empty();
+			rate_parent.prepend(rate_new);
+			jobs[job_index].rate=rate_new_val;
 
 
 			var from_date = $("#timeFromContainer_"+job_index).find("input").val();
