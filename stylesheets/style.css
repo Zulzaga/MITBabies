@@ -94,6 +94,13 @@ label.control-label span { cursor: pointer; }
 	margin-bottom:5px;
 	top: 50px;
 }
+
+.app_panel_btn_cancel{
+	position: relative;
+	margin-left: 3px;
+	top: 30px;
+}
+
 .dropdown-menu {
   width: 80%; 
 }

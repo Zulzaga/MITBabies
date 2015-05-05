@@ -245,15 +245,19 @@
 				    	</div>
 			    		<div class="applicantPanel col-xs-6 collapse in">
 			    			<div class="btn-group  app_panel_btn_hire">
-							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							  <button type="button" class="btn btn-default dropdown-toggle babysitter-hire-btn in collapse" data-toggle="dropdown" aria-expanded="false">
 							    Hire <span class="caret"></span>
 							  </button>
+							  <label class="col-sm-9 pull-left collapse" id="hireLabel"></label>
 							  <ul class="dropdown-menu" role="menu">
-							    <li><a href="#">As primary</a></li>
-							    <li><a href="#">As backup</a></li>
+							    <li><a href="#" class="babysitter-hire" id="primary">As primary</a></li>
+							    <li><a href="#" class="babysitter-hire" id="backup">As backup</a></li>
 							  </ul>
 							</div>
-							<button type="button" class="btn btn-default app_panel_btn_reject">Reject</button>
+							<button type="button" class="btn btn-default app_panel_btn_reject babysitter-reject collapse in">Reject</button>
+							<button type="button" class="btn btn-default app_panel_btn_cancel babysitter-cancel collapse">
+							    Cancel</span>
+							  </button>
 			    			
 			    		</div>
 			    		

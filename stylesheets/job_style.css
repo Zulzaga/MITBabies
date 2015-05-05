@@ -14,6 +14,17 @@ ul
 	text-align: left;
 }
 
+#hireLabel {
+	text-align: center;
+	padding: 0px;
+	padding-bottom: 10px;
+	height: 50px;
+	width: 74px;
+}
+
+.babysitter-hire {
+}
+
 .job-btn{
 	margin-right:5px;
 }

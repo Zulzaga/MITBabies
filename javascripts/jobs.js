@@ -215,6 +215,47 @@ $(document).ready(function() {
 		$($("#jobBody_"+job_index).find(".desc")[0]).addClass("in");
 	}
 
+	$(".babysitter-hire").click(function(e) {
+		e.preventDefault();
+		hire(e);
+	})
+
+	$(".babysitter-reject").click(function(e) {
+		reject(e);
+	})
+
+	$(".babysitter-cancel").click(function(e) {
+		cancel(e);
+	})
+
+	$(".title_side").click(function(e){showMore(e)});
+
+	var hire = function(e){
+ 		var self = $(e.target);
+ 		$(self.parent().parent().parent().children()[0]).removeClass("in");
+ 		var label = $(self.parent().parent().parent().children()[1]);
+ 		label.text("Hired " + self.text().toLowerCase());
+ 		label.addClass("in");
+ 		$(self.parent().parent().parent().parent().children()[2]).addClass("in");
+ 		$(self.parent().parent().parent().parent().children()[1]).removeClass("in");
+	}
+
+	var reject = function(e){
+		var self = $(e.target);
+		$($(self.parent().children()[0]).children()[0]).removeClass("in");
+		$($(self.parent().children()[0]).children()[1]).text("Rejected");
+ 		$($(self.parent().children()[0]).children()[1]).addClass("in");
+ 		$(self.parent().children()[1]).removeClass("in");
+ 		$(self.parent().children()[2]).addClass("in");
+	}
+
+	var cancel = function(e){
+		var self = $(e.target);
+		$(self).removeClass("in");
+ 		$($(self.parent().children()[0]).children()[0]).addClass("in");
+ 		$($(self.parent().children()[0]).children()[1]).removeClass("in");
+ 		$(self.parent().children()[1]).addClass("in");
+	}
 
  	$(".job-edit").click(function(e){
  		var self = $(e.target);
