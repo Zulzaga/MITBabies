@@ -149,8 +149,8 @@
 			.editableContent {
 			    display: inline-block;
 			    vertical-align: top;
-			    max-width: 500px;
-			    min-width: 500px;
+			    max-width: 700px;
+			    min-width: 600px;
 			    min-height: 300px;
 			}
 			.ButtonsDiv{
@@ -213,8 +213,8 @@
 				<div class="Profile">
 					<a href="#" title="MyPic" class="myPic"><img src="AndrewNathanPic.jpg" alt="Lorem ipsum" /></a>
 				</div>
-				<p class="PictureDetails" id="PhoneNumber"> +1 908-555-5555 </p>
-				<p class="PictureDetails" id="Email"> IKnowNothing@mit.edu</p>
+				<i class="col-sm-2 glyphicon glyphicon-phone"></i><p class="PictureDetails" id="PhoneNumber"> +1 908-555-5555 </p>
+				<i class="col-sm-2 glyphicon glyphicon-envelope"></i><p class="PictureDetails" id="Email"> IKnowNothing@mit.edu</p>
 
 			</div>
 
@@ -223,34 +223,38 @@
 					<p id="Description"> A father (or dad) is a male parent of a child. A biological or natural father is the man whose sperm has been used in the creation of a child, through sexual intercourse or sperm donation. Such a man may or may not be married to the child's mother. A putative father is a man whose biological relationship to a child is alleged but has not been established. The term is also used for the man who has raised a child, who is not his biological offspring, such as an adopted child. As a parent, the father has a certain legal relationship with the child, which carries defined rights and obligations to the child, which may vary between jurisdictions. A biological father may have legal obligations to a child, such as an obligation of support, even if he has no custody rights to the child.</p>
 
 
-				<div class="container-fluid">
-					<div class="col-md-7" id = "side" data-offset-top="125" style="padding-left:0px; padding-bottom:10px">
-						<p id="ChildAge" style="float:left"> Number of Children</p>
-					</div>
-					<div class="col-md-1" id = "side" data-offset-top="125" style="padding-left:0px">
-						<p> : </p>
-					</div>
-					<div class="col-md-4" id = "jobs" >
-						<p id="NumberChildren" class="EditableContentContents" style="padding-left:0px"> 2 </p>
+				<div class="container-fluid" style="width:400px; margin:0px;">
+					<div class="row">
+						<div class="col-md-6" id = "side" data-offset-top="125" style="padding-left:0px; padding-bottom:10px">
+							<p id="ChildAge" style="float:left"> Number of Children</p>
+						</div>
+						<div class="col-md-2" id = "side" data-offset-top="125" style="padding-left:0px">
+							<p> : </p>
+						</div>
+						<div class="col-md-4" id = "jobs" >
+							<p id="NumberChildren" class="EditableContentContents" style="padding-left:0px"> 2 </p>
+						</div>
 					</div>
 
-					<div class="col-md-7" id = "side" data-offset-top="125" style="padding-left:0px">
-						<p id="ChildAge" style="float:left"> Children's Age </p>
-					</div>
-					<div class="col-md-1" id = "side" data-offset-top="125" style="padding-left:0px">
-						<p> : </p>
-					</div>
-					<div class="col-md-4" id = "jobs" >
-						<p id="ChildrenAge" class="EditableContentContents" style="padding-left:0px"> 2-4 </p>
+					<div class="row">
+						<div class="col-md-6" id = "side" data-offset-top="125" style="padding-left:0px">
+							<p id="ChildAge" style="float:left"> Children's Age </p>
+						</div>
+						<div class="col-md-2" id = "side" data-offset-top="125" style="padding-left:0px">
+							<p> : </p>
+						</div>
+						<div class="col-md-4" id = "jobs" >
+							<p id="ChildrenAge" class="EditableContentContents" style="padding-left:0px"> 2-4 </p>
+						</div>
 					</div>
 
 				</div>	
 
-				<div class="ButtonsDiv">
+				<div class="ButtonsDiv" id="Edit button div">
 					<button class="btn btn-default" id= "CancelButton" onclick="RevertStuff()" style="visibility:hidden">Cancel</button>
-				</div>
-				<div class="ButtonsDiv">
 					<button  class="btn btn-default pull-right" id= "SaveButton" onclick="SaveStuff()" style="visibility:hidden">Save</button>
+				</div> </br>
+				<div class="ButtonsDiv" id="SaveButtonsDiv">
 					<button  class="btn btn-default" id="EditButton" onclick="makeEditable()">Edit Profile</button>
 				</div>
 

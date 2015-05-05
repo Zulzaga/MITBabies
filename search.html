@@ -91,11 +91,11 @@ hgroup h2.lead {
 	border-bottom: 1px dotted #ccc; 
 }
 .avail-button {
-     background:none!important;
-     border:none; 
-     padding:0!important;
-     font: inherit;
-     cursor: pointer;
+	background:none!important;
+	border:none; 
+	padding:0!important;
+	font: inherit;
+	cursor: pointer;
 }
 .avail-button:hover {
 	border-style: solid;
@@ -106,133 +106,220 @@ hgroup h2.lead {
 
 </style>
 
-	<head>
-		<link rel="stylesheet" href="resources/bootstrap.min.css">
-		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
-		<link rel='stylesheet' href='stylesheets/style.css' />
-		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
-		<link rel="stylesheet" href="resources/font-awesome.min.css">
-		<script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>
-		<script type="text/javascript" src="resources/bootstrap.min.js"></script>
-		<script type="text/javascript" src="resources/bootstrap-select.min.js"></script>
+<head>
+	<link rel="stylesheet" href="resources/bootstrap.min.css">
+	<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
+	<link rel='stylesheet' href='stylesheets/style.css' />
+	<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
+	<link rel="stylesheet" href="resources/font-awesome.min.css">
+	<script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="resources/bootstrap.min.js"></script>
+	<script type="text/javascript" src="resources/bootstrap-select.min.js"></script>
 
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="javascripts/navbar.js"></script>
-		<script type="text/javascript" src="javascripts/search.js"></script>
-		<script type="text/javascript" src="javascripts/navbar.js"></script>
-	</head>
-	<body>
-		<!--fixed navigation bar -->
-		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-		  <div class="container" id="menu">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
-		    </div>
-		    <div class="navbar-collapse collapse">
-		      <ul class="nav navbar-nav navbar">
-		        <li><a href="profile.html" id="profile_page">Profile</a></li>
-		        <li><a href="jobs.html" id="jobs_page">Jobs</a></li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#" id="logout">Logout</a></li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-              <li>
-                  <form class="navbar-form" role="search" id="search">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search Babysitters" id="babysitter-search">
-                      <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                      </div>
-                    </div>
-                  </form>
-              </li>
-            </ul>
-		    </div>
-		  </div>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="javascripts/navbar.js"></script>
+	<script type="text/javascript" src="javascripts/search.js"></script>
+	<script type="text/javascript" src="javascripts/navbar.js"></script>
+</head>
+<body>
+	<!--fixed navigation bar -->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container" id="menu">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar">
+					<li><a href="profile.html" id="profile_page">Profile</a></li>
+					<li><a href="jobs.html" id="jobs_page">Jobs</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" id="logout">Logout</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<form class="navbar-form" role="search" id="search">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search Babysitters" id="babysitter-search">
+								<div class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+								</div>
+							</div>
+						</form>
+					</li>
+				</ul>
+			</div>
 		</div>
+	</div>
 
-<!-- results container -->
+	<!-- results container -->
 
-<div class="container" id="profiles">
+	<div class="container" id="profiles">
 
-    <hgroup class="mb20">
-		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger" id="search-num">3</strong> results were found for the search for <strong class="text-danger" id="searchQuery">Anna</strong></h2>								
-	</hgroup>
+		<hgroup class="mb20">
+			<h1>Search Results</h1>
+			<h2 class="lead"><strong class="text-danger" id="search-num">No</strong> results were found for the search for <strong class="text-danger" id="searchQuery"></strong></h2>								
+		</hgroup>
 
-    <section class="col-xs-12 col-sm-6 col-md-12">
-		<article class="search-result row" id="Anna">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="babysitter_profile.html"><img class="img-thumbnail" src="AnnaJohnsonPic.jpeg"/></a>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail1'class='avail-button' value="See Availability" onclick="showImage('cal1','avail1');"/></li>
-					<img class="thumbnail" id="cal1" src="CalendarImage.jpg" style="visibility:hidden"/>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				<h3><a href="#">Anna Johnson</a></h3>
-				<p>I am a senior. I am usually very available during weekends and holidays. I've babysitted a 2 year old girl for three months. I also babysit 3 year old twins...</p>						
-                <span class="plus"><a href="babysitter_profile.html"><font color="white">View Profile</font></a></span>
-			</div>
-			<span class="clearfix borda"></span>
-		</article>
+		<section class="col-xs-12 col-sm-6 col-md-12" id = "allresults">
 
-        <article class="search-result row" id="Smith">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#"><img class="img-thumbnail"src="AnnalieseSmithPic.png" /></a>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id="avail2" class='avail-button'value="See Availability" onclick="showImage('cal2', 'avail2');"/></li>
-					<img class="thumbnail" id="cal2" src="CalendarImage.jpg" style="visibility:hidden"/>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7">
-				<h3><a href="#">Annaliese Smith</a></h3>
-				<p>I am a third year PhD student working in the Fluid Interfaces sector of the Media Lab. I have been babysitting since my time in undergrad...</p>						
-                <span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
-			</div>
-			<span class="clearfix borda"></span>
-		</article>
+			<article class="search-result row" id="Anna" style="visibility:hidden">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="babysitter_profile.html"><img class="img-thumbnail" src="anna.jpg"/></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail1'class='avail-button' value="See Availability" onclick="showImage('cal1','avail1');"/></li>
+						<img class="thumbnail" id="cal1" src="CalendarImage.jpg" style="visibility:hidden"/>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7 excerpet" >
+					<h3><a href="#">Anna Johnson</a></h3>
+					<p>Anna is more daring than graceful and, at times, can act before she thinks. But she's also the most optimistic and caring person you'll ever meet. She longs to reconnect with...</p>						
+					<span class="plus"><a href="babysitter_profile.html"><font color="white">View Profile</font></a></span>
+				</div>
+			</article>
 
-		<article class="search-result row" id="Andrew">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#"><img class="img-thumbnail"src="AndrewNathanPic.jpg"/></a>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail3'class='avail-button' value="See Availability" onclick="showImage('cal3', 'avail3');"/></li>
-					<img class="thumbnail" id="cal3" src="CalendarImage.jpg" style="visibility:hidden"/>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7">
-				<h3><a href="#">Andrew Nathan</a></h3>
-				<p>I am a sophomore studying Chemical Engineering and have been babysitting since I was fifteen. I currently live in Maseeh and...</p>						
-                <span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
-			</div>
-			<span class="clearfix border"></span>
-		</article>			
+			<article class="search-result row" id="Smith" style="visibility:hidden">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#"><img class="img-thumbnail"src="AnnalieseSmithPic.png" /></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id="avail2" class='avail-button'value="See Availability" onclick="showImage('cal2', 'avail2');"/></li>
+						<img class="thumbnail" id="cal2" src="CalendarImage.jpg" style="visibility:hidden"/>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7">
+					<h3><a href="#">Annaliese Smith</a></h3>
+					<p>I am a third year PhD student working in the Fluid Interfaces sector of the Media Lab. I have been babysitting since my time in undergrad and have enjoyed it thoroughly. This...</p>						
+					<span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
+				</div>
+			</article>
 
-	</section>
-</div>
-	</body>
+			<article class="search-result row" id="Andrew" style="visibility:hidden">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#"><img class="img-thumbnail"src="AndrewNathanPic.jpg"/></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail3'class='avail-button' value="See Availability" onclick="showImage('cal3', 'avail3');"/></li>
+						<img class="thumbnail" id="cal3" src="CalendarImage.jpg" style="visibility:hidden"/>
+					</ul>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-7">
+					<h3><a href="#">Andrew Nathan</a></h3>
+					<p>I am a sophomore studying Chemical Engineering and have been babysitting since I was fifteen. I currently live in Maseeh and have a decent amount of experience taking care...</p>						
+					<span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
+				</div>
+			</article>			
+
+			<article class="search-result row" id="Arya" style="visibility:hidden">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#"><img class="img-thumbnail"src="arya.jpg"/></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail4'class='avail-button' value="See Availability" onclick="showImage('cal4', 'avail4');"/></li>
+						<img class="thumbnail" id="cal4" src="CalendarImage.jpg" style="visibility:hidden"/>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7">
+					<h3><a href="#">Arya Stark</a></h3>
+					<p>The third child and second daughter of Lord Eddard Stark and Lady Catelyn Tully. A member of House Stark, she has five siblings: brothers Robb, Bran, Rickon, half-brother Jon Snow...</p>	
+
+					<span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
+				</div>
+			</article>
+
+			<article class="search-result row" id="Kevin" style="visibility:hidden">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#"><img class="img-thumbnail"src="blank.png"/></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail5'class='avail-button' value="See Availability" onclick="showImage('cal5', 'avail5');"/></li>
+						<img class="thumbnail" id="cal5" src="CalendarImage.jpg" style="visibility:hidden"/>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7">
+					<h3><a href="#">Kevin Stark</a></h3>
+					<p>I am an absolutely horrible babysitter. I would not hire me if I were you. I don't even have a picture so I could definitely just be some creep with a computer.</p>	
+
+					<span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
+				</div>
+			</article>
+
+			<article class="search-result row" id="Sansa" style="visibility:hidden">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#"><img class="img-thumbnail"src="sansa.jpg"/></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail6'class='avail-button' value="See Availability" onclick="showImage('cal6', 'avail6');"/></li>
+						<img class="thumbnail" id="cal6" src="CalendarImage.jpg" style="visibility:hidden"/>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7">
+					<h3><a href="#">Sansa Stark</a></h3>
+					<p>a member of House Stark and is the elder daughter of Lady Catelyn and Lord Eddard Stark. She has three brothers (Robb, Bran and Rickon), a younger sister, Arya, and a half-brother, Jon Snow.</p>	
+
+					<span class="plus"><a href="#"><font color="white">View Profile</font></a></span>
+				</div>
+			</article>
+
+		</section>
+	</div>
+</body>
 
 <script type="text/javascript">
 
-	function showImage(calid, buttonid){
-		if (document.getElementById(calid).style.visibility=='hidden'){
-				document.getElementById(calid).style.visibility='visible';
-				document.getElementById(buttonid).value="Hide Availability"
-			}
-		else {
-			document.getElementById(calid).style.visibility='hidden';
-			document.getElementById(buttonid).value="See Availability"
-		}
+var tempInp = [{key:"Anna Johnson", value:"Anna"}, 
+				{key:"Annaliese Smith", value:"Smith"}
+				{key:"Andrew Nathan", value:"Andrew"}
+				{key:"Arya Stark", value:"Arya"}
+				{key:"Kevin Stark", value:"Kevin"}
+				{key:"Sansa Stark", value:"Sansa"}];
+
+var directory = {};
+var returnCount = 0;
+
+for (var i=0; i<input.length; i++) {
+	directory[tempInp[i].key] = input[i].value;
+}
+
+function showImage(calid, buttonid){
+	if (document.getElementById(calid).style.visibility=='hidden'){
+		document.getElementById(calid).style.visibility='visible';
+		document.getElementById(buttonid).value="Hide Availability";
 	}
+	else {
+		document.getElementById(calid).style.visibility='hidden';
+		document.getElementById(buttonid).value="See Availability";
+	}
+}
+
+function searchPage(searchstring) {
+	returnCount = 0;
+	var inp = $('babysitter-search').text();
+	for (var names in directory)
+		if (names.indexOf(inp) > -1)
+			document.getElementById(directory[names]).style.visibility='visible';
+			returnCount ++;
+			$('#search-num').value = returnCount.text();
+	$('#searchQuery').value = inp; 
+}
+
+$(function() {
+	$("#babysitter-search").keyup(function(event){
+		if (event.keycode == 13){
+			searchPage();
+		}
+		.return false;
+	})
+});
 
 </script>
 </html>
