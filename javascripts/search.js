@@ -10,7 +10,7 @@ function searchPage(searchstring) {
 	}
 	console.log(inp);
 	for (var names in directory)
-		if (String(names).includes(inp)){
+		if (String(names).toLowerCase().includes(inp.toLowerCase())){
 			document.getElementById(directory[names]).style.display = 'block';
 			console.log(directory[names]);
 			returnCount ++;
