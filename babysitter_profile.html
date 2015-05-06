@@ -22,6 +22,10 @@
 				$("#resume").click(function(e){
 					console.log("here");
 					window.open("resume.jpg", "_blank");
+
+				});
+				$("#post").submit(function(e){
+					var reviewText = $("#post").find("textarea").val();
 				});
 			});
 
@@ -207,11 +211,13 @@
 		<div id="ProfileBlock" align="center">
 				<div id="newReview" style="width:80%" >
 					<p class="ReviewTag" style="padding-top:20px; border-bottom:1px; border-color:#d3d3d3 max-width:140px" > Add review: </p>
-					<div class="form-group">
-					    	<textarea class="form-control" rows = "2" placeholder="Your review..." id="description" required></textarea>
-					    			<button type="submit" style="margin:5px"class="btn btn-primary pull-right" id="submit"> Submit </button>
-						        	<button type="reset" style="margin:5px" class="btn btn-default pull-right" id="clear"> Clear </button>
-					</div>
+					<form id="post">
+						<div class="form-group">
+						    	<textarea class="form-control" rows = "2" placeholder="Your review..." id="description" required></textarea>
+						    			<button type="submit" style="margin:5px"class="btn btn-primary pull-right" id="submit"> Post </button>
+							        	<button type="reset" style="margin:5px" class="btn btn-default pull-right" id="clear"> Clear </button>
+						</div>
+					</form>
 						    	
 				</div>
 				<div id="ReviewsDiv">
