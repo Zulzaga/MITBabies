@@ -115,10 +115,12 @@ label.control-label span { cursor: pointer; }
 	left: 18px;
 }
 .navbar{
-	background-color: #D9E8F7;
+	color:#D9E8F7!important;
+	background-color: #D9E8F7!important;
 }
-.panel-heading{
-	
+
+.baby-blue{
+	background-color: #D9E8F7!important;	
 }
 
 
