@@ -9,27 +9,41 @@
 		<link rel="stylsesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script type="text/javascript" src="javascripts/search.js"></script>
 		<script type="text/javascript" src="javascripts/navbar.js"></script>
+
+		<!-- Add mousewheel plugin (this is optional) -->
+		<script type="text/javascript" src="resources/jquery.mousewheel-3.0.6.pack.js"></script>
+
+		<!-- Add fancyBox -->
+		<link rel="stylesheet" href="resources/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+		<script type="text/javascript" src="resources/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 		<link rel='stylesheet' href='stylesheets/style.css' />
 
 		<script>
-			$("#resumePopup").click(function(e){ alert("yay"); resumePopup();});
-			console.log($("resumePopup"));
-			var resumePopup = function(){
-				$("#popup").dialog({
-					resizable: false,
-		   			 modal: true,
-		    		title: "Deletion confirmation",
-		    		height: 200,
-		    		width: 250,
-					open:function() {
-					      var markup = 'Are you sure you want to delete this job?';
-					      $(this).html(markup);
-					}
+			$(document).ready(function(){
+				$("#resume").click(function(e){
+					console.log("here");
+					window.open("resume.jpg", "_blank");
 				});
-			};
+			});
+
+			
+		</script>
+		<script>
+			function addToFav() {
+				$("#addToFavorite").removeClass("in");
+				$("#removeFromFavorite").addClass("in");
+			}
+
+			function removeFromFav() {
+				$("#addToFavorite").addClass("in");
+				$("#removeFromFavorite").removeClass("in");
+			}
 		</script>
 	</head>
 	<body style="padding-top:100px">
@@ -64,7 +78,6 @@
 		    </div>
 		  </div>
 		</div>
-		<div id="popup"></div>
 
 		<!--Styles Styles -->
 	<style>
@@ -103,19 +116,25 @@
 			font-size: 50px;
 			color: gray;
 			text-align: left;
-			padding-bottom: 20px;
 		}
 
+		.btn {
+		    border-top-right-radius: 4px;
+		    border-bottom-right-radius: 4px;
+		}
 		.tags{
 			font-size: 20px;
 			color: gray;
 			text-align: left;
 			padding-bottom: 10px;
-
 		}
 		.tagsText{
 			text-align: left;
 			padding-bottom: 5px;
+		}
+
+		.glyphicon {
+			margin-top: 3px;
 		}
 
 		#Description{
@@ -144,30 +163,44 @@
 		}
 
 		#ReviewsDiv{
-			
+			width: 80%;
+			color: 1px solid red;
 		}
 
 	</style>
 
 		<!--Profile information -->
-		<div id="ProfileBlock" align="center" style="padding-bottom:50px; padding-left:80px" >
+		<div id="ProfileBlock" align="center" >
 
 			<div id="pictureAndButtons">
 					<!-- Add ability to change picture or not -->
 					<div class="Profile">
 						<a href="#" title="MyPic" class="myPic"><img src="anna.jpg" alt="Lorem ipsum" style="border-radius:5px"/></a>
 					</div>
-					<div  style="padding-left:15px;">
+					<div class="detailOfPic" style="padding-left: 28px">
 						<i class="col-sm-2 glyphicon glyphicon-phone"></i><p class="PictureDetails" id="PhoneNumber"> +1 617-566-5666 </p>
 						<i class="col-sm-2 glyphicon glyphicon-envelope"></i><p class="PictureDetails" id="Email"> ajohnson@mit.edu</p>
 
-						<button id= "Message" class="btn btn-default pull-left" onclick="" style="margin-bottom:10px; width:150px; margin-left:15px">Message Anna </button> </br>
-						<button id= "Favorite" class="btn btn-default pull-left" onclick="" style="margin-bottom:10px; width:150px; margin-left:15px" ><i class=" glyphicon glyphicon-heart" style="color:red; padding-right:5px;"></i>Add to Favorites </button>
 					</div>
 			</div>
 
 			<div class= "editableContent">
-				<p class="Name"> Anna Johnson </p>
+				<p class="Name"> Anna Johnson</p>
+
+				<div class="row">
+				<div class="col-md-6 btn-group  app_panel_btn_favorite" style="padding-bottom:10px;">
+					<button class="btn btn-default collapse in" id= "addToFavorite" onclick="addToFav()" style="margin-bottom:10px;" ><i class=" glyphicon glyphicon-heart" style="color:#FF0000; padding-right:5px;"></i>Favorite </button>
+
+					<button class="btn btn-default collapse dropdown-toggle" id= "removeFromFavorite" data-toggle="dropdown" aria-expanded="false" style="margin-bottom:10px;" ><i class=" glyphicon glyphicon-heart" style="color:#FF0000; padding-right:5px;"></i>Favorited <span class="caret"></button>
+
+				  <ul class="dropdown-menu" role="menu" style="margin-bottom:10px; width:auto;left:15px">
+				    <li><a href="#" class="babysitter-hire" id="removeFrom" onclick="removeFromFav()">Unfavorite</a></li>
+				  </ul>
+
+					<button class="col-md-10 btn btn-default" id= "Message" onclick="" style="margin-left:12px; width:auto; height: 36px">Message</button>
+					</div>
+				</div>
+
 				<p id="Description"> Anna is more daring than graceful and, at times, can act before she thinks. But she's also the most optimistic and caring person you'll ever meet. She longs to reconnect with her sister Elsa, as they were close during their childhood. When Elsa accidentally unleashes a magical secret that locks the kingdom of Arendelle in an eternal winter, Anna embarks on a dangerous adventure to make things right. Armed with only her fearlessness, a never-give-up attitude and her faith in others, Anna is determined to save both her kingdom and her family.
 				</p>
 
@@ -175,11 +208,12 @@
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 				<p class="tags"> Resume : </p>
-				<p href= "#" class="tagsText" style="margin-bottom:50px"><a id="resumePopup"> Anna_Johnson.pdf<a> </p>
-
-
+				<p id="resume" href= "#" class="tagsText" style="margin-bottom:50px"><a>Anna_Johnson.pdf</a></p>
+			</div>
+		</div>
+		<div id="ProfileBlock" align="center">
 				<div id="ReviewsDiv">
-					<p class="ReviewTag" style="padding-top:40px;border-bottom:1px; border-color:#d3d3d3 max-width:140px" > Reviews: </p>
+					<p class="ReviewTag" style="padding-top:20px; border-bottom:1px; border-color:#d3d3d3 max-width:140px" > Reviews: </p>
 
 					<!-- Review 1-->
 						<div class="panel panel-default">
@@ -256,10 +290,7 @@
 						  		</div>
 						</div>
 					</div>
-
-
 				</div>
-			</div>
 		</div>
 	</body>
 </html>
