@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="resources/bootstrap.min.css">
 		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
+		<link rel='stylesheet' href='stylesheets/home_style.css' />
 		<link rel='stylesheet' href='stylesheets/job_style.css' />
 		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
 		<link rel="stylesheet" href="resources/font-awesome.min.css">
@@ -139,8 +140,13 @@
         </script>
 
 		<script id="side-template" type="text/x-handlebars-template">
+<<<<<<< HEAD
 			<a href="#create_jobplus" class="list-group-item scroll-link" data-toggle="collapse" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
 			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
+=======
+			<a href="#create_jobplus" data-toggle="collapse" class="list-group-item parent scroll-link" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
+			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item parent" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
+>>>>>>> origin/master
 			<div class="collapse" id="cur_jobs"> 
 				{{#each jobs}}
 					{{#if this.current_flag}}
@@ -150,7 +156,7 @@
 					{{/if}}
 				{{/each}}
 			</div>
-			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item" data-toggle="collapse">Past jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
+			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item parent" data-toggle="collapse">Past jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
 			<div class="collapse" id="past_jobs">
 				{{#each jobs}}
 					{{#unless this.current_flag}}
@@ -165,8 +171,13 @@
 
 		<script id="jobs-template" type="text/x-handlebars-template">
 		{{#each jobs}}
+<<<<<<< HEAD
 		  <div class="panel panel-default" id={{jobId @index}}>
 		    <div class="panel-heading clearfix" role="tab" id={{titleId @index}}>
+=======
+		  <div class="panel panel-default" id={{jobId @index}} data-offset-top="125">
+		    <div class="panel-heading clearfix baby-blue" role="tab" id={{titleId @index}}>
+>>>>>>> origin/master
 		      <h4 class="panel-title pull-left">
 		          {{makeTitle this}}
 		      </h4>
@@ -276,7 +287,9 @@
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		  <div class="container" id="menu">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
+		      <a href="home.html" id="babies">
+		      	<img src="logot.gif" id="logo_image" class="navbar-brand"/>
+		      </a>
 		    </div>
 		    <div class="navbar-collapse collapse">
 		      <ul class="nav navbar-nav navbar">
@@ -313,7 +326,7 @@
 
 				<div class="col-md-8 home_panels" id = "jobs" >
 					<div class="panel panel-default" id="create_jobplus">
-						<div class="panel-heading">
+						<div class="panel-heading baby-blue">
 							<h3 class="panel-title" id="createJobTitle">Create a Job</h3>
 						</div>
 						<div class="panel-body" id="body">
@@ -334,7 +347,7 @@
 							        <label for="title" class="col-sm-2 control-label" id="date">Date:</label>
 							    	<div class="col-sm-4">
 							    		<div class="input-group date" id="example">
-								    		<span class="input-group-addon">    
+								    		<span class="input-group-addon baby-blue">    
 										    	<span class="glyphicon glyphicon-calendar"></span>
 										  	</span>
 										    <input type="text" class="form-control" id="ex"/>
@@ -344,34 +357,18 @@
 									<label for="title" class="col-sm-2 control-label" id="to">to </label>
 							    	<div class="col-sm-4">
 							    		<div class="input-group date" id="example1">
-							    		<span class="input-group-addon">    
+							    		<span class="input-group-addon baby-blue">    
 									    	<span class="glyphicon glyphicon-calendar"></span>
 									  	</span>
 									    <input type="text" class="form-control" id="ex2"/>
 									</div>
 									</div>
-							        <!-- <label for="title" class="col-sm-1 control-label">Time:</label>
-							        <div class="col-sm-2">
-							        	<input type="text" name="start_time" id="timepicker1" class="form-control" required> -->
-							      <!--   	<span class="input-group-addon">    
-									    	<span class="glyphicon glyphicon-time"></span>
-									  	</span> -->
-							     <!--    </div>
- -->
-							        <!-- <label for="title" class="col-sm-1 control-label" id="to">to</label>
-							        <div class="col-sm-2">
-							        	<input type="text" name="start_time" id="timepicker2" class="form-control" required> -->
-							        	<!-- <span class="input-group-addon">    
-									    	<span class="glyphicon glyphicon-time"></span>
-									  	</span> -->
-							      <!--   </div>  -->
-
 								</div>
 								<div class="form-group">
 							        <label for="title" class="col-sm-2 control-label">Location:</label>
 							        <div class="col-sm-4">
 							        	<div class="input-group">
-							        	<span class="input-group-addon">    
+							        	<span class="input-group-addon baby-blue">    
 									    	<span class="glyphicon glyphicon-home"></span>
 									  	</span>
 							        	<select class="form-control" id="location" required>
@@ -385,7 +382,7 @@
 						        	<label for="title" class="col-sm-2 control-label" id="rate">Rate:</label>
 							        <div class="col-sm-2">
 							        	<div class="input-group">
-							        	<span class="input-group-addon">    
+							        	<span class="input-group-addon baby-blue">    
 									    	<span class="glyphicon glyphicon-usd"></span>
 									  	</span>
 							        	<input class="form-control" type="text" rows = "2" placeholder="" id="rate_val" required></input></span>

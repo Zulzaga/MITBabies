@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="resources/bootstrap.min.css"/>
-		<link rel="stylesheet" href="resources/bootstrap-theme.css"/>
+		<link rel="stylesheet" href="resources/bootstrap.min.css">
+		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
+		<link rel='stylesheet' href='stylesheets/style.css' />
+		<link rel='stylesheet' href='stylesheets/home_style.css' />
+		<link rel='stylesheet' href='stylesheets/job_style.css' />
+		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
 		<link rel="stylesheet" href="resources/font-awesome.min.css">
-		<link rel="stylesheet" href="resources/bootstrap-select.min.css">
-		<script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>
-		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+
 
 		<script type="text/javascript" src="resources/handlebars-v3.0.3.js"></script>
+		<script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>
 		<script type="text/javascript" src="resources/bootstrap.min.js"></script>
+		<script type="text/javascript" src="resources/bootstrap-select.min.js"></script>
+		<script type="text/javascript" src="javascripts/navbar.js"></script>
+		<script type="text/javascript" src="javascripts/home.js"></script>
+		<script type="text/javascript" src="javascripts/search.js"></script>
+
+				<!-- Important Owl stylesheet -->
+		<link rel="stylesheet" href="owl.carousel.css">
+		 
+		<!-- Default Theme -->
+		<link rel="stylesheet" href="owl.theme.css">
+		 
+		 
+		<!-- Include js plugin -->
+		<script src="owl.carousel.js"></script>
+
+
 
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    
+	    
+	    <!-- Load jQuery UI Main JS  -->
+	    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	    <script type="text/javascript" src="resources/jobs_data.js"></script>
 
-    <!-- Load jQuery UI Main JS  -->
-   
-        <link rel="stylesheet" href="resources/bootstrap.min.css">
-
-        <script src="resources/bootstrap.min.js"></script>
-
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-        <link href="resources/bootstrap-datetimepicker.css" rel="stylesheet">
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	    <link href="resources/bootstrap-datetimepicker.css" rel="stylesheet">
 
         <script src="resources/bootstrap-datetimepicker.min.js"></script>
-
-        <script type="text/javascript" src="resources/jquery.cookie.js"></script>
-        <script type="text/javascript" src="resources/jobs_data.js"></script>
-		<script type="text/javascript" src="javascripts/home.js"></script>
-		<script type="text/javascript" src="javascripts/navbar.js"></script>
-		<script type="text/javascript" src="resources/jquery.timepicker.js"></script>
-        <link rel="stylesheet" type="text/css" href="resources/jquery.timepicker.css" />
-        <link rel='stylesheet' href='stylesheets/style.css' />
-        <link rel='stylesheet' href='stylesheets/home_style.css' />
 	</head>
 	<body>
 
-		<!--fixed navigation bar -->
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		  <div class="container" id="menu">
 		    <div class="navbar-header">
-		      <a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
+		      <a href="home.html" id="babies">
+		      	<img src="logot.gif" id="logo_image" class="navbar-brand"/>
+		      </a>
 		    </div>
 		    <div class="navbar-collapse collapse">
 		      <ul class="nav navbar-nav navbar">
@@ -70,24 +79,14 @@
 			<div class="row">
 				<div class="col-md-2">
 					<div class="list-group panel sidebar-nav-fixed affix">
-					    <a href="#demo4" class="list-group-item scroll-link" data-toggle="collapse" data-id="create_job">Create a Job</a>
-					    <a href="#demo3" class="list-group-item scroll-link" data-toggle="collapse" data-id="my_notifs">Notifications</a>
+					    <a href="#demo4" class="list-group-item parent scroll-link" data-toggle="collapse" data-id="create_job">Create a Job</a>
+					    <a href="#demo3" class="list-group-item parent scroll-link" data-toggle="collapse" data-id="my_notifs">Notifications</a>
 				  	</div>
 				</div>
-		  			<!-- <div id="sidebar" class="sidebar-nav-fixed affix">
-				    	<div class="nav nav-tabs">
-				    	</div>
-							<div class="sectionDrop">
-							      <li><a href="#">Submenu 1-1</a></li>
-							      <li><a href="#">Submenu 1-2</a></li>
-							      <li><a href="#">Submenu 1-3</a></li>
-							  </div>
-					  	</div>
-				    </div> -->
 
 				<div class="col-md-8 home_panels">
 					<div class="panel panel-default" id="create_job">
-						<div class="panel-heading">
+						<div class="panel-heading baby-blue" id="heading">
 							<h3 class="panel-title" id="createJobTitle">Create a Job</h3>
 						</div>
 						<div class="panel-body" id="body">
@@ -108,7 +107,7 @@
 							        <label for="title" class="col-sm-2 control-label" id="date">Date:</label>
 							    	<div class="col-sm-4">
 							    		<div class="input-group date" id="example">
-								    		<span class="input-group-addon">    
+								    		<span class="input-group-addon baby-blue">    
 										    	<span class="glyphicon glyphicon-calendar"></span>
 										  	</span>
 										    <input type="text" class="form-control" id="ex"/>
@@ -118,7 +117,7 @@
 									<label for="title" class="col-sm-2 control-label" id="to">to </label>
 							    	<div class="col-sm-4">
 							    		<div class="input-group date" id="example1">
-							    		<span class="input-group-addon">    
+							    		<span class="input-group-addon baby-blue">    
 									    	<span class="glyphicon glyphicon-calendar"></span>
 									  	</span>
 									    <input type="text" class="form-control" id="ex2"/>
@@ -145,7 +144,7 @@
 							        <label for="title" class="col-sm-2 control-label">Location:</label>
 							        <div class="col-sm-4">
 							        	<div class="input-group">
-							        	<span class="input-group-addon">    
+							        	<span class="input-group-addon baby-blue">    
 									    	<span class="glyphicon glyphicon-home"></span>
 									  	</span>
 							        	<select class="form-control" id="location" required>
@@ -159,7 +158,7 @@
 						        	<label for="title" class="col-sm-2 control-label" id="rate">Rate:</label>
 							        <div class="col-sm-2">
 							        	<div class="input-group">
-							        	<span class="input-group-addon">    
+							        	<span class="input-group-addon baby-blue">    
 									    	<span class="glyphicon glyphicon-usd"></span>
 									  	</span>
 							        	<input class="form-control" type="text" rows = "2" placeholder="" id="rate_val" required></input></span>
@@ -179,7 +178,7 @@
 					</div>
 
 					<div class="panel panel-default" id="my_notifs">
-					  	<div class="panel-heading">
+					  	<div class="panel-heading baby-blue">
 					      <h3 class="panel-title" id="notifs"> Notifications</h3>
 					   </div>
 					   <div class="panel-body" id="notif-body">

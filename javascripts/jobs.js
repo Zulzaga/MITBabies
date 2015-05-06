@@ -157,21 +157,6 @@ $(document).ready(function() {
 
  	});
 
- 	// $(".applicant_pic").click(function(e){
- 	// 	var divs = $(e.target).parent().parent().parent().children();
- 	// 	for (var i=0; i<divs.length; i++){
- 	// 		var div = $(divs[i]);
- 	// 		if (div.hasClass("applicantPanel")){
- 	// 			if (div.hasClass("in")){
- 	// 				div.removeClass("in");
- 	// 			}
- 	// 			else{
- 	// 				div.addClass("in");
- 	// 			}
- 	// 			break;
- 	// 		}
- 	// 	}
- 	// });
 
  	$(".job-delete").click(function(e){
  		openConfirmationDialog(e);
@@ -288,7 +273,7 @@ $(document).ready(function() {
 				}
 			}
 
-			var icon_loc = $("<span>").addClass("input-group-addon").append($("<span>").addClass("glyphicon glyphicon-home"));
+			var icon_loc = $("<span>").addClass("input-group-addon baby-blue").append($("<span>").addClass("glyphicon glyphicon-home"));
 			var loc_msg = $("<p>").text("New location:").addClass("loc-msg");
 			var loc_container = $("<div>").addClass("input-group");
 			loc_container.append(icon_loc);
@@ -299,7 +284,7 @@ $(document).ready(function() {
 			loc_parent.append(loc_container);
 
 			var rate_container = $("<div>").addClass("input-group").attr("id", "rate_"+job_index);
-			var icon_loc = $("<span>").addClass("input-group-addon").append($("<span>").addClass("glyphicon glyphicon-usd"));
+			var icon_loc = $("<span>").addClass("input-group-addon baby-blue").append($("<span>").addClass("glyphicon glyphicon-usd"));
 			var rate_input	= $("<input>").addClass("form-control").attr("type", "text").attr("rows", "2").attr("placeholder",jobs[job_index].rate);      	
 			rate_container.append(icon_loc);
 			rate_container.append(rate_input);
@@ -310,7 +295,7 @@ $(document).ready(function() {
 
 
 			
-			var a = $("<span>").addClass("input-group-addon");
+			var a = $("<span>").addClass("input-group-addon baby-blue");
 			var b = $("<span>").addClass("glyphicon glyphicon-calendar");
 			a.append(b);
 			var input_from = $("<input>").attr("type", "text").addClass("form-control").attr("id", "timeFrom_"+job_index).addClass("time-from-input");
@@ -323,7 +308,7 @@ $(document).ready(function() {
 			time_parent.append(time_container_from);
 			time_parent.append($("<p>").text("to").addClass("time-to-msg"));
 
-			var c = $("<span>").addClass("input-group-addon");
+			var c = $("<span>").addClass("input-group-addon baby-blue");
 			var d = $("<span>").addClass("glyphicon glyphicon-calendar");
 			c.append(d);
 			var input_to = $("<input>").attr("type", "text").addClass("form-control").attr("id", "timeTo_"+job_index).addClass("time-to-input");
@@ -521,13 +506,6 @@ $(document).ready(function() {
         minDate: new Date(), 
     });
 
-    // $('#example').datetimepicker({
-    //     minDate: new Date()//some date in date time format
-    // });
-
-    // $('#example1').datetimepicker({
-    //     minDate: new Date()//some date in date time format
-    // });
 
     $('#ex').on("dp.change", function(e) {
     	$("#ex2").data("DateTimePicker").minDate(e.date);
@@ -541,13 +519,6 @@ $(document).ready(function() {
 		event.preventDefault();
 		var from_date = $("#example").find("input").val();
 		var to_date = $("#example").find("input").val();
-		
-		// var from_time = $("#timepicker1").val();
-		// var to_time = $("#timepicker2").val();
-		// var from_hour = from_time.substring(0,2);
-		// var from_minute = from_time.substring(3, 5);
-		// var from_denoter = from_time.substring(5);
-		// console.log(from_hour, from_minute, from_denoter);
 
 		var location = $("#location").val();
 		var description = $("#description").val();
