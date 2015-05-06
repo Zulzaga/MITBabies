@@ -9,9 +9,24 @@
 		<link rel="stylsesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script type="text/javascript" src="javascripts/search.js"></script>
 		<script type="text/javascript" src="javascripts/navbar.js"></script>
+
 		<link rel='stylesheet' href='stylesheets/style.css' />
+
+		<script>
+			$(document).ready(function(){
+				$("#resume").click(function(e){
+					console.log("here");
+					window.open("resume.jpg", "_blank");
+				});
+			});
+
+			
+		</script>
 		<script>
 			function addToFav() {
 				$("#addToFavorite").removeClass("in");
@@ -162,7 +177,6 @@
 					</div>
 			</div>
 
-
 			<div class= "editableContent">
 				<p class="Name"> Anna Johnson</p>
 
@@ -187,7 +201,7 @@
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 				<p class="tags"> Resume : </p>
-				<p href= "#" class="tagsText"> Anna_Johnson.pdf </p>
+				<p id="resume" href= "#" class="tagsText" style="margin-bottom:50px"><a>Anna_Johnson.pdf</a></p>
 			</div>
 		</div>
 		<div id="ProfileBlock" align="center">
