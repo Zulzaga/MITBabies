@@ -35,11 +35,11 @@
 					var numStars = $('#rating_input').val();
 					var star_holder = $("#star_holder");
 					for (var i=0; i<numStars; i++){
-						star_holder.append($("<i>").addClass("glyphicon glyphicon-star"));
+						star_holder.append($("<i>").addClass("glyphicon glyphicon-star").attr("style", "margin-right:4px;"));
 					}
 
 					for (var i=0; i<(5-numStars); i++){
-						star_holder.append($("<i>").addClass("glyphicon glyphicon-star-empty"));
+						star_holder.append($("<i>").addClass("glyphicon glyphicon-star-empty").attr("style", "margin-right:4px;"));
 					}
 					var reviewText = $("#post").find("textarea").val();
 					$("#myReviewText").text(reviewText);
