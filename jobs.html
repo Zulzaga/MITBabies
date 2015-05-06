@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="resources/bootstrap.min.css">
 		<link rel="stylsesheet" href="resources/bootstrap-theme.min.css">
 		<link rel='stylesheet' href='stylesheets/style.css' />
+		<link rel='stylesheet' href='stylesheets/home_style.css' />
 		<link rel='stylesheet' href='stylesheets/job_style.css' />
 		<link rel="stylsesheet" href="resources/bootstrap-select.min.css">
 		<link rel="stylesheet" href="resources/font-awesome.min.css">
@@ -44,8 +45,8 @@
 
         <script src="resources/bootstrap-datetimepicker.min.js"></script>
 		<script id="side-template" type="text/x-handlebars-template">
-			<a href="#create_jobplus" data-toggle="collapse" class="list-group-item scroll-link" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
-			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
+			<a href="#create_jobplus" data-toggle="collapse" class="list-group-item parent scroll-link" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
+			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item parent" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
 			<div class="collapse" id="cur_jobs"> 
 				{{#each jobs}}
 					{{#if this.current_flag}}
@@ -55,7 +56,7 @@
 					{{/if}}
 				{{/each}}
 			</div>
-			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item" data-toggle="collapse">Past jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
+			<a id = "current_jobs_header" href="#past_jobs" class="list-group-item parent" data-toggle="collapse">Past jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
 			<div class="collapse" id="past_jobs">
 				{{#each jobs}}
 					{{#unless this.current_flag}}

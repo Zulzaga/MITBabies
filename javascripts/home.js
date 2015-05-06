@@ -10,27 +10,10 @@ $(document).ready(function() {
 		}
 	}
 
-	// $("#jobCreation").validate({
-    
- //        // Specify the validation rules
- //        rules: {
- //        	title: "required"
- //            rate: {
- //                required: true,
- //                number: true 
- //            }
- //        },
-        
- //        // Specify the validation error messages
- //        messages: {
- //            rate: "Please enter valid rate"
- //        }
- //    });
-
 	$('.scroll-link').on('click', function(event) {
 		event.preventDefault();
 		var sectionID = $(this).attr("data-id");
-		scrollToID('#' + sectionID, 750);
+		scrollToID('#' + sectionID, 400);
 	})
 
 	$("#jobCreation").submit(function() {
