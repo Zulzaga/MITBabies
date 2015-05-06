@@ -140,13 +140,10 @@
         </script>
 
 		<script id="side-template" type="text/x-handlebars-template">
-<<<<<<< HEAD
+
 			<a href="#create_jobplus" class="list-group-item scroll-link" data-toggle="collapse" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
 			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
-=======
-			<a href="#create_jobplus" data-toggle="collapse" class="list-group-item parent scroll-link" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
-			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item parent" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
->>>>>>> origin/master
+
 			<div class="collapse" id="cur_jobs"> 
 				{{#each jobs}}
 					{{#if this.current_flag}}
@@ -171,13 +168,9 @@
 
 		<script id="jobs-template" type="text/x-handlebars-template">
 		{{#each jobs}}
-<<<<<<< HEAD
-		  <div class="panel panel-default" id={{jobId @index}}>
-		    <div class="panel-heading clearfix" role="tab" id={{titleId @index}}>
-=======
+
 		  <div class="panel panel-default" id={{jobId @index}} data-offset-top="125">
 		    <div class="panel-heading clearfix baby-blue" role="tab" id={{titleId @index}}>
->>>>>>> origin/master
 		      <h4 class="panel-title pull-left">
 		          {{makeTitle this}}
 		      </h4>
