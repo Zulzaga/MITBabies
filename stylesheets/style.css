@@ -5,6 +5,12 @@ body {
 .date-form { margin: 10px; }
 label.control-label span { cursor: pointer; }
 
+#logo_image{
+	height: 60px;
+	width: 90px;
+	display: inline-block;
+	padding: 0px;
+}
 
 #babysitter-search {
 	width: 300px;
@@ -113,6 +119,14 @@ label.control-label span { cursor: pointer; }
 
 #side {
 	left: 18px;
+}
+.navbar{
+	color:#D9E8F7!important;
+	background-color: #D9E8F7!important;
+}
+
+.baby-blue{
+	background-color: #D9E8F7!important;	
 }
 
 
