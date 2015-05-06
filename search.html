@@ -118,40 +118,39 @@ hgroup h2.lead {
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="javascripts/navbar.js"></script>
 	<script type="text/javascript" src="javascripts/search.js"></script>
 	<script type="text/javascript" src="javascripts/navbar.js"></script>
 </head>
 <body>
 	<!--fixed navigation bar -->
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container" id="menu">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar">
-					<li><a href="profile.html" id="profile_page">Profile</a></li>
-					<li><a href="jobs.html" id="jobs_page">Jobs</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#" id="logout">Logout</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<form class="navbar-form" role="search" id="search">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search Babysitters" id="babysitter-search">
-								<div class="input-group-btn">
-									<input type="button" class="btn btn-default" onclick="searchPage();" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-								</div>
-							</div>
-						</form>
-					</li>
-				</ul>
-			</div>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		  <div class="container" id="menu">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="home.html" id="babies">MITBabies</a>
+		    </div>
+		    <div class="navbar-collapse collapse">
+		      <ul class="nav navbar-nav navbar">
+		        <li><a href="profile.html" id="profile_page">Profile</a></li>
+		        <li><a href="jobs.html" id="jobs_page">Jobs</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#" id="logout">Logout</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <form class="navbar-form" role="search" id="search">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search Babysitters" id="babysitter-search">
+                      <div class="input-group-btn">
+                        <button class="btn btn-default" onclick="searchFromSearch()" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                      </div>
+                    </div>
+                  </form>
+              </li>
+            </ul>
+		    </div>
+		  </div>
 		</div>
-	</div>
 
 	<!-- results container -->
 
@@ -164,7 +163,7 @@ hgroup h2.lead {
 
 		<section class="col-xs-12 col-sm-6 col-md-12" id = "allresults">
 
-			<article class="search-result row" id="Anna" style="visibility:hidden">
+			<article class="search-result row" id="Anna" style="display:none">
 				<div class="col-xs-12 col-sm-12 col-md-3">
 					<a href="babysitter_profile.html"><img class="img-thumbnail" src="anna.jpg"/></a>
 				</div>
@@ -181,7 +180,7 @@ hgroup h2.lead {
 				</div>
 			</article>
 
-			<article class="search-result row" id="Smith" style="visibility:hidden">
+			<article class="search-result row" id="Smith" style="display:none">
 				<div class="col-xs-12 col-sm-12 col-md-3">
 					<a href="#"><img class="img-thumbnail"src="AnnalieseSmithPic.png" /></a>
 				</div>
@@ -198,7 +197,7 @@ hgroup h2.lead {
 				</div>
 			</article>
 
-			<article class="search-result row" id="Andrew" style="visibility:hidden">
+			<article class="search-result row" id="Andrew" style="display:none">
 				<div class="col-xs-12 col-sm-12 col-md-3">
 					<a href="#"><img class="img-thumbnail"src="AndrewNathanPic.jpg"/></a>
 				</div>
@@ -216,7 +215,7 @@ hgroup h2.lead {
 				</div>
 			</article>			
 
-			<article class="search-result row" id="Arya" style="visibility:hidden">
+			<article class="search-result row" id="Arya" style="display:none">
 				<div class="col-xs-12 col-sm-12 col-md-3">
 					<a href="#"><img class="img-thumbnail"src="arya.jpg"/></a>
 				</div>
@@ -234,7 +233,7 @@ hgroup h2.lead {
 				</div>
 			</article>
 
-			<article class="search-result row" id="Kevin" style="visibility:hidden">
+			<article class="search-result row" id="Kevin" style="display:none">
 				<div class="col-xs-12 col-sm-12 col-md-3">
 					<a href="#"><img class="img-thumbnail"src="blank.png"/></a>
 				</div>
@@ -252,7 +251,7 @@ hgroup h2.lead {
 				</div>
 			</article>
 
-			<article class="search-result row" id="Sansa" style="visibility:hidden">
+			<article class="search-result row" id="Sansa" style="display:none">
 				<div class="col-xs-12 col-sm-12 col-md-3">
 					<a href="#"><img class="img-thumbnail"src="sansa.jpg"/></a>
 				</div>
@@ -301,23 +300,6 @@ function showImage(calid, buttonid){
 	}
 }
 
-function searchPage(searchstring) {
-	returnCount = 0;
-	var inp = $('babysitter-search').text();
-	for (var names in directory)
-		if (names.contains(inp)){
-			document.getElementById(directory[names]).style.visibility='visible';
-			returnCount ++;
-		}
-	if (returnCount == 0){
-		$('search-num').replaceWith('No');
-	}
-	else { 
-		$('#search-num').replaceWith(returnCount);
-	}
-	$('#searchQuery').append(inp);
-}
-
 $(function() {
 	$("#babysitter-search").keyup(function(event){
 		if (event.keycode == 13){
@@ -326,6 +308,28 @@ $(function() {
 		return false;
 	})
 });
+
+function searchFromSearch(searchstring) {
+	returnCount = 0;
+	var inp = $('#babysitter-search').val();
+	console.log(inp);
+	for (var names in directory)
+		if (String(names).includes(inp)){
+			document.getElementById(directory[names]).style.display = 'block';
+			console.log(directory[names]);
+			returnCount ++;
+			console.log(returnCount);
+		}
+	if (returnCount == 0){
+		$('#search-num').text('No');
+	}
+	else { 
+		$('#search-num').text(returnCount);
+	}
+	$('#searchQuery').text(inp);
+}
+
+window.onload=searchPage();
 
 </script>
 </html>

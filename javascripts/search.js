@@ -1,11 +1,26 @@
-$(document).ready(function() {
-	console.log(window.location.hash);
-    if (window.location.hash != null && window.location.hash != '' && $(window.location.hash).offset()!= null) {
-        $('body').animate({
-            scrollTop: $(window.location.hash).offset().top - 100
-        }, 750);
-    } else {
-    	$("#search-num").text("No");
-    	$("#searchQuery").text(window.location.hash.substring(1));
-    }
-});
+function searchPage(searchstring) {
+	returnCount = 0;
+	if (window.location.hash){
+		var inp = window.location.hash.substring(1);
+
+}
+	else {
+		var inp = $('#babysitter-search').val();
+
+	}
+	console.log(inp);
+	for (var names in directory)
+		if (String(names).includes(inp)){
+			document.getElementById(directory[names]).style.display = 'block';
+			console.log(directory[names]);
+			returnCount ++;
+			console.log(returnCount);
+		}
+	if (returnCount == 0){
+		$('#search-num').text('No');
+	}
+	else { 
+		$('#search-num').text(returnCount);
+	}
+	$('#searchQuery').text(inp);
+}
