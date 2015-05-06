@@ -2,6 +2,7 @@
 
 <html>
 	<head>
+		<script type="text/javascript" src="resources/jquery-2.1.3.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 		<!-- Optional theme -->
@@ -10,7 +11,26 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="javascripts/search.js"></script>
 		<script type="text/javascript" src="javascripts/navbar.js"></script>
+
 		<link rel='stylesheet' href='stylesheets/style.css' />
+
+		<script>
+			$("#resumePopup").click(function(e){ alert("yay"); resumePopup();});
+			console.log($("resumePopup"));
+			var resumePopup = function(){
+				$("#popup").dialog({
+					resizable: false,
+		   			 modal: true,
+		    		title: "Deletion confirmation",
+		    		height: 200,
+		    		width: 250,
+					open:function() {
+					      var markup = 'Are you sure you want to delete this job?';
+					      $(this).html(markup);
+					}
+				});
+			};
+		</script>
 	</head>
 	<body style="padding-top:100px">
 		<!--fixed navigation bar -->
@@ -44,6 +64,7 @@
 		    </div>
 		  </div>
 		</div>
+		<div id="popup"></div>
 
 		<!--Styles Styles -->
 	<style>
@@ -145,7 +166,6 @@
 					</div>
 			</div>
 
-
 			<div class= "editableContent">
 				<p class="Name"> Anna Johnson </p>
 				<p id="Description"> Anna is more daring than graceful and, at times, can act before she thinks. But she's also the most optimistic and caring person you'll ever meet. She longs to reconnect with her sister Elsa, as they were close during their childhood. When Elsa accidentally unleashes a magical secret that locks the kingdom of Arendelle in an eternal winter, Anna embarks on a dangerous adventure to make things right. Armed with only her fearlessness, a never-give-up attitude and her faith in others, Anna is determined to save both her kingdom and her family.
@@ -155,7 +175,7 @@
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 					<p class="tagsText"> Kids are high energy and are constantly on the go. A babysitter needs to match that energy and must come prepared for however the day or night unfolds.</p>
 				<p class="tags"> Resume : </p>
-				<p href= "#" class="tagsText" style="margin-bottom:50px"> Anna_Johnson.pdf </p>
+				<p href= "#" class="tagsText" style="margin-bottom:50px"><a id="resumePopup"> Anna_Johnson.pdf<a> </p>
 
 
 				<div id="ReviewsDiv">
