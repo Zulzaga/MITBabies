@@ -19,14 +19,13 @@ hgroup {
 	solid #ccc; 
 }
 hgroup h1 { 
-	font: 500 normal 1.625em "Roboto",Arial,Verdana,sans-serif; 
-	color: #2a3644; 
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #333; 
 	margin-top: 200; 
 	line-height: 1.15; 
 }
 hgroup h2.lead { 
-	font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
-	color: #2a3644; 
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	margin: 0; 
 	padding-bottom: 10px; 
 }
@@ -63,11 +62,14 @@ hgroup h2.lead {
 	margin-top: 0 !important; 
 	margin-bottom: 10px !important; 
 }
-.search-result h3 > a, .search-result i { 
-	color: #248dc1 !important; 
+.search-result h3 > .search-result { 
+
+	
+	color: #333;
 }
 .search-result p { 
-	font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color:#333;
 } 
 .search-result span.plus { 
 	position: absolute; 
@@ -97,12 +99,11 @@ hgroup h2.lead {
 	font: inherit;
 	cursor: pointer;
 }
-.avail-button:hover {
-	border-style: solid;
-	border-color: blue;
-	border-width: 1px;
-	color: blue;
+
+.glyphicon-star,.glyphicon-star-empty>.search-result{
+	color:#E6B800!important;
 }
+
 
 </style>
 
@@ -171,7 +172,8 @@ hgroup h2.lead {
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail1'class='avail-button' value="See Availability" onclick="showImage('cal1','avail1');"/></li>
+						<li><i class="glyphicon glyphicon-calendar"></i> 
+						<p style="display:inline-block;" id='avail1'class='avail-button' onclick="showImage('cal1','avail1');"><a>See availability</a></p>
 						<img class="thumbnail" id="cal1" src="CalendarImage.jpg" style="visibility:hidden"/>
 					</ul>
 				</div>
@@ -188,8 +190,10 @@ hgroup h2.lead {
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id="avail2" class='avail-button'value="See Availability" onclick="showImage('cal2', 'avail2');"/></li>
+						<li><i class="glyphicon glyphicon-calendar"></i> 
+						<p style="display:inline-block;" id='avail2'class='avail-button' onclick="showImage('cal2','avail2');"><a>See availability</a></p>
 						<img class="thumbnail" id="cal2" src="CalendarImage.jpg" style="visibility:hidden"/>
+
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-7">
@@ -205,7 +209,7 @@ hgroup h2.lead {
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail3'class='avail-button' value="See Availability" onclick="showImage('cal3', 'avail3');"/></li>
+						<li><i class="glyphicon glyphicon-calendar"></i> <						<p style="display:inline-block;" id='avail3'class='avail-button' onclick="showImage('cal3','avail3');"><a>See availability</a></p>
 						<img class="thumbnail" id="cal3" src="CalendarImage.jpg" style="visibility:hidden"/>
 					</ul>
 				</div>
@@ -223,7 +227,7 @@ hgroup h2.lead {
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail4'class='avail-button' value="See Availability" onclick="showImage('cal4', 'avail4');"/></li>
+						<li><i class="glyphicon glyphicon-calendar"></i> 						<p style="display:inline-block;" id='avail4'class='avail-button' onclick="showImage('cal4','avail4');"><a>See availability</a></p>
 						<img class="thumbnail" id="cal4" src="CalendarImage.jpg" style="visibility:hidden"/>
 					</ul>
 				</div>
@@ -241,7 +245,7 @@ hgroup h2.lead {
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail5'class='avail-button' value="See Availability" onclick="showImage('cal5', 'avail5');"/></li>
+						<li><i class="glyphicon glyphicon-calendar"></i> 						<p style="display:inline-block;" id='avail5'class='avail-button' onclick="showImage('cal5','avail5');"><a>See availability</a></p>
 						<img class="thumbnail" id="cal5" src="CalendarImage.jpg" style="visibility:hidden"/>
 					</ul>
 				</div>
@@ -259,7 +263,7 @@ hgroup h2.lead {
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-2">
 					<ul class="meta-search">
-						<li><i class="glyphicon glyphicon-calendar"></i> <input type="button" id='avail6'class='avail-button' value="See Availability" onclick="showImage('cal6', 'avail6');"/></li>
+						<li><i class="glyphicon glyphicon-calendar"></i> 						<p style="display:inline-block;" id='avail6'class='avail-button' onclick="showImage('cal6','avail6');"><a>See availability</a></p>
 						<img class="thumbnail" id="cal6" src="CalendarImage.jpg" style="visibility:hidden"/>
 					</ul>
 				</div>

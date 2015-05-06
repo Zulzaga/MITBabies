@@ -217,7 +217,7 @@ $(document).ready(function() {
  		$(self.parent().parent().parent().children()[0]).removeClass("in");
  		var label = $(self.parent().parent().parent().children()[1]);
  		label.text("Hired " + self.text().toLowerCase());
- 		label.addClass("in");
+ 		label.addClass("in").addClass("hired");
  		$(self.parent().parent().parent().parent().children()[2]).addClass("in");
  		$(self.parent().parent().parent().parent().children()[1]).removeClass("in");
 	}

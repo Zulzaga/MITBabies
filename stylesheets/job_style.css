@@ -70,4 +70,24 @@ word-break: break-all;
 body {
 	background-image: url(../image.jpeg) .jpg) no-repeat center center fixed;
 }
+.job-delete, .babysitter-reject{
+	background-color: #F2C2C2;
+}
+.job-delete:hover, .babysitter-reject:hover{
+	background-color: #F2D3D3;
+}
+.job-delete:focus, .babysitter-reject:focus{
+	background-color: #F2C2C2;
+}
+.hired{
+	font-color: green;
+	color:green;
+	font-style: italic;
+}
+
+
+.ui-dialog > .ui-widget-header
+{
+    background: #FC9595;
+}
 
