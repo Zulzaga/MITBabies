@@ -3,7 +3,7 @@ $(document).ready(function() {
 	$("#search").submit(function() {
 		event.preventDefault();
 		var search = $("#babysitter-search").val();
-		window.location.href="search.html#" + search; 
+		window.location.href="search.html#" + search;
 	});
 	// $('#timepicker').timepicker();
 	// $('.time-picker').timepicker();
