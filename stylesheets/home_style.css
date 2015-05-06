@@ -13,6 +13,9 @@
 	text-align: left
 }
 
+.parent {
+    background-color: #D9E8F7!important;;
+}
 #rate {
 	text-align: center;
 }
@@ -45,9 +48,6 @@
 
 }
 
-.navbar-brand {
-	font-size: 40px;
-}
 
 #babies {
 	font-size: 40px;
@@ -192,9 +192,19 @@ textarea {
     box-shadow: none;
 }
 
-.navbar{
+.baby-blue{
+    background-color: #D9E8F7;    
+}
+
+.navbar-default {
     background-color: #D9E8F7!important;
 }
+
 .baby-blue{
     background-color: #D9E8F7!important;    
+}
+
+.list-group a:hover {
+    
+    background-color: red;
 }
