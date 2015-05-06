@@ -285,7 +285,7 @@ $(document).ready(function() {
 
 			var rate_container = $("<div>").addClass("input-group").attr("id", "rate_"+job_index);
 			var icon_loc = $("<span>").addClass("input-group-addon baby-blue").append($("<span>").addClass("glyphicon glyphicon-usd"));
-			var rate_input	= $("<input>").addClass("form-control").attr("type", "text").attr("rows", "2").attr("placeholder",jobs[job_index].rate);      	
+			var rate_input	= $("<input>").addClass("form-control").attr("type", "text").attr("rows", "2").attr("value", jobs[job_index].rate).attr("placeholder",jobs[job_index].rate);      	
 			rate_container.append(icon_loc);
 			rate_container.append(rate_input);
 			rate_parent.empty();
