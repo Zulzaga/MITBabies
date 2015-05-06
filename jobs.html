@@ -44,7 +44,7 @@
 
         <script src="resources/bootstrap-datetimepicker.min.js"></script>
 		<script id="side-template" type="text/x-handlebars-template">
-			<a href="#create_jobplus" class="list-group-item scroll-link" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
+			<a href="#create_jobplus" data-toggle="collapse" class="list-group-item scroll-link" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
 			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
 			<div class="collapse" id="cur_jobs"> 
 				{{#each jobs}}
