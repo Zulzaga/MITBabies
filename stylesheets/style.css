@@ -139,4 +139,6 @@ a.parent:hover{
     background-color: #EEEEEE;
 }
 
-
+body {
+	background-image: url(../image.jpeg) .jpg) no-repeat center center fixed;
+}

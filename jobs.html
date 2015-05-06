@@ -141,7 +141,7 @@
 
 		<script id="side-template" type="text/x-handlebars-template">
 
-			<a href="#create_jobplus" class="list-group-item scroll-link parent" data-toggle="collapse" data-id="create_jobplus">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
+			<a href="#create_jobplus" class="list-group-item scroll-link parent" data-toggle="collapse" data-id="create_jobplus" aria-hidden="true">Create a Job <span class="glyphicon glyphicon-plus pull-right" style="margin-top:4px"></span></a>
 			<a id = "current_jobs_header" href="#cur_jobs" class="list-group-item parent" data-toggle="collapse">Current jobs <span class="glyphicon glyphicon-chevron-down pull-right" style="margin-top:4px"></span></a>
 
 			<div class="collapse" id="cur_jobs"> 
@@ -318,7 +318,7 @@
 				</div>
 
 				<div class="col-md-8 home_panels" id = "jobs" >
-					<div class="panel panel-default" id="create_jobplus">
+					<div class="panel panel-default collapse" id="create_jobplus">
 						<div class="panel-heading baby-blue">
 							<h3 class="panel-title" id="createJobTitle">Create a Job</h3>
 						</div>

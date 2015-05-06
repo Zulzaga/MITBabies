@@ -208,3 +208,11 @@ a.parent{
 a.parent:hover{
     background-color: #EEEEEE;
 }
+body {
+    background-image: url(../back-1.jpg);
+    left: 1000px;
+    background-repeat:no-repeat;
+    background-size: 1280px 800px;
+    background-position:top left;
+}
+

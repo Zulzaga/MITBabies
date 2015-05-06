@@ -76,16 +76,19 @@
 		</div>
 
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row" style="padding-top:40px; padding-">
 				<div class="col-md-2">
+					<div style="text-align:center; font-size:18px; width:200px">
+						Welcome John!
+					</div></br>
 					<div class="list-group panel sidebar-nav-fixed affix">
-					    <a href="#demo4" class="list-group-item parent scroll-link" data-toggle="collapse" data-id="create_job">Create a Job</a>
-					    <a href="#demo3" class="list-group-item parent scroll-link" data-toggle="collapse" data-id="my_notifs">Notifications</a>
+					    <a href="#demo4" class="list-group-item parent" data-toggle="collapse" data-id="create_job" id="jobCre" style="text-align:center">Create a Job</a>
+					    <a href="#demo3" class="list-group-item parent" data-toggle="collapse" data-id="my_notifs" id="notif" style="text-align:center">Notifications</a>
 				  	</div>
 				</div>
 
-				<div class="col-md-8 home_panels">
-					<div class="panel panel-default" id="create_job">
+				<div class="col-md-6 home_panels pull-right" style="padding-top:0px">
+					<div class="panel panel-default collapse" id="create_job">
 						<div class="panel-heading baby-blue" id="heading">
 							<h3 class="panel-title" id="createJobTitle">Create a Job</h3>
 						</div>
@@ -177,7 +180,7 @@
 						</div>
 					</div>
 
-					<div class="panel panel-default" id="my_notifs">
+					<div class="panel panel-default collapse" id="my_notifs">
 					  	<div class="panel-heading baby-blue">
 					      <h3 class="panel-title" id="notifs"> Notifications</h3>
 					   </div>
