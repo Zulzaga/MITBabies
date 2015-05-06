@@ -131,11 +131,21 @@ label.control-label span { cursor: pointer; }
 	background-color: #D9E8F7!important;	
 }
 
-.parent {
+/*a.parent {
 	background-color: #D9E8F7!important;
 }
-
-.parent:hover {
-    background-color: red;
+*/
+/*a.parent:hover {
+    background-color: #D9E8F7;
 }
+*/
+
+a.parent {
+    background-color: #D9E8F7;
+}
+
+a.parent:hover{
+    background-color: #EEEEEE;
+}
+
 
