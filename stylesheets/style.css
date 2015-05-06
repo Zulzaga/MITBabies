@@ -131,6 +131,15 @@ label.control-label span { cursor: pointer; }
 	background-color: #D9E8F7!important;	
 }
 
+/*a.parent {
+	background-color: #D9E8F7!important;
+}
+*/
+/*a.parent:hover {
+    background-color: #D9E8F7;
+}
+*/
+
 a.parent {
     background-color: #D9E8F7;
 }
@@ -139,6 +148,4 @@ a.parent:hover{
     background-color: #EEEEEE;
 }
 
-body {
-	background-image: url(../image.jpeg) .jpg) no-repeat center center fixed;
-}
+

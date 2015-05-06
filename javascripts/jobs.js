@@ -468,7 +468,23 @@ $(document).ready(function() {
 
     }
 
+	
+	$('#ex').datetimepicker({
+        minDate: new Date(),
+    });
 
+    $('#ex2').datetimepicker({
+        minDate: new Date(), 
+    });
+
+
+    $('#ex').on("dp.change", function(e) {
+    	$("#ex2").data("DateTimePicker").minDate(e.date);
+    });
+
+	$('#ex2').on("dp.change", function(e) {
+    	$("#ex").data("DateTimePicker").maxDate(e.date);
+    });
 
     $("#jobCreation").submit(function() {
 		event.preventDefault();
@@ -495,52 +511,10 @@ $(document).ready(function() {
 		jobs = getJobs();
 		jobs.splice(0, 0, job);
 		localStorage['jobs'] = JSON.stringify(jobs);
-	});
+		console.log(job);
 
-	
-	$('#ex').datetimepicker({
-        minDate: new Date(),
-    });
+		document.location.reload();
 
-    $('#ex2').datetimepicker({
-        minDate: new Date(), 
-    });
-
-
-    $('#ex').on("dp.change", function(e) {
-    	$("#ex2").data("DateTimePicker").minDate(e.date);
-    });
-
-	$('#ex2').on("dp.change", function(e) {
-    	$("#ex").data("DateTimePicker").maxDate(e.date);
-    });
-
-    	$("#jobCreation").submit(function() {
-		event.preventDefault();
-		var from_date = $("#example").find("input").val();
-		var to_date = $("#example").find("input").val();
-
-		var location = $("#location").val();
-		var description = $("#description").val();
-		var title = $("#title").val();
-		var rate = $("#rate_val").val();
-		console.log(rate);
-		var job = {
-			title: title,
-			time: {from: new Date(from_date), to: new Date(to_date)},
-			location: location,
-			rate: rate,
-			primary: undefined,
-			backup: undefined,
-			description: description,
-			current_flag: true,
-			applicants: []
-		};
-
-		jobs = getJobs();
-		jobs.splice(0, 0, job);
-		localStorage['jobs'] = JSON.stringify(jobs);
-
-		window.location.href="jobs.html#title_0";
+		// window.location.href="jobs.html#title_0";
 	})
 });
