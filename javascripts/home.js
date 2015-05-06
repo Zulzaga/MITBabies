@@ -16,6 +16,16 @@ $(document).ready(function() {
 		scrollToID('#' + sectionID, 400);
 	})
 
+	$("#notif").click(function() {
+		$("#create_job").removeClass("in");
+		$("#my_notifs").addClass("in");
+	})
+
+	$("#jobCre").click(function() {
+		$("#create_job").addClass("in");
+		$("#my_notifs").removeClass("in");
+	})
+
 	$("#jobCreation").submit(function() {
 		event.preventDefault();
 		var from_date = $("#example").find("input").val();

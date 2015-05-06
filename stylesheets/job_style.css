@@ -67,4 +67,7 @@ word-break: break-all;
 #sideTitle_new{
 	font-style: italic;
 }
+body {
+	background-image: url(../image.jpeg) .jpg) no-repeat center center fixed;
+}
 
